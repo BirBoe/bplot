@@ -1,0 +1,189 @@
+\hypertarget{class_plot2_d}{}\doxysection{Plot2D\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_plot2_d}\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+Inheritance diagram for Plot2D\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_plot2_d}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_plot2_d_a397fc9d6f41014c47eee4e71492db7c4}\label{class_plot2_d_a397fc9d6f41014c47eee4e71492db7c4}} 
+{\bfseries Plot2D} (std\+::size\+\_\+t width, std\+::size\+\_\+t height)
+\item 
+\mbox{\Hypertarget{class_plot2_d_aea5e9703a077095946670717b46c69b6}\label{class_plot2_d_aea5e9703a077095946670717b46c69b6}} 
+void {\bfseries set\+XAxis\+Scaling} (const std\+::function$<$ double(double)$>$ \&x\+Scaling\+Function)
+\item 
+\mbox{\Hypertarget{class_plot2_d_ab8d7c4a7fd5881935647257e537d84ca}\label{class_plot2_d_ab8d7c4a7fd5881935647257e537d84ca}} 
+void {\bfseries set\+YAxis\+Scaling} (const std\+::function$<$ double(double)$>$ \&y\+Scaling\+Function)
+\item 
+\mbox{\Hypertarget{class_plot2_d_aaf474365239de9b28942c6bf37af3ddf}\label{class_plot2_d_aaf474365239de9b28942c6bf37af3ddf}} 
+void {\bfseries set\+Plot\+Range} (const std\+::pair$<$ double, double $>$ \&x\+Plot\+Range, const std\+::pair$<$ double, double $>$ \&y\+Plot\+Range)
+\item 
+void \mbox{\hyperlink{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}{add\+Vertical\+Axis}} (std\+::size\+\_\+t h\+Pos, std\+::size\+\_\+t v\+Pos\+Start, std\+::size\+\_\+t v\+Pos\+End, T color)
+\item 
+void \mbox{\hyperlink{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}{add\+Horizontal\+Axis}} (std\+::size\+\_\+t v\+Pos, std\+::size\+\_\+t h\+Pos\+Start, std\+::size\+\_\+t h\+Pos\+End, T color)
+\item 
+void \mbox{\hyperlink{class_plot2_d_a7fa1bedd99cb008799ed7d1ef4518884}{add\+Vertical\+Axis}} (std\+::size\+\_\+t h\+Pos, std\+::size\+\_\+t v\+Pos\+Start, std\+::size\+\_\+t v\+Pos\+End, T color, const std\+::string \&label, float relative\+Label\+Position=0.\+5, bool label\+Left=true, bool rotate\+Label=false)
+\item 
+void \mbox{\hyperlink{class_plot2_d_aad969a3d59c2810657c3d51432114e91}{add\+Horizontal\+Axis}} (std\+::size\+\_\+t v\+Pos, std\+::size\+\_\+t h\+Pos\+Start, std\+::size\+\_\+t h\+Pos\+End, T color, const std\+::string \&label, float relative\+Label\+Position=0.\+5, bool label\+Below=true)
+\item 
+\mbox{\Hypertarget{class_plot2_d_a1fb69a8951529205229641581eacc9b6}\label{class_plot2_d_a1fb69a8951529205229641581eacc9b6}} 
+void {\bfseries add\+Text} (std\+::size\+\_\+t h\+Pos, std\+::size\+\_\+t v\+Pos, const std\+::string \&text)
+\item 
+\mbox{\Hypertarget{class_plot2_d_acd22e547d8903adfb1c682dfb84918f9}\label{class_plot2_d_acd22e547d8903adfb1c682dfb84918f9}} 
+void {\bfseries add\+Data\+Set} (std\+::shared\+\_\+ptr$<$ const Data\+Set $>$ data\+Set, \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ plot\+Marker)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_plot2_d_a4a4c1094df054884b55180e1249f1855}\label{class_plot2_d_a4a4c1094df054884b55180e1249f1855}} 
+void {\bfseries m\+Clear} ()
+\item 
+\mbox{\Hypertarget{class_plot2_d_aaba1d6b0982a67867f4e63f93a8cfc1e}\label{class_plot2_d_aaba1d6b0982a67867f4e63f93a8cfc1e}} 
+void {\bfseries m\+Data\+Set\+To\+Coordinates} (std\+::size\+\_\+t j\+Data\+Set)
+\item 
+\mbox{\Hypertarget{class_plot2_d_a05ed3b8f655efea3e71076658dcc3913}\label{class_plot2_d_a05ed3b8f655efea3e71076658dcc3913}} 
+void {\bfseries m\+All\+Data\+Sets\+To\+Coordinates} ()
+\item 
+\mbox{\Hypertarget{class_plot2_d_aa1597d1644b442b11894e359dc374ff0}\label{class_plot2_d_aa1597d1644b442b11894e359dc374ff0}} 
+Image\+Coordinate {\bfseries m\+Data\+Point\+To\+Coordinate} (const Data\+Point\+XY \&data\+Point)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_plot2_d_ae1c415420ff6fa26a6223fdb715bbcd5}\label{class_plot2_d_ae1c415420ff6fa26a6223fdb715bbcd5}} 
+std\+::size\+\_\+t {\bfseries m\+Width}
+\item 
+\mbox{\Hypertarget{class_plot2_d_acfd56dd3dc67e0ce5949ae9eae18ed63}\label{class_plot2_d_acfd56dd3dc67e0ce5949ae9eae18ed63}} 
+std\+::size\+\_\+t {\bfseries m\+Height}
+\item 
+\mbox{\Hypertarget{class_plot2_d_ad3850e9dfce5560cf87a5aa3245c3e59}\label{class_plot2_d_ad3850e9dfce5560cf87a5aa3245c3e59}} 
+std\+::vector$<$ \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$ $>$ {\bfseries m\+Horizontal\+Axes}
+\item 
+\mbox{\Hypertarget{class_plot2_d_a9c3db3812068f632b1a3de673b1e0fc1}\label{class_plot2_d_a9c3db3812068f632b1a3de673b1e0fc1}} 
+std\+::vector$<$ \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$ $>$ {\bfseries m\+Vertical\+Axes}
+\item 
+\mbox{\Hypertarget{class_plot2_d_a12370dae595d81fec79523b65ed4a0da}\label{class_plot2_d_a12370dae595d81fec79523b65ed4a0da}} 
+std\+::vector$<$ std\+::pair$<$ std\+::string, Image\+Coordinate $>$ $>$ {\bfseries m\+Text}
+\item 
+\mbox{\Hypertarget{class_plot2_d_a3e2b1ead9aa2e48522bb54a07e241f9b}\label{class_plot2_d_a3e2b1ead9aa2e48522bb54a07e241f9b}} 
+Image\+Coordinate {\bfseries m\+Data\+Frame\+Start}
+\item 
+\mbox{\Hypertarget{class_plot2_d_a70228126cbaaf6e617e2f457ff1004f1}\label{class_plot2_d_a70228126cbaaf6e617e2f457ff1004f1}} 
+Image\+Coordinate {\bfseries m\+Data\+Frame\+End}
+\item 
+\mbox{\Hypertarget{class_plot2_d_a299c8d2448382785355c9dc406edceb7}\label{class_plot2_d_a299c8d2448382785355c9dc406edceb7}} 
+std\+::pair$<$ double, double $>$ {\bfseries m\+XPlot\+Range}
+\item 
+\mbox{\Hypertarget{class_plot2_d_a37d647253b19debd0707fe4e4243509a}\label{class_plot2_d_a37d647253b19debd0707fe4e4243509a}} 
+std\+::pair$<$ double, double $>$ {\bfseries m\+YPlot\+Range}
+\item 
+\mbox{\Hypertarget{class_plot2_d_a66015c27cf36470a1ff8376ba15cda4d}\label{class_plot2_d_a66015c27cf36470a1ff8376ba15cda4d}} 
+std\+::function$<$ double(double)$>$ {\bfseries m\+XScaling\+Function} = \mbox{[}$\,$\mbox{]}(double x)\{ return x; \}
+\item 
+\mbox{\Hypertarget{class_plot2_d_a195cc1a4b4eafd13f06ec2678608420d}\label{class_plot2_d_a195cc1a4b4eafd13f06ec2678608420d}} 
+std\+::function$<$ double(double)$>$ {\bfseries m\+YScaling\+Function} = \mbox{[}$\,$\mbox{]}(double y)\{ return y; \}
+\item 
+\mbox{\Hypertarget{class_plot2_d_a11da671488c635aaf60a6de6897d98ba}\label{class_plot2_d_a11da671488c635aaf60a6de6897d98ba}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ const Data\+Set $>$ $>$ {\bfseries m\+Data\+Sets}
+\item 
+\mbox{\Hypertarget{class_plot2_d_a0f441252c55e50f96f688007c351ca71}\label{class_plot2_d_a0f441252c55e50f96f688007c351ca71}} 
+std\+::vector$<$ std\+::vector$<$ Image\+Coordinate $>$ $>$ {\bfseries m\+Coordinates\+Of\+Data\+Points}
+\item 
+\mbox{\Hypertarget{class_plot2_d_a2ef9206d8730dbf2d9d13d51aab8e89a}\label{class_plot2_d_a2ef9206d8730dbf2d9d13d51aab8e89a}} 
+std\+::vector$<$ \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ $>$ {\bfseries m\+Plot\+Markers}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_plot2_d_a3ab9de4345ff9503bacba1804abb6813}\label{class_plot2_d_a3ab9de4345ff9503bacba1804abb6813}} 
+static const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ {\bfseries empty\+Pixel} = \mbox{\hyperlink{class_pixel}{Pixel}}$<$T,std\+::string$>$(T(),\char`\"{} \char`\"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}\label{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!addHorizontalAxis@{addHorizontalAxis}}
+\index{addHorizontalAxis@{addHorizontalAxis}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addHorizontalAxis()}{addHorizontalAxis()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::add\+Horizontal\+Axis (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{v\+Pos,  }\item[{std\+::size\+\_\+t}]{h\+Pos\+Start,  }\item[{std\+::size\+\_\+t}]{h\+Pos\+End,  }\item[{T}]{color }\end{DoxyParamCaption})}
+
+Adds a horizontal axis to the plot that extends from (h\+Pos\+Start,v\+Pos) to (h\+Pos\+End,v\+Pos). 
+\begin{DoxyParams}{Parameters}
+{\em v\+Pos} & vertical coordinate of the axis \\
+\hline
+{\em h\+Pos\+Start} & Horizontal coordinate of the start point of the axis \\
+\hline
+{\em h\+Pos\+End} & Horizontal coordinate of the end of the axis \\
+\hline
+{\em color} & Color of the axis \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_plot2_d_aad969a3d59c2810657c3d51432114e91}\label{class_plot2_d_aad969a3d59c2810657c3d51432114e91}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!addHorizontalAxis@{addHorizontalAxis}}
+\index{addHorizontalAxis@{addHorizontalAxis}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addHorizontalAxis()}{addHorizontalAxis()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::add\+Horizontal\+Axis (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{v\+Pos,  }\item[{std\+::size\+\_\+t}]{h\+Pos\+Start,  }\item[{std\+::size\+\_\+t}]{h\+Pos\+End,  }\item[{T}]{color,  }\item[{const std\+::string \&}]{label,  }\item[{float}]{relative\+Label\+Position = {\ttfamily 0.5},  }\item[{bool}]{label\+Below = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Adds a labelled horizontal axis to the plot that extends from (h\+Pos\+Start,v\+Pos) to (h\+Pos\+End,v\+Pos). The position of the axis will be changed to make space for the label. 
+\begin{DoxyParams}{Parameters}
+{\em label} & Label that is added to the axis \\
+\hline
+{\em relative\+Label\+Position} & Position of the first character of label along the axis; has to be between 0.\+0 and 1.\+0 (otherwise set to 0.\+0) \\
+\hline
+{\em label\+Below} & Placement relative to the axis (true\+: below, false\+: above) \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}{add\+Horizontal\+Axis( std\+::size\+\_\+t v\+Pos, std\+::size\+\_\+t h\+Pos\+Start, std\+::size\+\_\+t h\+Pos\+End, T color )}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}\label{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!addVerticalAxis@{addVerticalAxis}}
+\index{addVerticalAxis@{addVerticalAxis}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addVerticalAxis()}{addVerticalAxis()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::add\+Vertical\+Axis (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{h\+Pos,  }\item[{std\+::size\+\_\+t}]{v\+Pos\+Start,  }\item[{std\+::size\+\_\+t}]{v\+Pos\+End,  }\item[{T}]{color }\end{DoxyParamCaption})}
+
+Adds a vertical axis to the plot that extends from (h\+Pos,v\+Pos\+Start) to (h\+Pos,v\+Pos\+End) 
+\begin{DoxyParams}{Parameters}
+{\em h\+Pos} & Horizontal coordinate of the axis \\
+\hline
+{\em v\+Pos\+Start} & Vertical coordinate of the start point of the axis \\
+\hline
+{\em v\+Pos\+End} & Vertical coordinate of the end of the axis \\
+\hline
+{\em color} & Color of the axis \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_plot2_d_a7fa1bedd99cb008799ed7d1ef4518884}\label{class_plot2_d_a7fa1bedd99cb008799ed7d1ef4518884}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!addVerticalAxis@{addVerticalAxis}}
+\index{addVerticalAxis@{addVerticalAxis}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addVerticalAxis()}{addVerticalAxis()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::add\+Vertical\+Axis (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{h\+Pos,  }\item[{std\+::size\+\_\+t}]{v\+Pos\+Start,  }\item[{std\+::size\+\_\+t}]{v\+Pos\+End,  }\item[{T}]{color,  }\item[{const std\+::string \&}]{label,  }\item[{float}]{relative\+Label\+Position = {\ttfamily 0.5},  }\item[{bool}]{label\+Left = {\ttfamily true},  }\item[{bool}]{rotate\+Label = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Adds a labelled vertical axis to the plot that extends from (h\+Pos,v\+Pos\+Start) to (h\+Pos,v\+Pos\+End). The position of the axis will be changed to make space for the label. 
+\begin{DoxyParams}{Parameters}
+{\em label} & Label that is added to the axis \\
+\hline
+{\em relative\+Label\+Position} & Position of the first character of label along the axis; has to be between 0.\+0 and 1.\+0 (otherwise set to 0.\+0) \\
+\hline
+{\em label\+Left} & Placement relative to the axis (true\+: left, false\+: right) \\
+\hline
+{\em rotate\+Label} & If true\+: rotate the label by 90 degrees clockwise. This can be useful to save space in the plot. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}{add\+Vertical\+Axis( std\+::size\+\_\+t h\+Pos, std\+::size\+\_\+t v\+Pos\+Start, std\+::size\+\_\+t v\+Pos\+End, T color )}} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+header/axis.\+h\item 
+header/plot2d.\+h\item 
+src/plot2d.\+cpp\end{DoxyCompactItemize}

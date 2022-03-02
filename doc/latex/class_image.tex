@@ -1,0 +1,119 @@
+\hypertarget{class_image}{}\doxysection{Image\texorpdfstring{$<$}{<} T1, T2 \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_image}\index{Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}}
+
+
+{\ttfamily \#include $<$image.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_image_a3ae5ff092990661c251248b7f43e1f42}{Image}} ()
+\item 
+\mbox{\hyperlink{class_image_ace440a6ab7d7a54155d14d4346994b86}{Image}} (std\+::size\+\_\+t width, std\+::size\+\_\+t height)
+\item 
+\mbox{\hyperlink{class_image_ab10e2f8b804065513c4e6e2d90f2c96b}{Image}} (std\+::size\+\_\+t width, std\+::size\+\_\+t height, const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \&p)
+\item 
+\mbox{\Hypertarget{class_image_a9b138194c925d7397d34ea3950a3a017}\label{class_image_a9b138194c925d7397d34ea3950a3a017}} 
+virtual float {\bfseries get\+Aspect\+Ratio} () const
+\item 
+\mbox{\Hypertarget{class_image_a1add6796c65167445fd67642452d02d7}\label{class_image_a1add6796c65167445fd67642452d02d7}} 
+virtual void {\bfseries set\+Aspect\+Ratio} (float aspect\+Ratio)
+\item 
+\mbox{\Hypertarget{class_image_ab188c3991854090113f3a7d1522d7217}\label{class_image_ab188c3991854090113f3a7d1522d7217}} 
+virtual const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \& {\bfseries at} (std\+::size\+\_\+t i, std\+::size\+\_\+t j) const
+\item 
+\mbox{\Hypertarget{class_image_ac5f5b360ac1a4ebbf832ec3a774b3a82}\label{class_image_ac5f5b360ac1a4ebbf832ec3a774b3a82}} 
+virtual \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \& {\bfseries at} (std\+::size\+\_\+t i, std\+::size\+\_\+t j)
+\item 
+\mbox{\Hypertarget{class_image_a6e6c087512eee4d10394ff377379e846}\label{class_image_a6e6c087512eee4d10394ff377379e846}} 
+virtual const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ $>$ $>$ \& {\bfseries get\+Pixels} () const
+\item 
+\mbox{\Hypertarget{class_image_ae59fc57ad71369bc708a03175a31e621}\label{class_image_ae59fc57ad71369bc708a03175a31e621}} 
+virtual void {\bfseries set\+Pixels} (const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \&p)
+\item 
+\mbox{\Hypertarget{class_image_a9ac0e27da0e7f63f658789fd7ece481b}\label{class_image_a9ac0e27da0e7f63f658789fd7ece481b}} 
+virtual bool {\bfseries get\+Fill\+Spaces} () const
+\item 
+\mbox{\Hypertarget{class_image_abacd262ce7b970c0b7ddb9d445180ec2}\label{class_image_abacd262ce7b970c0b7ddb9d445180ec2}} 
+virtual void {\bfseries set\+Fill\+Spaces} (bool fill\+Spaces)
+\item 
+\mbox{\Hypertarget{class_image_a1e179af1723921271db4c625812457cc}\label{class_image_a1e179af1723921271db4c625812457cc}} 
+virtual std\+::size\+\_\+t {\bfseries get\+Height} () const
+\item 
+\mbox{\Hypertarget{class_image_af8c4b9b54a1797173a8e59d7592c1dd8}\label{class_image_af8c4b9b54a1797173a8e59d7592c1dd8}} 
+virtual void {\bfseries set\+Height} (std\+::size\+\_\+t height)
+\item 
+\mbox{\Hypertarget{class_image_a44acdd8649a5e799113b58461690315b}\label{class_image_a44acdd8649a5e799113b58461690315b}} 
+virtual std\+::size\+\_\+t {\bfseries get\+Width} () const
+\item 
+\mbox{\Hypertarget{class_image_ad7d4d207f965baa57f8e270763187796}\label{class_image_ad7d4d207f965baa57f8e270763187796}} 
+virtual void {\bfseries set\+Width} (std\+::size\+\_\+t width)
+\item 
+\mbox{\Hypertarget{class_image_a688e4526026154edfb35fec4aacc9297}\label{class_image_a688e4526026154edfb35fec4aacc9297}} 
+virtual void {\bfseries show} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_image_a053031f5a9328f6723419809052581da}\label{class_image_a053031f5a9328f6723419809052581da}} 
+virtual void {\bfseries verify\+Coordinate} (std\+::size\+\_\+t i, std\+::size\+\_\+t j) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_image_a32d86392cbb67c34dee59add846e498b}\label{class_image_a32d86392cbb67c34dee59add846e498b}} 
+float {\bfseries m\+Aspect\+Ratio} = 1.
+\item 
+\mbox{\Hypertarget{class_image_af388594a3bd6f902262e0ae25e600fc8}\label{class_image_af388594a3bd6f902262e0ae25e600fc8}} 
+bool {\bfseries m\+Fill\+Spaces} = false
+\item 
+\mbox{\Hypertarget{class_image_a7ec1a78e86f74a0060bdb97ad04ae235}\label{class_image_a7ec1a78e86f74a0060bdb97ad04ae235}} 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ $>$ $>$ {\bfseries m\+Pixels}
+\item 
+\mbox{\Hypertarget{class_image_a0784025d0c88f233e9b5eb630efda3c0}\label{class_image_a0784025d0c88f233e9b5eb630efda3c0}} 
+int {\bfseries m\+Width}
+\item 
+\mbox{\Hypertarget{class_image_a809704dad5c4f5ce7f71521b710605af}\label{class_image_a809704dad5c4f5ce7f71521b710605af}} 
+int {\bfseries m\+Height}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T1 = Mono, typename T2 = char$>$\newline
+class Image$<$ T1, T2 $>$}
+\mbox{\hyperlink{class_image}{Image}} is an image that can be printed onto the screen, e.\+g. to the console output
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{class_pixel}{Pixel}} values are represented by a PxQ \char`\"{}matrix\char`\"{} (vectors) of \char`\"{}\+Pixel\char`\"{} objects for a PxQ image (P,Q\+: no. of pixels).
+\item Data can be loaded into the image
+\end{DoxyItemize}
+
+The image can be printed to the set output using the method show() 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_image_a3ae5ff092990661c251248b7f43e1f42}\label{class_image_a3ae5ff092990661c251248b7f43e1f42}} 
+\index{Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}!Image@{Image}}
+\index{Image@{Image}!Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}}
+\doxysubsubsection{\texorpdfstring{Image()}{Image()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
+\mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\mbox{\hyperlink{class_image}{\+::\+Image}}}
+
+Constructs an empty image of size 1 x 1. \mbox{\Hypertarget{class_image_ace440a6ab7d7a54155d14d4346994b86}\label{class_image_ace440a6ab7d7a54155d14d4346994b86}} 
+\index{Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}!Image@{Image}}
+\index{Image@{Image}!Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}}
+\doxysubsubsection{\texorpdfstring{Image()}{Image()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
+\mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\mbox{\hyperlink{class_image}{\+::\+Image}} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{width,  }\item[{std\+::size\+\_\+t}]{height }\end{DoxyParamCaption})}
+
+Constructs an empty image of size width x height. \mbox{\Hypertarget{class_image_ab10e2f8b804065513c4e6e2d90f2c96b}\label{class_image_ab10e2f8b804065513c4e6e2d90f2c96b}} 
+\index{Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}!Image@{Image}}
+\index{Image@{Image}!Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}}
+\doxysubsubsection{\texorpdfstring{Image()}{Image()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
+\mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\mbox{\hyperlink{class_image}{\+::\+Image}} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{width,  }\item[{std\+::size\+\_\+t}]{height,  }\item[{const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \&}]{p }\end{DoxyParamCaption})}
+
+Constructs an image of size width x height with all pixels set equal to p. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+header/image.\+h\item 
+src/image.\+cpp\end{DoxyCompactItemize}
