@@ -117,7 +117,7 @@ template <typename T1, typename T2>
 void Image<T1,T2>::show() const
 {
     int aR = static_cast<int>( mAspectRatio + 0.5 ); //Round up mAspectRatio
-    for( auto& row : getPixels() ) {
+    for( auto& row : getPixels() ) {
         for( auto& pixel : row ) {
             std::cout << pixel;
             for( int k = 2; k <= aR; k++ ) {

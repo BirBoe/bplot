@@ -1,0 +1,40 @@
+\begin{theindex}
+
+  \item {addHorizontalAxis}
+    \subitem {Plot2D$<$ T $>$}, \hyperpage{12}
+  \item {addVerticalAxis}
+    \subitem {Plot2D$<$ T $>$}, \hyperpage{13}
+  \item {Axis$<$ T $>$}, \hyperpage{7}
+
+  \indexspace
+
+  \item {header/axis.h}, \hyperpage{15}
+  \item {header/color\_models.h}, \hyperpage{16}
+  \item {header/image.h}, \hyperpage{16}
+  \item {header/main.h}, \hyperpage{17}
+  \item {header/pixel.h}, \hyperpage{17}
+  \item {header/plot2d.h}, \hyperpage{18}
+
+  \indexspace
+
+  \item {Image}
+    \subitem {Image$<$ T1, T2 $>$}, \hyperpage{9}
+  \item {Image$<$ T1, T2 $>$}, \hyperpage{8}
+    \subitem {Image}, \hyperpage{9}
+
+  \indexspace
+
+  \item {Mono}, \hyperpage{10}
+
+  \indexspace
+
+  \item {Pixel$<$ T1, T2 $>$}, \hyperpage{10}
+  \item {Plot2D$<$ T $>$}, \hyperpage{11}
+    \subitem {addHorizontalAxis}, \hyperpage{12}
+    \subitem {addVerticalAxis}, \hyperpage{13}
+
+  \indexspace
+
+  \item {RGB}, \hyperpage{14}
+
+\end{theindex}
