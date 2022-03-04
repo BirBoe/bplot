@@ -2,30 +2,47 @@
 \label{color__models_8h_source}\index{header/color\_models.h@{header/color\_models.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{comment}{/*Defines structs that represent color values for single pixels*/}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cstdint>} \textcolor{comment}{//defines integral types int8\_t etc.}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{comment}{//RGB (8-\/bit) color scale}}
-\DoxyCodeLine{7 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_r_g_b}{RGB}} \{}
-\DoxyCodeLine{8     uint8\_t r = 255;}
-\DoxyCodeLine{9     uint8\_t g = 255;}
-\DoxyCodeLine{10     uint8\_t b = 255;}
-\DoxyCodeLine{11 \};}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13 std::string color\_to\_ansi( \mbox{\hyperlink{struct_r_g_b}{RGB}} color ) \{}
-\DoxyCodeLine{14     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)033[38;2;"{}} + std::to\_string(color.r) + \textcolor{stringliteral}{"{};"{}} + std::to\_string(color.g) + \textcolor{stringliteral}{"{};"{}} + std::to\_string(color.b) + \textcolor{stringliteral}{"{}m"{}};}
-\DoxyCodeLine{15 \}}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17 \textcolor{comment}{//Mono color scale (binary values)}}
-\DoxyCodeLine{18 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_mono}{Mono}} \{}
-\DoxyCodeLine{19     \textcolor{keywordtype}{bool} b = 1; \textcolor{comment}{//b=1: black, b=0: white}}
-\DoxyCodeLine{20 \};}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22 std::string color\_to\_ansi( \mbox{\hyperlink{struct_mono}{Mono}} color ) \{}
-\DoxyCodeLine{23     \textcolor{keywordflow}{if}( color.b == 1 ) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)033[30m"{}};}
-\DoxyCodeLine{24     \textcolor{keywordflow}{if}( color.b == 0 ) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)033[37m"{}};}
-\DoxyCodeLine{25 \}}
+\DoxyCodeLine{1 \textcolor{comment}{/* bplot -\/ a tool to plot two-\/dimensional data to the command line}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright (C) 2022  Birger Böning}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * This program is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{5 \textcolor{comment}{ * it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{6 \textcolor{comment}{ * the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{7 \textcolor{comment}{ * (at your option) any later version.}}
+\DoxyCodeLine{8 \textcolor{comment}{ *}}
+\DoxyCodeLine{9 \textcolor{comment}{ * This program is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{10 \textcolor{comment}{ * but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{11 \textcolor{comment}{ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * GNU General Public License for more details.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{15 \textcolor{comment}{ * along with this program.  If not, see <https://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{/*Defines structs that represent color values for single pixels*/}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <cstdint>} \textcolor{comment}{//defines integral types int8\_t etc.}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{comment}{//RGB (8-\/bit) color scale}}
+\DoxyCodeLine{24 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_r_g_b}{RGB}} \{}
+\DoxyCodeLine{25     uint8\_t r = 255;}
+\DoxyCodeLine{26     uint8\_t g = 255;}
+\DoxyCodeLine{27     uint8\_t b = 255;}
+\DoxyCodeLine{28 \};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 std::string color\_to\_ansi( \mbox{\hyperlink{struct_r_g_b}{RGB}} color ) \{}
+\DoxyCodeLine{31     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)033[38;2;"{}} + std::to\_string(color.r) + \textcolor{stringliteral}{"{};"{}} + std::to\_string(color.g) + \textcolor{stringliteral}{"{};"{}} + std::to\_string(color.b) + \textcolor{stringliteral}{"{}m"{}};}
+\DoxyCodeLine{32 \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{comment}{//Mono color scale (binary values)}}
+\DoxyCodeLine{35 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_mono}{Mono}} \{}
+\DoxyCodeLine{36     \textcolor{keywordtype}{bool} b = 1; \textcolor{comment}{//b=1: black, b=0: white}}
+\DoxyCodeLine{37 \};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 std::string color\_to\_ansi( \mbox{\hyperlink{struct_mono}{Mono}} color ) \{}
+\DoxyCodeLine{40     \textcolor{keywordflow}{if}( color.b == 1 ) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)033[30m"{}};}
+\DoxyCodeLine{41     \textcolor{keywordflow}{if}( color.b == 0 ) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)033[37m"{}};}
+\DoxyCodeLine{42 \}}
 
 \end{DoxyCode}

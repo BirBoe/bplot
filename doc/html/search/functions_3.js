@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['image_0',['Image',['../class_image.html#a3ae5ff092990661c251248b7f43e1f42',1,'Image::Image()'],['../class_image.html#ace440a6ab7d7a54155d14d4346994b86',1,'Image::Image(std::size_t width, std::size_t height)'],['../class_image.html#ab10e2f8b804065513c4e6e2d90f2c96b',1,'Image::Image(std::size_t width, std::size_t height, const Pixel&lt; T1, T2 &gt; &amp;p)']]]
+  ['malldatasetstocoordinates_0',['mAllDataSetsToCoordinates',['../class_plot2_d.html#a05ed3b8f655efea3e71076658dcc3913',1,'Plot2D']]],
+  ['mclear_1',['mClear',['../class_plot2_d.html#a4a4c1094df054884b55180e1249f1855',1,'Plot2D']]],
+  ['mdatapointtocoordinate_2',['mDataPointToCoordinate',['../class_plot2_d.html#aa1597d1644b442b11894e359dc374ff0',1,'Plot2D']]],
+  ['mdatasettocoordinates_3',['mDataSetToCoordinates',['../class_plot2_d.html#aaba1d6b0982a67867f4e63f93a8cfc1e',1,'Plot2D']]]
 ];

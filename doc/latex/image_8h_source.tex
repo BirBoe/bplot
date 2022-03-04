@@ -2,52 +2,85 @@
 \label{image_8h_source}\index{header/image.h@{header/image.h}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <cstddef>} \textcolor{comment}{//std::size\_t}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <stdexcept>}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <utility>} \textcolor{comment}{//std::as\_const()}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}../header/color\_models.h"{}}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}../header/pixel.h"{}}}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{17 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1 = Mono, \textcolor{keyword}{typename} T2 = \textcolor{keywordtype}{char}> \textcolor{comment}{//T1: color model, T2: type of each pixel (e.g. char)}}
-\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_image}{Image}}}
-\DoxyCodeLine{19 \{}
-\DoxyCodeLine{20 \textcolor{keyword}{public}:}
-\DoxyCodeLine{21     \textcolor{comment}{/*Constructors and destructors*/}}
-\DoxyCodeLine{22     \mbox{\hyperlink{class_image_a3ae5ff092990661c251248b7f43e1f42}{Image}}(); }
-\DoxyCodeLine{23     \mbox{\hyperlink{class_image_a3ae5ff092990661c251248b7f43e1f42}{Image}}(std::size\_t width, std::size\_t height); }
-\DoxyCodeLine{24     \mbox{\hyperlink{class_image_a3ae5ff092990661c251248b7f43e1f42}{Image}}(std::size\_t width, std::size\_t height, \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}} \&p); }
-\DoxyCodeLine{25     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_image}{\string~Image}}() = \textcolor{keywordflow}{default};}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27     \textcolor{comment}{/*Getters and setters*/}}
-\DoxyCodeLine{28     \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} getAspectRatio() \textcolor{keyword}{const};}
-\DoxyCodeLine{29     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} setAspectRatio( \textcolor{keywordtype}{float} aspectRatio );}
-\DoxyCodeLine{30     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}}\& at( std::size\_t i, std::size\_t j ) \textcolor{keyword}{const}; \textcolor{comment}{//Returns the Pixel at position (i,j) as const reference}}
-\DoxyCodeLine{31     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}}\& at( std::size\_t i, std::size\_t j ); \textcolor{comment}{//Returns the Pixel at position (i,j) as non-\/const reference}}
-\DoxyCodeLine{32     \textcolor{keyword}{virtual} \textcolor{keyword}{const} std::vector< std::vector< Pixel<T1,T2> > >\& getPixels() \textcolor{keyword}{const};\textcolor{comment}{//Return a const reference to the row major matrix of pixels}}
-\DoxyCodeLine{33     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} setPixels( \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}} \&p ); \textcolor{comment}{//Set all pixels in the image equal to p}}
-\DoxyCodeLine{34     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} getFillSpaces() \textcolor{keyword}{const};}
-\DoxyCodeLine{35     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} setFillSpaces( \textcolor{keywordtype}{bool} fillSpaces );}
-\DoxyCodeLine{36     \textcolor{keyword}{virtual} std::size\_t getHeight() \textcolor{keyword}{const};}
-\DoxyCodeLine{37     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} setHeight( std::size\_t height );}
-\DoxyCodeLine{38     \textcolor{keyword}{virtual} std::size\_t getWidth() \textcolor{keyword}{const};}
-\DoxyCodeLine{39     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} setWidth( std::size\_t width );}
+\DoxyCodeLine{1 \textcolor{comment}{/* bplot -\/ a tool to plot two-\/dimensional data to the command line}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright (C) 2022  Birger Böning}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * This program is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{5 \textcolor{comment}{ * it under the terms of the GNU General Public License as published by}}
+\DoxyCodeLine{6 \textcolor{comment}{ * the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{7 \textcolor{comment}{ * (at your option) any later version.}}
+\DoxyCodeLine{8 \textcolor{comment}{ *}}
+\DoxyCodeLine{9 \textcolor{comment}{ * This program is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{10 \textcolor{comment}{ * but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{11 \textcolor{comment}{ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * GNU General Public License for more details.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * You should have received a copy of the GNU General Public License}}
+\DoxyCodeLine{15 \textcolor{comment}{ * along with this program.  If not, see <https://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <cstddef>} \textcolor{comment}{//std::size\_t}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <utility>} \textcolor{comment}{//std::as\_const()}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}../header/color\_models.h"{}}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}../header/pixel.h"{}}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{36 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1 = Mono, \textcolor{keyword}{typename} T2 = \textcolor{keywordtype}{char}>}
+\DoxyCodeLine{37 \textcolor{keyword}{class }\mbox{\hyperlink{class_image}{Image}}}
+\DoxyCodeLine{38 \{}
+\DoxyCodeLine{39 \textcolor{keyword}{private}:}
 \DoxyCodeLine{40 }
-\DoxyCodeLine{41     \textcolor{comment}{/*Output*/}}
-\DoxyCodeLine{42     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} show() \textcolor{keyword}{const}; \textcolor{comment}{//Show the image in the terminal}}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44 \textcolor{keyword}{private}:}
-\DoxyCodeLine{45     \textcolor{keywordtype}{float} mAspectRatio = 1.; \textcolor{comment}{//AspectRatio of the figure (so far: rounded to nearest int!). The aspect ratio is only used in the output. Note: The real aspect ratio in the output depends on the terminal simulator in use.}}
-\DoxyCodeLine{46     \textcolor{keywordtype}{bool} mFillSpaces = \textcolor{keyword}{false}; \textcolor{comment}{//If true and mAspectRatio != 1.: spaces are filled with symbol to the left. Otherwise spaces are left blank.}}
-\DoxyCodeLine{47     std::vector< std::vector< Pixel<T1,T2> > > mPixels; \textcolor{comment}{//row major matrix of pixels: pixel = mPixels.at(iRow).at(iColumn)}}
-\DoxyCodeLine{48     \textcolor{keywordtype}{int} mWidth, mHeight; \textcolor{comment}{//Dimensions of the image in numbers of pixels (independent of mAspectRatio!)}}
-\DoxyCodeLine{49     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} verifyCoordinate(std::size\_t i, std::size\_t j) \textcolor{keyword}{const}; \textcolor{comment}{//Verify that (i,j) is within limits of the image size (throws std::out\_of\_range() if not)}}
-\DoxyCodeLine{50 \};}
+\DoxyCodeLine{45     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_image_a32d86392cbb67c34dee59add846e498b}{mAspectRatio}} = 1.;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_image_af388594a3bd6f902262e0ae25e600fc8}{mFillSpaces}} = \textcolor{keyword}{false};}
 \DoxyCodeLine{51 }
-\DoxyCodeLine{52 \textcolor{comment}{/*Include method definitions (needed here for the compiler because it is a class template!)*/}}
-\DoxyCodeLine{53 \textcolor{preprocessor}{\#include "{}../src/image.cpp"{}}}
+\DoxyCodeLine{55     std::vector< std::vector< Pixel<T1,T2> > > \mbox{\hyperlink{class_image_a7ec1a78e86f74a0060bdb97ad04ae235}{mPixels}};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_image_a0784025d0c88f233e9b5eb630efda3c0}{mWidth}}; }
+\DoxyCodeLine{58     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_image_a809704dad5c4f5ce7f71521b710605af}{mHeight}}; }
+\DoxyCodeLine{64     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_a053031f5a9328f6723419809052581da}{verifyCoordinate}}(std::size\_t i, std::size\_t j) \textcolor{keyword}{const};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{public}:}
+\DoxyCodeLine{67     \textcolor{comment}{/*Constructors and destructors*/}}
+\DoxyCodeLine{68     \mbox{\hyperlink{class_image_a3ae5ff092990661c251248b7f43e1f42}{Image}}(); }
+\DoxyCodeLine{69     \mbox{\hyperlink{class_image_a3ae5ff092990661c251248b7f43e1f42}{Image}}(std::size\_t width, std::size\_t height); }
+\DoxyCodeLine{70     \mbox{\hyperlink{class_image_a3ae5ff092990661c251248b7f43e1f42}{Image}}(std::size\_t width, std::size\_t height, \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}} \&p); }
+\DoxyCodeLine{71     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_image}{\string~Image}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{comment}{/*Getters and setters*/}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{81     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}}\& \mbox{\hyperlink{class_image_ab188c3991854090113f3a7d1522d7217}{at}}( std::size\_t i, std::size\_t j ) \textcolor{keyword}{const};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{90     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}}\& \mbox{\hyperlink{class_image_ab188c3991854090113f3a7d1522d7217}{at}}( std::size\_t i, std::size\_t j );}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{96     \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} \mbox{\hyperlink{class_image_a9b138194c925d7397d34ea3950a3a017}{getAspectRatio}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{102     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_a1add6796c65167445fd67642452d02d7}{setAspectRatio}}( \textcolor{keywordtype}{float} aspectRatio );}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{108     \textcolor{keyword}{virtual} \textcolor{keyword}{const} std::vector< std::vector< Pixel<T1,T2> > >\& \mbox{\hyperlink{class_image_a6e6c087512eee4d10394ff377379e846}{getPixels}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{114     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_ae59fc57ad71369bc708a03175a31e621}{setPixels}}( \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}} \&p );}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{120     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_image_a9ac0e27da0e7f63f658789fd7ece481b}{getFillSpaces}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{126     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_abacd262ce7b970c0b7ddb9d445180ec2}{setFillSpaces}}( \textcolor{keywordtype}{bool} fillSpaces );}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{132     \textcolor{keyword}{virtual} std::size\_t \mbox{\hyperlink{class_image_a1e179af1723921271db4c625812457cc}{getHeight}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{138     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_af8c4b9b54a1797173a8e59d7592c1dd8}{setHeight}}( std::size\_t height );}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{144     \textcolor{keyword}{virtual} std::size\_t \mbox{\hyperlink{class_image_a44acdd8649a5e799113b58461690315b}{getWidth}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{150     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_ad7d4d207f965baa57f8e270763187796}{setWidth}}( std::size\_t width );}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{155     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_a688e4526026154edfb35fec4aacc9297}{show}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{156 \};}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{comment}{/*Include method definitions for the template class*/}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#include "{}../src/image.cpp"{}}}
 
 \end{DoxyCode}

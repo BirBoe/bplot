@@ -1,8 +1,25 @@
+/* bplot - a tool to plot two-dimensional data to the command line
+ * Copyright (C) 2022  Birger Böning
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 #include <cmath> //Basic mathematical functions
 #include <cstddef> //std::size_t
 #include <iostream>
 #include <memory> //smart pointers
-#include <stdexcept> //exceptions
+#include <stdexcept>
 
 #include "../header/main.h"
 #include "../header/image.h"
@@ -15,7 +32,7 @@ const std::string FULL_BLOCK = "\u2588";
 
 int main( int argc, char** argv ) {
 
-//Background color : "\033[48" instead
+	/* --- BEGIN OF TEST AREA--- */
 
 	Pixel<RGB,std::string> p;
 	RGB c;
@@ -61,10 +78,7 @@ int main( int argc, char** argv ) {
 	//plt.setPlotRange( std::make_pair(1.,15.), std::make_pair(1.,27.) );
 	plt.show();
 
-	try {
-	} catch (const std::out_of_range& e) {
-		std::cout << e.what() << std::endl;
-	}
+	/* --- END OF TEST AREA--- */
 
 	return 0 ;
 }

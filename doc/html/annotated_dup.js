@@ -1,6 +1,6 @@
 var annotated_dup =
 [
-    [ "Axis", "class_axis.html", null ],
+    [ "Axis", "class_axis.html", "class_axis" ],
     [ "Image", "class_image.html", "class_image" ],
     [ "Mono", "struct_mono.html", null ],
     [ "Pixel", "class_pixel.html", null ],

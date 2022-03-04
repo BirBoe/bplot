@@ -1,5 +1,9 @@
 \hypertarget{class_plot2_d}{}\doxysection{Plot2D\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
 \label{class_plot2_d}\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+
+
+{\ttfamily \#include $<$plot2d.\+h$>$}
+
 Inheritance diagram for Plot2D\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,17 +13,13 @@ Inheritance diagram for Plot2D\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_plot2_d_a397fc9d6f41014c47eee4e71492db7c4}\label{class_plot2_d_a397fc9d6f41014c47eee4e71492db7c4}} 
-{\bfseries Plot2D} (std\+::size\+\_\+t width, std\+::size\+\_\+t height)
+\mbox{\hyperlink{class_plot2_d_a397fc9d6f41014c47eee4e71492db7c4}{Plot2D}} (std\+::size\+\_\+t width, std\+::size\+\_\+t height)
 \item 
-\mbox{\Hypertarget{class_plot2_d_aea5e9703a077095946670717b46c69b6}\label{class_plot2_d_aea5e9703a077095946670717b46c69b6}} 
-void {\bfseries set\+XAxis\+Scaling} (const std\+::function$<$ double(double)$>$ \&x\+Scaling\+Function)
+void \mbox{\hyperlink{class_plot2_d_aea5e9703a077095946670717b46c69b6}{set\+XAxis\+Scaling}} (const std\+::function$<$ double(double)$>$ \&x\+Scaling\+Function)
 \item 
-\mbox{\Hypertarget{class_plot2_d_ab8d7c4a7fd5881935647257e537d84ca}\label{class_plot2_d_ab8d7c4a7fd5881935647257e537d84ca}} 
-void {\bfseries set\+YAxis\+Scaling} (const std\+::function$<$ double(double)$>$ \&y\+Scaling\+Function)
+void \mbox{\hyperlink{class_plot2_d_ab8d7c4a7fd5881935647257e537d84ca}{set\+YAxis\+Scaling}} (const std\+::function$<$ double(double)$>$ \&y\+Scaling\+Function)
 \item 
-\mbox{\Hypertarget{class_plot2_d_aaf474365239de9b28942c6bf37af3ddf}\label{class_plot2_d_aaf474365239de9b28942c6bf37af3ddf}} 
-void {\bfseries set\+Plot\+Range} (const std\+::pair$<$ double, double $>$ \&x\+Plot\+Range, const std\+::pair$<$ double, double $>$ \&y\+Plot\+Range)
+void \mbox{\hyperlink{class_plot2_d_aaf474365239de9b28942c6bf37af3ddf}{set\+Plot\+Range}} (const std\+::pair$<$ double, double $>$ \&x\+Plot\+Range, const std\+::pair$<$ double, double $>$ \&y\+Plot\+Range)
 \item 
 void \mbox{\hyperlink{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}{add\+Vertical\+Axis}} (std\+::size\+\_\+t h\+Pos, std\+::size\+\_\+t v\+Pos\+Start, std\+::size\+\_\+t v\+Pos\+End, T color)
 \item 
@@ -29,71 +29,47 @@ void \mbox{\hyperlink{class_plot2_d_a7fa1bedd99cb008799ed7d1ef4518884}{add\+Vert
 \item 
 void \mbox{\hyperlink{class_plot2_d_aad969a3d59c2810657c3d51432114e91}{add\+Horizontal\+Axis}} (std\+::size\+\_\+t v\+Pos, std\+::size\+\_\+t h\+Pos\+Start, std\+::size\+\_\+t h\+Pos\+End, T color, const std\+::string \&label, float relative\+Label\+Position=0.\+5, bool label\+Below=true)
 \item 
-\mbox{\Hypertarget{class_plot2_d_a1fb69a8951529205229641581eacc9b6}\label{class_plot2_d_a1fb69a8951529205229641581eacc9b6}} 
-void {\bfseries add\+Text} (std\+::size\+\_\+t h\+Pos, std\+::size\+\_\+t v\+Pos, const std\+::string \&text)
+void \mbox{\hyperlink{class_plot2_d_a609838a36eeb52a934e8518117232e95}{add\+Text}} (const std\+::string \&text, Image\+Coordinate \&text\+Position)
 \item 
-\mbox{\Hypertarget{class_plot2_d_acd22e547d8903adfb1c682dfb84918f9}\label{class_plot2_d_acd22e547d8903adfb1c682dfb84918f9}} 
-void {\bfseries add\+Data\+Set} (std\+::shared\+\_\+ptr$<$ const Data\+Set $>$ data\+Set, \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ plot\+Marker)
+void \mbox{\hyperlink{class_plot2_d_acd22e547d8903adfb1c682dfb84918f9}{add\+Data\+Set}} (std\+::shared\+\_\+ptr$<$ const Data\+Set $>$ data\+Set, \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ plot\+Marker)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_plot2_d_a4a4c1094df054884b55180e1249f1855}\label{class_plot2_d_a4a4c1094df054884b55180e1249f1855}} 
-void {\bfseries m\+Clear} ()
+void \mbox{\hyperlink{class_plot2_d_a4a4c1094df054884b55180e1249f1855}{m\+Clear}} ()
 \item 
-\mbox{\Hypertarget{class_plot2_d_aaba1d6b0982a67867f4e63f93a8cfc1e}\label{class_plot2_d_aaba1d6b0982a67867f4e63f93a8cfc1e}} 
-void {\bfseries m\+Data\+Set\+To\+Coordinates} (std\+::size\+\_\+t j\+Data\+Set)
+void \mbox{\hyperlink{class_plot2_d_aaba1d6b0982a67867f4e63f93a8cfc1e}{m\+Data\+Set\+To\+Coordinates}} (std\+::size\+\_\+t j\+Data\+Set)
 \item 
-\mbox{\Hypertarget{class_plot2_d_a05ed3b8f655efea3e71076658dcc3913}\label{class_plot2_d_a05ed3b8f655efea3e71076658dcc3913}} 
-void {\bfseries m\+All\+Data\+Sets\+To\+Coordinates} ()
+void \mbox{\hyperlink{class_plot2_d_a05ed3b8f655efea3e71076658dcc3913}{m\+All\+Data\+Sets\+To\+Coordinates}} ()
 \item 
-\mbox{\Hypertarget{class_plot2_d_aa1597d1644b442b11894e359dc374ff0}\label{class_plot2_d_aa1597d1644b442b11894e359dc374ff0}} 
-Image\+Coordinate {\bfseries m\+Data\+Point\+To\+Coordinate} (const Data\+Point\+XY \&data\+Point)
+Image\+Coordinate \mbox{\hyperlink{class_plot2_d_aa1597d1644b442b11894e359dc374ff0}{m\+Data\+Point\+To\+Coordinate}} (const Data\+Point\+XY \&data\+Point)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_plot2_d_ae1c415420ff6fa26a6223fdb715bbcd5}\label{class_plot2_d_ae1c415420ff6fa26a6223fdb715bbcd5}} 
-std\+::size\+\_\+t {\bfseries m\+Width}
+std\+::vector$<$ \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$ $>$ \mbox{\hyperlink{class_plot2_d_ad3850e9dfce5560cf87a5aa3245c3e59}{m\+Horizontal\+Axes}}
 \item 
-\mbox{\Hypertarget{class_plot2_d_acfd56dd3dc67e0ce5949ae9eae18ed63}\label{class_plot2_d_acfd56dd3dc67e0ce5949ae9eae18ed63}} 
-std\+::size\+\_\+t {\bfseries m\+Height}
+std\+::vector$<$ \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$ $>$ \mbox{\hyperlink{class_plot2_d_a9c3db3812068f632b1a3de673b1e0fc1}{m\+Vertical\+Axes}}
 \item 
-\mbox{\Hypertarget{class_plot2_d_ad3850e9dfce5560cf87a5aa3245c3e59}\label{class_plot2_d_ad3850e9dfce5560cf87a5aa3245c3e59}} 
-std\+::vector$<$ \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$ $>$ {\bfseries m\+Horizontal\+Axes}
+std\+::vector$<$ std\+::pair$<$ std\+::string, Image\+Coordinate $>$ $>$ \mbox{\hyperlink{class_plot2_d_a12370dae595d81fec79523b65ed4a0da}{m\+Text}}
 \item 
-\mbox{\Hypertarget{class_plot2_d_a9c3db3812068f632b1a3de673b1e0fc1}\label{class_plot2_d_a9c3db3812068f632b1a3de673b1e0fc1}} 
-std\+::vector$<$ \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$ $>$ {\bfseries m\+Vertical\+Axes}
+Image\+Coordinate \mbox{\hyperlink{class_plot2_d_a3e2b1ead9aa2e48522bb54a07e241f9b}{m\+Data\+Frame\+Start}}
 \item 
-\mbox{\Hypertarget{class_plot2_d_a12370dae595d81fec79523b65ed4a0da}\label{class_plot2_d_a12370dae595d81fec79523b65ed4a0da}} 
-std\+::vector$<$ std\+::pair$<$ std\+::string, Image\+Coordinate $>$ $>$ {\bfseries m\+Text}
+Image\+Coordinate \mbox{\hyperlink{class_plot2_d_a70228126cbaaf6e617e2f457ff1004f1}{m\+Data\+Frame\+End}}
 \item 
-\mbox{\Hypertarget{class_plot2_d_a3e2b1ead9aa2e48522bb54a07e241f9b}\label{class_plot2_d_a3e2b1ead9aa2e48522bb54a07e241f9b}} 
-Image\+Coordinate {\bfseries m\+Data\+Frame\+Start}
+std\+::pair$<$ double, double $>$ \mbox{\hyperlink{class_plot2_d_a299c8d2448382785355c9dc406edceb7}{m\+XPlot\+Range}}
 \item 
-\mbox{\Hypertarget{class_plot2_d_a70228126cbaaf6e617e2f457ff1004f1}\label{class_plot2_d_a70228126cbaaf6e617e2f457ff1004f1}} 
-Image\+Coordinate {\bfseries m\+Data\+Frame\+End}
+std\+::pair$<$ double, double $>$ \mbox{\hyperlink{class_plot2_d_a37d647253b19debd0707fe4e4243509a}{m\+YPlot\+Range}}
 \item 
-\mbox{\Hypertarget{class_plot2_d_a299c8d2448382785355c9dc406edceb7}\label{class_plot2_d_a299c8d2448382785355c9dc406edceb7}} 
-std\+::pair$<$ double, double $>$ {\bfseries m\+XPlot\+Range}
+std\+::function$<$ double(double)$>$ \mbox{\hyperlink{class_plot2_d_a66015c27cf36470a1ff8376ba15cda4d}{m\+XScaling\+Function}} = \mbox{[}$\,$\mbox{]}(double x)\{ return x; \}
 \item 
-\mbox{\Hypertarget{class_plot2_d_a37d647253b19debd0707fe4e4243509a}\label{class_plot2_d_a37d647253b19debd0707fe4e4243509a}} 
-std\+::pair$<$ double, double $>$ {\bfseries m\+YPlot\+Range}
+std\+::function$<$ double(double)$>$ \mbox{\hyperlink{class_plot2_d_a195cc1a4b4eafd13f06ec2678608420d}{m\+YScaling\+Function}} = \mbox{[}$\,$\mbox{]}(double y)\{ return y; \}
 \item 
-\mbox{\Hypertarget{class_plot2_d_a66015c27cf36470a1ff8376ba15cda4d}\label{class_plot2_d_a66015c27cf36470a1ff8376ba15cda4d}} 
-std\+::function$<$ double(double)$>$ {\bfseries m\+XScaling\+Function} = \mbox{[}$\,$\mbox{]}(double x)\{ return x; \}
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ const Data\+Set $>$ $>$ \mbox{\hyperlink{class_plot2_d_a11da671488c635aaf60a6de6897d98ba}{m\+Data\+Sets}}
 \item 
-\mbox{\Hypertarget{class_plot2_d_a195cc1a4b4eafd13f06ec2678608420d}\label{class_plot2_d_a195cc1a4b4eafd13f06ec2678608420d}} 
-std\+::function$<$ double(double)$>$ {\bfseries m\+YScaling\+Function} = \mbox{[}$\,$\mbox{]}(double y)\{ return y; \}
+std\+::vector$<$ std\+::vector$<$ Image\+Coordinate $>$ $>$ \mbox{\hyperlink{class_plot2_d_a0f441252c55e50f96f688007c351ca71}{m\+Coordinates\+Of\+Data\+Points}}
 \item 
-\mbox{\Hypertarget{class_plot2_d_a11da671488c635aaf60a6de6897d98ba}\label{class_plot2_d_a11da671488c635aaf60a6de6897d98ba}} 
-std\+::vector$<$ std\+::shared\+\_\+ptr$<$ const Data\+Set $>$ $>$ {\bfseries m\+Data\+Sets}
-\item 
-\mbox{\Hypertarget{class_plot2_d_a0f441252c55e50f96f688007c351ca71}\label{class_plot2_d_a0f441252c55e50f96f688007c351ca71}} 
-std\+::vector$<$ std\+::vector$<$ Image\+Coordinate $>$ $>$ {\bfseries m\+Coordinates\+Of\+Data\+Points}
-\item 
-\mbox{\Hypertarget{class_plot2_d_a2ef9206d8730dbf2d9d13d51aab8e89a}\label{class_plot2_d_a2ef9206d8730dbf2d9d13d51aab8e89a}} 
-std\+::vector$<$ \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ $>$ {\bfseries m\+Plot\+Markers}
+std\+::vector$<$ \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ $>$ \mbox{\hyperlink{class_plot2_d_a2ef9206d8730dbf2d9d13d51aab8e89a}{m\+Plot\+Markers}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Private Attributes}
 \begin{DoxyCompactItemize}
@@ -103,7 +79,43 @@ static const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ {\bfs
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Plot2\+D$<$ T $>$}
+A DESCRIPTION HERE 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_plot2_d_a397fc9d6f41014c47eee4e71492db7c4}\label{class_plot2_d_a397fc9d6f41014c47eee4e71492db7c4}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!Plot2D@{Plot2D}}
+\index{Plot2D@{Plot2D}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Plot2D()}{Plot2D()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\mbox{\hyperlink{class_plot2_d}{\+::\+Plot2D}} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{width,  }\item[{std\+::size\+\_\+t}]{height }\end{DoxyParamCaption})}
+
+Construct an empty plot of a fixed size. 
+\begin{DoxyParams}{Parameters}
+{\em width} & Width of the plot in terms of Pixels \\
+\hline
+{\em height} & Height of the plot in terms of Pixels \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_plot2_d_acd22e547d8903adfb1c682dfb84918f9}\label{class_plot2_d_acd22e547d8903adfb1c682dfb84918f9}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!addDataSet@{addDataSet}}
+\index{addDataSet@{addDataSet}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addDataSet()}{addDataSet()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::add\+Data\+Set (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ const Data\+Set $>$}]{data\+Set,  }\item[{\mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$}]{plot\+Marker }\end{DoxyParamCaption})}
+
+Add a data set to the plot with specified plot markers. 
+\begin{DoxyParams}{Parameters}
+{\em data\+Set} & Pointer to the data set (vector of (x,y)-\/pairs of double values) \\
+\hline
+{\em plot\+Marker} & \mbox{\hyperlink{class_pixel}{Pixel}} that will be used to mark the data points from the set in the plot \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}\label{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}} 
 \index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!addHorizontalAxis@{addHorizontalAxis}}
 \index{addHorizontalAxis@{addHorizontalAxis}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
@@ -111,13 +123,13 @@ static const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ {\bfs
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::add\+Horizontal\+Axis (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{v\+Pos,  }\item[{std\+::size\+\_\+t}]{h\+Pos\+Start,  }\item[{std\+::size\+\_\+t}]{h\+Pos\+End,  }\item[{T}]{color }\end{DoxyParamCaption})}
 
-Adds a horizontal axis to the plot that extends from (h\+Pos\+Start,v\+Pos) to (h\+Pos\+End,v\+Pos). 
+Adds a horizontal axis to the plot. 
 \begin{DoxyParams}{Parameters}
 {\em v\+Pos} & vertical coordinate of the axis \\
 \hline
 {\em h\+Pos\+Start} & Horizontal coordinate of the start point of the axis \\
 \hline
-{\em h\+Pos\+End} & Horizontal coordinate of the end of the axis \\
+{\em h\+Pos\+End} & Horizontal coordinate of the end point of the axis \\
 \hline
 {\em color} & Color of the axis \\
 \hline
@@ -129,7 +141,7 @@ Adds a horizontal axis to the plot that extends from (h\+Pos\+Start,v\+Pos) to (
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::add\+Horizontal\+Axis (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{v\+Pos,  }\item[{std\+::size\+\_\+t}]{h\+Pos\+Start,  }\item[{std\+::size\+\_\+t}]{h\+Pos\+End,  }\item[{T}]{color,  }\item[{const std\+::string \&}]{label,  }\item[{float}]{relative\+Label\+Position = {\ttfamily 0.5},  }\item[{bool}]{label\+Below = {\ttfamily true} }\end{DoxyParamCaption})}
 
-Adds a labelled horizontal axis to the plot that extends from (h\+Pos\+Start,v\+Pos) to (h\+Pos\+End,v\+Pos). The position of the axis will be changed to make space for the label. 
+Adds a labelled horizontal axis to the plot. The position of the axis will be changed to make space for the label. 
 \begin{DoxyParams}{Parameters}
 {\em label} & Label that is added to the axis \\
 \hline
@@ -141,6 +153,20 @@ Adds a labelled horizontal axis to the plot that extends from (h\+Pos\+Start,v\+
 \begin{DoxySeeAlso}{See also}
 \mbox{\hyperlink{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}{add\+Horizontal\+Axis( std\+::size\+\_\+t v\+Pos, std\+::size\+\_\+t h\+Pos\+Start, std\+::size\+\_\+t h\+Pos\+End, T color )}} 
 \end{DoxySeeAlso}
+\mbox{\Hypertarget{class_plot2_d_a609838a36eeb52a934e8518117232e95}\label{class_plot2_d_a609838a36eeb52a934e8518117232e95}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!addText@{addText}}
+\index{addText@{addText}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addText()}{addText()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::add\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text,  }\item[{Image\+Coordinate \&}]{text\+Position }\end{DoxyParamCaption})}
+
+Adds text (string) to the plot. 
+\begin{DoxyParams}{Parameters}
+{\em text} & Text that will be added \\
+\hline
+{\em text\+Position} & Position where the first character of text will appear in the plot \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}\label{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}} 
 \index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!addVerticalAxis@{addVerticalAxis}}
 \index{addVerticalAxis@{addVerticalAxis}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
@@ -148,13 +174,13 @@ Adds a labelled horizontal axis to the plot that extends from (h\+Pos\+Start,v\+
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::add\+Vertical\+Axis (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{h\+Pos,  }\item[{std\+::size\+\_\+t}]{v\+Pos\+Start,  }\item[{std\+::size\+\_\+t}]{v\+Pos\+End,  }\item[{T}]{color }\end{DoxyParamCaption})}
 
-Adds a vertical axis to the plot that extends from (h\+Pos,v\+Pos\+Start) to (h\+Pos,v\+Pos\+End) 
+Adds a vertical axis to the plot. 
 \begin{DoxyParams}{Parameters}
 {\em h\+Pos} & Horizontal coordinate of the axis \\
 \hline
 {\em v\+Pos\+Start} & Vertical coordinate of the start point of the axis \\
 \hline
-{\em v\+Pos\+End} & Vertical coordinate of the end of the axis \\
+{\em v\+Pos\+End} & Vertical coordinate of the end point of the axis \\
 \hline
 {\em color} & Color of the axis \\
 \hline
@@ -166,7 +192,7 @@ Adds a vertical axis to the plot that extends from (h\+Pos,v\+Pos\+Start) to (h\
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::add\+Vertical\+Axis (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{h\+Pos,  }\item[{std\+::size\+\_\+t}]{v\+Pos\+Start,  }\item[{std\+::size\+\_\+t}]{v\+Pos\+End,  }\item[{T}]{color,  }\item[{const std\+::string \&}]{label,  }\item[{float}]{relative\+Label\+Position = {\ttfamily 0.5},  }\item[{bool}]{label\+Left = {\ttfamily true},  }\item[{bool}]{rotate\+Label = {\ttfamily false} }\end{DoxyParamCaption})}
 
-Adds a labelled vertical axis to the plot that extends from (h\+Pos,v\+Pos\+Start) to (h\+Pos,v\+Pos\+End). The position of the axis will be changed to make space for the label. 
+Adds a labelled vertical axis to the plot. The position of the axis will be changed to make space for the label. 
 \begin{DoxyParams}{Parameters}
 {\em label} & Label that is added to the axis \\
 \hline
@@ -180,7 +206,173 @@ Adds a labelled vertical axis to the plot that extends from (h\+Pos,v\+Pos\+Star
 \begin{DoxySeeAlso}{See also}
 \mbox{\hyperlink{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}{add\+Vertical\+Axis( std\+::size\+\_\+t h\+Pos, std\+::size\+\_\+t v\+Pos\+Start, std\+::size\+\_\+t v\+Pos\+End, T color )}} 
 \end{DoxySeeAlso}
+\mbox{\Hypertarget{class_plot2_d_a05ed3b8f655efea3e71076658dcc3913}\label{class_plot2_d_a05ed3b8f655efea3e71076658dcc3913}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mAllDataSetsToCoordinates@{mAllDataSetsToCoordinates}}
+\index{mAllDataSetsToCoordinates@{mAllDataSetsToCoordinates}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mAllDataSetsToCoordinates()}{mAllDataSetsToCoordinates()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+All\+Data\+Sets\+To\+Coordinates\hspace{0.3cm}{\ttfamily [private]}}
 
+Remove all data sets from the plot (if already shown), (re-\/)compute positions of Pixels in the plot and add them to m\+Coordinates\+Of\+Data\+Points. \mbox{\Hypertarget{class_plot2_d_a4a4c1094df054884b55180e1249f1855}\label{class_plot2_d_a4a4c1094df054884b55180e1249f1855}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mClear@{mClear}}
+\index{mClear@{mClear}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mClear()}{mClear()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Clear\hspace{0.3cm}{\ttfamily [private]}}
+
+Sets all Pixels representing data points in the plot to empty\+Pixel. This does not remove data\+Sets from m\+Data\+Sets. \mbox{\Hypertarget{class_plot2_d_aa1597d1644b442b11894e359dc374ff0}\label{class_plot2_d_aa1597d1644b442b11894e359dc374ff0}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mDataPointToCoordinate@{mDataPointToCoordinate}}
+\index{mDataPointToCoordinate@{mDataPointToCoordinate}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mDataPointToCoordinate()}{mDataPointToCoordinate()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Image\+Coordinate \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Data\+Point\+To\+Coordinate (\begin{DoxyParamCaption}\item[{const Data\+Point\+XY \&}]{data\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Transform a data point to a coordinate in the base image of the plot 
+\begin{DoxyParams}{Parameters}
+{\em data\+Point} & Pair of (x,y) values that will be transformed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Coordinate of the data point in the base image of the plot. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_plot2_d_aaba1d6b0982a67867f4e63f93a8cfc1e}\label{class_plot2_d_aaba1d6b0982a67867f4e63f93a8cfc1e}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mDataSetToCoordinates@{mDataSetToCoordinates}}
+\index{mDataSetToCoordinates@{mDataSetToCoordinates}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mDataSetToCoordinates()}{mDataSetToCoordinates()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Data\+Set\+To\+Coordinates (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{j\+Data\+Set }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+For a single data set\+: Remove the data set from the plot (if already shown), (re-\/)compute positions of Pixels in the plot and add them to m\+Coordinates\+Of\+Data\+Points. 
+\begin{DoxyParams}{Parameters}
+{\em j\+Data\+Set} & index of the data set in m\+Data\+Sets \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_plot2_d_aaf474365239de9b28942c6bf37af3ddf}\label{class_plot2_d_aaf474365239de9b28942c6bf37af3ddf}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!setPlotRange@{setPlotRange}}
+\index{setPlotRange@{setPlotRange}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setPlotRange()}{setPlotRange()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::set\+Plot\+Range (\begin{DoxyParamCaption}\item[{const std\+::pair$<$ double, double $>$ \&}]{x\+Plot\+Range,  }\item[{const std\+::pair$<$ double, double $>$ \&}]{y\+Plot\+Range }\end{DoxyParamCaption})}
+
+Set the range of values represented on the horizontal (x) and vertical (y) axes 
+\begin{DoxyParams}{Parameters}
+{\em x\+Plot\+Range} & Pair of minimal and maximal values represented on the x axis. \\
+\hline
+{\em y\+Plot\+Range} & Pair of minimal and maximal values represented on the y axis. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_plot2_d_aea5e9703a077095946670717b46c69b6}\label{class_plot2_d_aea5e9703a077095946670717b46c69b6}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!setXAxisScaling@{setXAxisScaling}}
+\index{setXAxisScaling@{setXAxisScaling}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setXAxisScaling()}{setXAxisScaling()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::set\+XAxis\+Scaling (\begin{DoxyParamCaption}\item[{const std\+::function$<$ double(double)$>$ \&}]{x\+Scaling\+Function }\end{DoxyParamCaption})}
+
+Specify the scaling of the horizontal x-\/axis of the plot, e.\+g. linear (default), logarithmic, etc. 
+\begin{DoxyParams}{Parameters}
+{\em x\+Scaling\+Function} & Function that defines the \char`\"{}new\char`\"{} axis coordinate in terms of the original linear one\+: x\textquotesingle{} = x\+Scaling\+Function(x) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_plot2_d_ab8d7c4a7fd5881935647257e537d84ca}\label{class_plot2_d_ab8d7c4a7fd5881935647257e537d84ca}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!setYAxisScaling@{setYAxisScaling}}
+\index{setYAxisScaling@{setYAxisScaling}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setYAxisScaling()}{setYAxisScaling()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::set\+YAxis\+Scaling (\begin{DoxyParamCaption}\item[{const std\+::function$<$ double(double)$>$ \&}]{y\+Scaling\+Function }\end{DoxyParamCaption})}
+
+Specify the scaling of the vertical y-\/axis of the plot, e.\+g. linear (default), logarithmic, etc. 
+\begin{DoxyParams}{Parameters}
+{\em y\+Scaling\+Function} & Function that defines the \char`\"{}new\char`\"{} axis coordinate in terms of the original linear one\+: y\textquotesingle{} = y\+Scaling\+Function(x) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_plot2_d_a0f441252c55e50f96f688007c351ca71}\label{class_plot2_d_a0f441252c55e50f96f688007c351ca71}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mCoordinatesOfDataPoints@{mCoordinatesOfDataPoints}}
+\index{mCoordinatesOfDataPoints@{mCoordinatesOfDataPoints}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mCoordinatesOfDataPoints}{mCoordinatesOfDataPoints}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$ std\+::vector$<$Image\+Coordinate$>$ $>$ \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Coordinates\+Of\+Data\+Points\hspace{0.3cm}{\ttfamily [private]}}
+
+Coordinates in the base image representing all data points in all data sets (one vector for each data set, i.\+e. i.\+e. m\+Coordinates\+Of\+Data\+Points.\+at(j) belongs to m\+Data\+Sets.\+at(j)). \mbox{\Hypertarget{class_plot2_d_a70228126cbaaf6e617e2f457ff1004f1}\label{class_plot2_d_a70228126cbaaf6e617e2f457ff1004f1}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mDataFrameEnd@{mDataFrameEnd}}
+\index{mDataFrameEnd@{mDataFrameEnd}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mDataFrameEnd}{mDataFrameEnd}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Image\+Coordinate \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Data\+Frame\+End\hspace{0.3cm}{\ttfamily [private]}}
+
+Image\+Coordinate of the lower right corner of the data frame, i.\+e. the area of the base image that shows data values. \mbox{\Hypertarget{class_plot2_d_a3e2b1ead9aa2e48522bb54a07e241f9b}\label{class_plot2_d_a3e2b1ead9aa2e48522bb54a07e241f9b}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mDataFrameStart@{mDataFrameStart}}
+\index{mDataFrameStart@{mDataFrameStart}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mDataFrameStart}{mDataFrameStart}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Image\+Coordinate \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Data\+Frame\+Start\hspace{0.3cm}{\ttfamily [private]}}
+
+Image\+Coordinate of the top left corner of the data frame, i.\+e. the area of the base image that shows data values. \mbox{\Hypertarget{class_plot2_d_a11da671488c635aaf60a6de6897d98ba}\label{class_plot2_d_a11da671488c635aaf60a6de6897d98ba}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mDataSets@{mDataSets}}
+\index{mDataSets@{mDataSets}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mDataSets}{mDataSets}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$const Data\+Set$>$ $>$ \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Data\+Sets\hspace{0.3cm}{\ttfamily [private]}}
+
+Data sets that are shown in the plot. Each data set is given by a pointer to a vector of Data\+Point\+XY (i.\+e. pairs of doubles (x and y values)) \mbox{\Hypertarget{class_plot2_d_ad3850e9dfce5560cf87a5aa3245c3e59}\label{class_plot2_d_ad3850e9dfce5560cf87a5aa3245c3e59}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mHorizontalAxes@{mHorizontalAxes}}
+\index{mHorizontalAxes@{mHorizontalAxes}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mHorizontalAxes}{mHorizontalAxes}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$\mbox{\hyperlink{class_axis}{Axis}}$<$T$>$ $>$ \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Horizontal\+Axes\hspace{0.3cm}{\ttfamily [private]}}
+
+Horizontal axes that are part of the plot. \mbox{\Hypertarget{class_plot2_d_a2ef9206d8730dbf2d9d13d51aab8e89a}\label{class_plot2_d_a2ef9206d8730dbf2d9d13d51aab8e89a}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mPlotMarkers@{mPlotMarkers}}
+\index{mPlotMarkers@{mPlotMarkers}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mPlotMarkers}{mPlotMarkers}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{class_pixel}{Pixel}}$<$T,std\+::string$>$ $>$ \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Plot\+Markers\hspace{0.3cm}{\ttfamily [private]}}
+
+Markers (single Pixels) that represent points from the data sets in the plot (one for each data set, i.\+e. m\+Plot\+Markers.\+at(j) belongs to m\+Data\+Sets.\+at(j)) \mbox{\Hypertarget{class_plot2_d_a12370dae595d81fec79523b65ed4a0da}\label{class_plot2_d_a12370dae595d81fec79523b65ed4a0da}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mText@{mText}}
+\index{mText@{mText}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mText}{mText}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$std\+::pair$<$std\+::string,Image\+Coordinate$>$ $>$ \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+Text shown in the plot\+: strings together with coordinates of their first character in the base image. \mbox{\Hypertarget{class_plot2_d_a9c3db3812068f632b1a3de673b1e0fc1}\label{class_plot2_d_a9c3db3812068f632b1a3de673b1e0fc1}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mVerticalAxes@{mVerticalAxes}}
+\index{mVerticalAxes@{mVerticalAxes}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mVerticalAxes}{mVerticalAxes}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::vector$<$\mbox{\hyperlink{class_axis}{Axis}}$<$T$>$ $>$ \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Vertical\+Axes\hspace{0.3cm}{\ttfamily [private]}}
+
+Vertical axes that are part of the plot. \mbox{\Hypertarget{class_plot2_d_a299c8d2448382785355c9dc406edceb7}\label{class_plot2_d_a299c8d2448382785355c9dc406edceb7}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mXPlotRange@{mXPlotRange}}
+\index{mXPlotRange@{mXPlotRange}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mXPlotRange}{mXPlotRange}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::pair$<$double,double$>$ \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+XPlot\+Range\hspace{0.3cm}{\ttfamily [private]}}
+
+Range (xmin,xmax) of values represented on the x axis. \mbox{\Hypertarget{class_plot2_d_a66015c27cf36470a1ff8376ba15cda4d}\label{class_plot2_d_a66015c27cf36470a1ff8376ba15cda4d}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mXScalingFunction@{mXScalingFunction}}
+\index{mXScalingFunction@{mXScalingFunction}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mXScalingFunction}{mXScalingFunction}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::function$<$double(double)$>$ \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+XScaling\+Function = \mbox{[}$\,$\mbox{]}(double x)\{ return x; \}\hspace{0.3cm}{\ttfamily [private]}}
+
+Function that holds the scaling of values along the x axis\+: x\textquotesingle{} = m\+XScaling\+Function( x\+Linear ) \mbox{\Hypertarget{class_plot2_d_a37d647253b19debd0707fe4e4243509a}\label{class_plot2_d_a37d647253b19debd0707fe4e4243509a}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mYPlotRange@{mYPlotRange}}
+\index{mYPlotRange@{mYPlotRange}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mYPlotRange}{mYPlotRange}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::pair$<$double,double$>$ \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+YPlot\+Range\hspace{0.3cm}{\ttfamily [private]}}
+
+Range (ymin,ymax) of values represented on the y axis. \mbox{\Hypertarget{class_plot2_d_a195cc1a4b4eafd13f06ec2678608420d}\label{class_plot2_d_a195cc1a4b4eafd13f06ec2678608420d}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mYScalingFunction@{mYScalingFunction}}
+\index{mYScalingFunction@{mYScalingFunction}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mYScalingFunction}{mYScalingFunction}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::function$<$double(double)$>$ \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+YScaling\+Function = \mbox{[}$\,$\mbox{]}(double y)\{ return y; \}\hspace{0.3cm}{\ttfamily [private]}}
+
+Function that holds the scaling of values along the y axis\+: y\textquotesingle{} = m\+YScaling\+Function( y\+Linear ) 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

@@ -1,3 +1,20 @@
+/* bplot - a tool to plot two-dimensional data to the command line
+ * Copyright (C) 2022  Birger Böning
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 #include "../header/image.h"
 
 /*------------------------------------------------------------------*/
@@ -21,7 +38,6 @@ Image<T1,T2>::Image(std::size_t width, std::size_t height)
     : mWidth(width)
     , mHeight(height)
 {
-    //CORRECT ORDER of width&height w.r.t. efficiency?
     mPixels = std::vector< std::vector< Pixel<T1,T2> > >( height, std::vector< Pixel<T1,T2> >(width) );
 }
 

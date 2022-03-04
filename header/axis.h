@@ -1,6 +1,21 @@
-#pragma once
+/* bplot - a tool to plot two-dimensional data to the command line
+ * Copyright (C) 2022  Birger Böning
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 
-/* Axis represents an axis in a plot associated to it */
+#pragma once
 
 #include <algorithm> //std::find, std::max
 #include <string>
@@ -16,28 +31,31 @@ class Plot2D;
 using ImageCoordinate = std::pair<std::size_t,std::size_t>; //Stores a pair (jh,jv) of horizontal and vertical indices in the base image of the plot
 using Tick = std::pair<std::string,float>; //Stores a "Tick" next to the axis in the form (TickLabel, relativePosition)
 
-//Declaration of the Axis class
+/** A DESCRIPTION HERE
+	*/
+/* Axis represents an axis in a plot associated to it */
 template <typename T = Mono>
 class Axis
 {
 private:
 	inline static const Pixel<T,std::string> emptyPixel = Pixel<T,std::string>(T()," ");
-	const Plot2D<T> &mPlot; //The axis is part of this plot
 
-	ImageCoordinate mUpperLeftIndex; //Upper left index of the rectangle holding the axis including ticks and labels
-	ImageCoordinate mLowerRightIndex; //Upper left index of the rectangle holding the axis including ticks and labels
+	const Plot2D<T> &mPlot; /*!< Plot that this axis is part of. */
 
-	bool mIsHorizontal; //0: horizontal axis, 1: vertical axis
-	Pixel<T,std::string> mAxisElement; //Pixel representing a single element of the axis
-	std::vector< Pixel<T,std::string> > mLabel;
-	std::vector< Pixel<T,std::string> > mTicks;
-	std::size_t mLabelOffset = 1; //Space (in Pixels) between label and axis
+	ImageCoordinate mUpperLeftIndex; /*!< Upper left index in mPlot of the rectangle holding the axis including ticks and labels. */
+	ImageCoordinate mLowerRightIndex; /*!< Lower right index in mPlot of the rectangle holding the axis including ticks and labels. */
+
+	bool mIsHorizontal; /*!< True: This is a horitontal axis. False: This is a vertical axis. */
+	Pixel<T,std::string> mAxisElement; /*!< Pixel representing a single element of the axis. */
+	std::vector< Pixel<T,std::string> > mLabel; /*!< Pixels holding the label of the axis. Their positions in mPlot are stored in mLabelCoordinates. */
+	std::vector< Pixel<T,std::string> > mTicks; /*!< Pixels holding the ticks of the axis. Their positions in mPlot are stored in mTicksCoordinates. */
+	std::size_t mLabelOffset = 1; /*!< Space (in number of Pixels) between label and axis. */
 
 	//TODO: The following four should possibly better be maps or sets in order to improve lookups!
-	std::vector<ImageCoordinate> mAllCoordinates;
-	std::vector<ImageCoordinate> mAxisCoordinates; //Vector of index pairs (jh,jv) in the base Image of the associated Plot2D that are showing vertical axes elements
-	std::vector<ImageCoordinate> mLabelCoordinates; //Vector of index pairs (jh,jv) in the base Image of the associated Plot2D that are showing the label
-	std::vector<ImageCoordinate> mTicksCoordinates; //Vector of index pairs (jh,jv) in the base Image of the associated Plot2D that are showing empty pixels
+	std::vector<ImageCoordinate> mAllCoordinates; /*!< All ImageCoordinates in mPlot where Pixels of the axis/label/ticks are shown. */
+	std::vector<ImageCoordinate> mAxisCoordinates; /*!< All ImageCoordinates in mPlot where Pixels of the axis itself (i.e. mAxisElement) are shown. */
+	std::vector<ImageCoordinate> mLabelCoordinates; /*!< All ImageCoordinates in mPlot where Pixels of the label are shown. */
+	std::vector<ImageCoordinate> mTicksCoordinates; /*!< All ImageCoordinates in mPlot where Pixels of the ticks are shown. */
 
 	std::pair<int,int> mAddAttribute( const std::vector< Pixel<T,std::string> >& attribute, float position, std::size_t offsetFromAxis, bool leftOrBottom, std::vector<ImageCoordinate>& coordinateVector , bool rotate = false );
 	void mAddRangeToCoordinateVector( std::vector<ImageCoordinate>& coordinateVector, const ImageCoordinate& firstNewCoordinate, std::size_t hRange, std::size_t vRange );
@@ -70,10 +88,7 @@ public:
 
 	/*--------------------------*/
 
-	/*----------Operators----------*/
-
-	/*-----------------------------*/
 };
 
-/*Include method definitions (needed here for the compiler because it is a class template!)*/
+/*Include method definitions for the template class*/
 #include "../src/axis.cpp"

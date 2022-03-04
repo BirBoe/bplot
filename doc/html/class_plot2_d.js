@@ -1,7 +1,29 @@
 var class_plot2_d =
 [
+    [ "Plot2D", "class_plot2_d.html#a397fc9d6f41014c47eee4e71492db7c4", null ],
+    [ "addDataSet", "class_plot2_d.html#acd22e547d8903adfb1c682dfb84918f9", null ],
     [ "addHorizontalAxis", "class_plot2_d.html#af6eb4cb477dcce5f6b1decf29533415c", null ],
     [ "addHorizontalAxis", "class_plot2_d.html#aad969a3d59c2810657c3d51432114e91", null ],
+    [ "addText", "class_plot2_d.html#a609838a36eeb52a934e8518117232e95", null ],
     [ "addVerticalAxis", "class_plot2_d.html#acde2ea83f7089adcb2ee96ccfe046d9e", null ],
-    [ "addVerticalAxis", "class_plot2_d.html#a7fa1bedd99cb008799ed7d1ef4518884", null ]
+    [ "addVerticalAxis", "class_plot2_d.html#a7fa1bedd99cb008799ed7d1ef4518884", null ],
+    [ "mAllDataSetsToCoordinates", "class_plot2_d.html#a05ed3b8f655efea3e71076658dcc3913", null ],
+    [ "mClear", "class_plot2_d.html#a4a4c1094df054884b55180e1249f1855", null ],
+    [ "mDataPointToCoordinate", "class_plot2_d.html#aa1597d1644b442b11894e359dc374ff0", null ],
+    [ "mDataSetToCoordinates", "class_plot2_d.html#aaba1d6b0982a67867f4e63f93a8cfc1e", null ],
+    [ "setPlotRange", "class_plot2_d.html#aaf474365239de9b28942c6bf37af3ddf", null ],
+    [ "setXAxisScaling", "class_plot2_d.html#aea5e9703a077095946670717b46c69b6", null ],
+    [ "setYAxisScaling", "class_plot2_d.html#ab8d7c4a7fd5881935647257e537d84ca", null ],
+    [ "mCoordinatesOfDataPoints", "class_plot2_d.html#a0f441252c55e50f96f688007c351ca71", null ],
+    [ "mDataFrameEnd", "class_plot2_d.html#a70228126cbaaf6e617e2f457ff1004f1", null ],
+    [ "mDataFrameStart", "class_plot2_d.html#a3e2b1ead9aa2e48522bb54a07e241f9b", null ],
+    [ "mDataSets", "class_plot2_d.html#a11da671488c635aaf60a6de6897d98ba", null ],
+    [ "mHorizontalAxes", "class_plot2_d.html#ad3850e9dfce5560cf87a5aa3245c3e59", null ],
+    [ "mPlotMarkers", "class_plot2_d.html#a2ef9206d8730dbf2d9d13d51aab8e89a", null ],
+    [ "mText", "class_plot2_d.html#a12370dae595d81fec79523b65ed4a0da", null ],
+    [ "mVerticalAxes", "class_plot2_d.html#a9c3db3812068f632b1a3de673b1e0fc1", null ],
+    [ "mXPlotRange", "class_plot2_d.html#a299c8d2448382785355c9dc406edceb7", null ],
+    [ "mXScalingFunction", "class_plot2_d.html#a66015c27cf36470a1ff8376ba15cda4d", null ],
+    [ "mYPlotRange", "class_plot2_d.html#a37d647253b19debd0707fe4e4243509a", null ],
+    [ "mYScalingFunction", "class_plot2_d.html#a195cc1a4b4eafd13f06ec2678608420d", null ]
 ];

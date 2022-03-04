@@ -1,3 +1,20 @@
+/* bplot - a tool to plot two-dimensional data to the command line
+ * Copyright (C) 2022  Birger Böning
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 #include "../header/plot2d.h"
 
 /*-------------------Private member functions-----------------------*/
@@ -43,7 +60,7 @@ ImageCoordinate Plot2D<T>::mDataPointToCoordinate( const DataPointXY& dataPoint 
 	std::size_t xReturn = static_cast<std::size_t>( (mXScalingFunction(dataPoint.first)-mXScalingFunction(mXPlotRange.first))/(mXScalingFunction(mXPlotRange.second)+mXScalingFunction(mXPlotRange.first)) * (mDataFrameEnd.first - mDataFrameStart.first) ) + mDataFrameStart.first;
 	if( xReturn > mDataFrameEnd.first ) return std::make_pair(0,0); //If the point is outside the data frame, place it outside the image
 
-	std::size_t yReturn = mHeight - 1 - ( static_cast<std::size_t>( (mYScalingFunction(dataPoint.second)-mYScalingFunction(mYPlotRange.first))/(mYScalingFunction(mYPlotRange.second)+mYScalingFunction(mYPlotRange.first)) * (mDataFrameEnd.second - mDataFrameStart.second) ) + mDataFrameStart.second );
+	std::size_t yReturn = this->getHeight() - 1 - ( static_cast<std::size_t>( (mYScalingFunction(dataPoint.second)-mYScalingFunction(mYPlotRange.first))/(mYScalingFunction(mYPlotRange.second)+mYScalingFunction(mYPlotRange.first)) * (mDataFrameEnd.second - mDataFrameStart.second) ) + mDataFrameStart.second );
 	if( yReturn > mDataFrameEnd.second ) return std::make_pair(0,0); //If the point is outside the data frame, place it outside the image
 
 	return std::make_pair(xReturn,yReturn);
@@ -57,8 +74,6 @@ ImageCoordinate Plot2D<T>::mDataPointToCoordinate( const DataPointXY& dataPoint 
 template <typename T>
 Plot2D<T>::Plot2D( std::size_t width, std::size_t height ) : Image<T,std::string>(width,height)
 {
-	mWidth = width;
-	mHeight = height;
 	this->setPixels(emptyPixel); //Set all pixels in the image to empty
   if( width > 2 && height > 2 )
   {
@@ -166,13 +181,13 @@ void Plot2D<T>::addHorizontalAxis( std::size_t vPos, std::size_t hPosStart, std:
 }
 
 template <typename T>
-void Plot2D<T>::addText( std::size_t hPos, std::size_t vPos, const std::string& text ) //Adds (horizontal) text starting at position (hPos,vPos)
+void Plot2D<T>::addText( const std::string& text, ImageCoordinate& textPosition )
 {
-  this->at( hPos, vPos ).setSymbol(text);
+  this->at( textPosition.first, textPosition.second ).setSymbol(text);
   for( int j = 1; j < text.length(); j++ ) {
-    this->at( hPos+j, vPos ).setSymbol("");
+    this->at( textPosition.first+j, textPosition.second ).setSymbol("");
   }
-  mText.push_back(std::make_pair(text,std::make_pair(hPos,vPos)));
+  mText.push_back(std::make_pair(text,std::make_pair(textPosition.first,textPosition.second)));
 }
 
 template <typename T>

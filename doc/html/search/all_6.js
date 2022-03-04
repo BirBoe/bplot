@@ -1,16 +1,12 @@
 var searchData=
 [
-  ['g_0',['g',['../struct_r_g_b.html#af970a72243681add6fdab6f215568b05',1,'RGB']]],
-  ['getaspectratio_1',['getAspectRatio',['../class_image.html#a9b138194c925d7397d34ea3950a3a017',1,'Image']]],
-  ['getaxiscoordinates_2',['getAxisCoordinates',['../class_axis.html#ac2efd8b6c50ae2e5a3350dbb37a4819a',1,'Axis']]],
-  ['getaxiselement_3',['getAxisElement',['../class_axis.html#a7f74114dcfe89a9063857ea2f6bd1f8b',1,'Axis']]],
-  ['getcolor_4',['getColor',['../class_pixel.html#a28955aa046f5c5f55429b7fe36811c04',1,'Pixel']]],
-  ['getcoordinates_5',['getCoordinates',['../class_axis.html#a0540d6c1c6149176369748a825893e9f',1,'Axis']]],
-  ['getfillspaces_6',['getFillSpaces',['../class_image.html#a9ac0e27da0e7f63f658789fd7ece481b',1,'Image']]],
-  ['getheight_7',['getHeight',['../class_image.html#a1e179af1723921271db4c625812457cc',1,'Image']]],
-  ['getlabelcoordinates_8',['getLabelCoordinates',['../class_axis.html#a886abf6cc90501566d5f04dc4d5a1a3c',1,'Axis']]],
-  ['getlabeloffset_9',['getLabelOffset',['../class_axis.html#a34f6c13f0182636ce440f96efb11c300',1,'Axis']]],
-  ['getpixels_10',['getPixels',['../class_image.html#a6e6c087512eee4d10394ff377379e846',1,'Image']]],
-  ['getsymbol_11',['getSymbol',['../class_pixel.html#a464d850416ee007deed8d4575551e94f',1,'Pixel']]],
-  ['getwidth_12',['getWidth',['../class_image.html#a44acdd8649a5e799113b58461690315b',1,'Image']]]
+  ['setaspectratio_0',['setAspectRatio',['../class_image.html#a1add6796c65167445fd67642452d02d7',1,'Image']]],
+  ['setfillspaces_1',['setFillSpaces',['../class_image.html#abacd262ce7b970c0b7ddb9d445180ec2',1,'Image']]],
+  ['setheight_2',['setHeight',['../class_image.html#af8c4b9b54a1797173a8e59d7592c1dd8',1,'Image']]],
+  ['setpixels_3',['setPixels',['../class_image.html#ae59fc57ad71369bc708a03175a31e621',1,'Image']]],
+  ['setplotrange_4',['setPlotRange',['../class_plot2_d.html#aaf474365239de9b28942c6bf37af3ddf',1,'Plot2D']]],
+  ['setwidth_5',['setWidth',['../class_image.html#ad7d4d207f965baa57f8e270763187796',1,'Image']]],
+  ['setxaxisscaling_6',['setXAxisScaling',['../class_plot2_d.html#aea5e9703a077095946670717b46c69b6',1,'Plot2D']]],
+  ['setyaxisscaling_7',['setYAxisScaling',['../class_plot2_d.html#ab8d7c4a7fd5881935647257e537d84ca',1,'Plot2D']]],
+  ['show_8',['show',['../class_image.html#a688e4526026154edfb35fec4aacc9297',1,'Image']]]
 ];
