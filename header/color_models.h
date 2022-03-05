@@ -15,27 +15,39 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/*Defines structs that represent color values for single pixels*/
-
 #pragma once
 #include <cstdint> //defines integral types int8_t etc.
 
-//RGB (8-bit) color scale
+/**
+	* RGB color model (8-bit)
+	*/
 struct RGB {
-	uint8_t r = 255;
-	uint8_t g = 255;
-	uint8_t b = 255;
+	uint8_t r = 255; /*!< red value*/
+	uint8_t g = 255; /*!< green value*/
+	uint8_t b = 255; /*!< blue value*/
 };
 
+/**
+	* Get the ansi color code for an RGB color, e.g. to be used in output to the console
+	* @param color RGB color to be "translated"
+	* @return ansi color code
+	*/
 std::string color_to_ansi( RGB color ) {
 	return "\033[38;2;" + std::to_string(color.r) + ";" + std::to_string(color.g) + ";" + std::to_string(color.b) + "m";
 }
 
-//Mono color scale (binary values)
+/**
+	* Mono color model (1-bit): black or white
+	*/
 struct Mono {
-	bool b = 1; //b=1: black, b=0: white
+	bool b = 1; /*!< black value*/
 };
 
+/**
+	* Get the ansi color code for a Mono color, e.g. to be used in output to the console
+	* @param color Mono color to be "translated"
+	* @return ansi color code
+	*/
 std::string color_to_ansi( Mono color ) {
 	if( color.b == 1 ) return "\033[30m";
 	if( color.b == 0 ) return "\033[37m";

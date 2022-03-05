@@ -1,0 +1,430 @@
+\hypertarget{class_axis}{}\doxysection{Axis\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_axis}\index{Axis$<$ T $>$@{Axis$<$ T $>$}}
+
+
+{\ttfamily \#include $<$axis.\+h$>$}
+
+
+
+Collaboration diagram for Axis\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_axis_a7634a8448420214d908c1502702f544e}{Axis}} (const \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$ \&associated\+Plot, const std\+::size\+\_\+t width, const std\+::size\+\_\+t height, const Image\+Coordinate start\+Coordinate)
+\item 
+const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ \& \mbox{\hyperlink{class_axis_a5ba5086773fd7e3d29b4f89caae52d3b}{at}} (const Image\+Coordinate \&coord) const
+\item 
+const std\+::vector$<$ Image\+Coordinate $>$ \& \mbox{\hyperlink{class_axis_ac2efd8b6c50ae2e5a3350dbb37a4819a}{get\+Axis\+Coordinates}} () const
+\item 
+const std\+::vector$<$ Image\+Coordinate $>$ \& \mbox{\hyperlink{class_axis_a886abf6cc90501566d5f04dc4d5a1a3c}{get\+Label\+Coordinates}} () const
+\item 
+const std\+::vector$<$ Image\+Coordinate $>$ \& \mbox{\hyperlink{class_axis_a0540d6c1c6149176369748a825893e9f}{get\+Coordinates}} () const
+\item 
+const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ \& \mbox{\hyperlink{class_axis_a7f74114dcfe89a9063857ea2f6bd1f8b}{get\+Axis\+Element}} () const
+\item 
+void \mbox{\hyperlink{class_axis_a21077daff3a1dd18bfd585a07a55bcb5}{set\+Axis\+Element}} (const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ \&axis\+Element)
+\item 
+void \mbox{\hyperlink{class_axis_af13c217adb857c73e1f8cee729fcbc60}{set\+Axis\+Color}} (const T \&color)
+\item 
+void \mbox{\hyperlink{class_axis_aaf4728c6c61296bd564d6fe6c7f6ad67}{set\+Axis\+Symbol}} (const std\+::string \&axis\+Symbol)
+\item 
+const std\+::size\+\_\+t \mbox{\hyperlink{class_axis_a34f6c13f0182636ce440f96efb11c300}{get\+Label\+Offset}} () const
+\item 
+void \mbox{\hyperlink{class_axis_a31858c490d6e3ac0f75a1f65213d53f0}{set\+Label\+Offset}} (std\+::size\+\_\+t label\+Offset)
+\item 
+void \mbox{\hyperlink{class_axis_ab88ead46c702ae993b205ceedaf69e5e}{add\+Label}} (const std\+::string \&label, float position, bool left\+Or\+Below=true, bool rotate\+Label=false)
+\item 
+void \mbox{\hyperlink{class_axis_a3ad4f718066cfb8147aaacc5ec749616}{add\+Ticks}} (const std\+::vector$<$ Tick $>$ \&ticks, bool left\+Or\+Below=true)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{class_axis_ac518d286218478e33dda87bea8ce9f6d}{m\+Add\+Attribute}} (const std\+::vector$<$ \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ $>$ \&attribute, float position, std\+::size\+\_\+t offset\+From\+Axis, bool left\+Or\+Below, std\+::vector$<$ Image\+Coordinate $>$ \&coordinate\+Vector, bool rotate=false)
+\item 
+void \mbox{\hyperlink{class_axis_ad56a004d9834e10a655176f6e5ed7919}{m\+Add\+Range\+To\+Coordinate\+Vector}} (std\+::vector$<$ Image\+Coordinate $>$ \&coordinate\+Vector, const Image\+Coordinate \&first\+New\+Coordinate, std\+::size\+\_\+t h\+Range, std\+::size\+\_\+t v\+Range)
+\item 
+void \mbox{\hyperlink{class_axis_a4d7fda2635c07c23290a3e9f55595b2f}{m\+Shift}} (std\+::vector$<$ Image\+Coordinate $>$ \&coordinate\+Vector, int horizontal\+Shift, int vertical\+Shift)
+\item 
+void \mbox{\hyperlink{class_axis_a6bb7d555653dd071ecfd9564d7b490cb}{m\+Update\+All\+Coordinates}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$ \& \mbox{\hyperlink{class_axis_a170529e25262bc74fda43c1380235dc1}{m\+Plot}}
+\item 
+Image\+Coordinate \mbox{\hyperlink{class_axis_a341465f683816eb793ad4fba0bec01b7}{m\+Upper\+Left\+Index}}
+\item 
+Image\+Coordinate \mbox{\hyperlink{class_axis_ad2855f2ddeec6e228eff0061fde57716}{m\+Lower\+Right\+Index}}
+\item 
+bool \mbox{\hyperlink{class_axis_a8ebba948f08a38dc89a5ff4b4395e7ff}{m\+Is\+Horizontal}}
+\item 
+\mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ \mbox{\hyperlink{class_axis_aa56ee88933974ec657a11e47d3d26ab2}{m\+Axis\+Element}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ $>$ \mbox{\hyperlink{class_axis_aa6adaea55c2509ec7921ece0f11e4976}{m\+Label}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ $>$ \mbox{\hyperlink{class_axis_a5d237363f5a6127c4b81702ea81cc7ec}{m\+Ticks}}
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{class_axis_a1c004c195677c7dffc475686c37bf03d}{m\+Label\+Offset}} = 1
+\item 
+std\+::vector$<$ Image\+Coordinate $>$ \mbox{\hyperlink{class_axis_a5c8834aa8b69ab5d8f7bc991944a2d7c}{m\+All\+Coordinates}}
+\item 
+std\+::vector$<$ Image\+Coordinate $>$ \mbox{\hyperlink{class_axis_a3f3ff178043e3c7b93bff6366407d097}{m\+Axis\+Coordinates}}
+\item 
+std\+::vector$<$ Image\+Coordinate $>$ \mbox{\hyperlink{class_axis_ac4aefc99fb6df65901a4fedc1f6546d3}{m\+Label\+Coordinates}}
+\item 
+std\+::vector$<$ Image\+Coordinate $>$ \mbox{\hyperlink{class_axis_a66634077fb637f35af024977a5631e65}{m\+Ticks\+Coordinates}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_axis_aef87dcd835815368a54d8560f66576e0}\label{class_axis_aef87dcd835815368a54d8560f66576e0}} 
+static const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ {\bfseries empty\+Pixel} = \mbox{\hyperlink{class_pixel}{Pixel}}$<$T,std\+::string$>$(T(),\char`\"{} \char`\"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T = Mono$>$\newline
+class Axis$<$ T $>$}
+The \mbox{\hyperlink{class_axis}{Axis}} class represents a (horizontal or vertical) axis that is part of a \mbox{\hyperlink{class_plot2_d}{Plot2D}}. The \mbox{\hyperlink{class_axis}{Axis}} consists of elements of the axis itself (e.\+g. \char`\"{}\+\_\+\char`\"{} or \char`\"{}$\vert$\char`\"{}) and may have labels (\char`\"{}x axis\char`\"{}) and ticks (\char`\"{}1 2 3 4\char`\"{}) to it. An \mbox{\hyperlink{class_axis}{Axis}} object cannot exists on its own but is always associated to a \mbox{\hyperlink{class_plot2_d}{Plot2D}}. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T1} & Color model for this image (default\+: \mbox{\hyperlink{struct_mono}{Mono}}). \\
+\hline
+{\em T2} & Type of symbols that represent a \mbox{\hyperlink{class_pixel}{Pixel}} (Default\+: char). \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_axis_a7634a8448420214d908c1502702f544e}\label{class_axis_a7634a8448420214d908c1502702f544e}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!Axis@{Axis}}
+\index{Axis@{Axis}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Axis()}{Axis()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\mbox{\hyperlink{class_axis}{\+::\+Axis}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$ \&}]{associated\+Plot,  }\item[{const std\+::size\+\_\+t}]{width,  }\item[{const std\+::size\+\_\+t}]{height,  }\item[{const Image\+Coordinate}]{start\+Coordinate }\end{DoxyParamCaption})}
+
+Constructs a (horizontal or vertical) \mbox{\hyperlink{class_axis}{Axis}} of given size that is part of a given plot. 
+\begin{DoxyParams}{Parameters}
+{\em associated\+Plot} & Plot that the axis is part of. \\
+\hline
+{\em width} & Width of the axis in number of Pixels. \\
+\hline
+{\em height} & Height of the axis in number of Pixels. If height\texorpdfstring{$>$}{>}width the axis is a \char`\"{}vertical\char`\"{} axis, otherwise a \char`\"{}horizontal\char`\"{} axis. \\
+\hline
+{\em start\+Coordinate} & First coordinate of the axis from which the axis extends in the plot. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 1
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_axis_ab88ead46c702ae993b205ceedaf69e5e}\label{class_axis_ab88ead46c702ae993b205ceedaf69e5e}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!addLabel@{addLabel}}
+\index{addLabel@{addLabel}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addLabel()}{addLabel()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::add\+Label (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{label,  }\item[{float}]{position,  }\item[{bool}]{left\+Or\+Below = {\ttfamily true},  }\item[{bool}]{rotate\+Label = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Adds a label to the axis at a fixed relative position. 
+\begin{DoxyParams}{Parameters}
+{\em label} & Label of the axis. \\
+\hline
+{\em position} & Relative position (between 0 and 1, otherwise set to 0) along the axis where the first character of the label is placed. \\
+\hline
+{\em left\+Or\+Below} & True\+: The label is placed to the left of the axis (if axis is vertical) or below it (if axis is horizontal). Otherwise it is placed to the right or above. \\
+\hline
+{\em rotate\+Label} & True\+: The label is rotated if the axis is vertical, i.\+e. it will extend vertically instead of horizontally. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_axis_a3ad4f718066cfb8147aaacc5ec749616}\label{class_axis_a3ad4f718066cfb8147aaacc5ec749616}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!addTicks@{addTicks}}
+\index{addTicks@{addTicks}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addTicks()}{addTicks()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::add\+Ticks (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ Tick $>$ \&}]{ticks,  }\item[{bool}]{left\+Or\+Below = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Adds ticks to the axis. 
+\begin{DoxyParams}{Parameters}
+{\em ticks} & Vector of ticks that will be added (tick\+: pair of string (its label) and float (its relative position, between 0 and 1, otherwise set to 0). \\
+\hline
+{\em left\+Or\+Below} & True\+: The ticks are placed to the left of the axis (if axis is vertical) or below it (if axis is horizontal). Otherwise they are placed to the right or above. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_axis_a5ba5086773fd7e3d29b4f89caae52d3b}\label{class_axis_a5ba5086773fd7e3d29b4f89caae52d3b}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!at@{at}}
+\index{at@{at}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ \& \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::at (\begin{DoxyParamCaption}\item[{const Image\+Coordinate \&}]{coord }\end{DoxyParamCaption}) const}
+
+Get the \mbox{\hyperlink{class_pixel}{Pixel}} at a specific coordinate in the plot of which the axis is a part. 
+\begin{DoxyParams}{Parameters}
+{\em coord} & Coordinate in the plot of which the axis is a part. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_pixel}{Pixel}} at the given coordinate. If no \mbox{\hyperlink{class_pixel}{Pixel}} of the axis/label/ticks exists at the coord, an empty\+Pixel is returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_axis_ac2efd8b6c50ae2e5a3350dbb37a4819a}\label{class_axis_ac2efd8b6c50ae2e5a3350dbb37a4819a}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!getAxisCoordinates@{getAxisCoordinates}}
+\index{getAxisCoordinates@{getAxisCoordinates}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getAxisCoordinates()}{getAxisCoordinates()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const std\+::vector$<$ Image\+Coordinate $>$ \& \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::get\+Axis\+Coordinates}
+
+Get all coordinates in the plot of which the axis is part where Pixels of the axis itself are shown. \begin{DoxyReturn}{Returns}
+Vector of all Image\+Coordinates of axis elements. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_axis_a7f74114dcfe89a9063857ea2f6bd1f8b}\label{class_axis_a7f74114dcfe89a9063857ea2f6bd1f8b}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!getAxisElement@{getAxisElement}}
+\index{getAxisElement@{getAxisElement}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getAxisElement()}{getAxisElement()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ \& \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::get\+Axis\+Element}
+
+Get the \mbox{\hyperlink{class_pixel}{Pixel}} that represents an element of the axis itself. \begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_pixel}{Pixel}} that is an element of the axis. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_axis_a0540d6c1c6149176369748a825893e9f}\label{class_axis_a0540d6c1c6149176369748a825893e9f}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!getCoordinates@{getCoordinates}}
+\index{getCoordinates@{getCoordinates}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getCoordinates()}{getCoordinates()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const std\+::vector$<$ Image\+Coordinate $>$ \& \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::get\+Coordinates}
+
+Get all coordinates in the plot of which the axis is part where Pixels of the axis/label/ticks are shown. \begin{DoxyReturn}{Returns}
+Vector of all Image\+Coordinates of parts of the axis/label/ticks 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_axis_a886abf6cc90501566d5f04dc4d5a1a3c}\label{class_axis_a886abf6cc90501566d5f04dc4d5a1a3c}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!getLabelCoordinates@{getLabelCoordinates}}
+\index{getLabelCoordinates@{getLabelCoordinates}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getLabelCoordinates()}{getLabelCoordinates()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const std\+::vector$<$ Image\+Coordinate $>$ \& \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::get\+Label\+Coordinates}
+
+Get all coordinates in the plot of which the axis is part where Pixels of the label are shown. \begin{DoxyReturn}{Returns}
+Vector of all Image\+Coordinates of parts of the label. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_axis_a34f6c13f0182636ce440f96efb11c300}\label{class_axis_a34f6c13f0182636ce440f96efb11c300}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!getLabelOffset@{getLabelOffset}}
+\index{getLabelOffset@{getLabelOffset}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getLabelOffset()}{getLabelOffset()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const std\+::size\+\_\+t \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::get\+Label\+Offset}
+
+Get the offset between axis and label (if any). \begin{DoxyReturn}{Returns}
+Number of Pixels between axis itself and the label. Default value\+: 1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_axis_ac518d286218478e33dda87bea8ce9f6d}\label{class_axis_ac518d286218478e33dda87bea8ce9f6d}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mAddAttribute@{mAddAttribute}}
+\index{mAddAttribute@{mAddAttribute}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mAddAttribute()}{mAddAttribute()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Add\+Attribute (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ $>$ \&}]{attribute,  }\item[{float}]{position,  }\item[{std\+::size\+\_\+t}]{offset\+From\+Axis,  }\item[{bool}]{left\+Or\+Below,  }\item[{std\+::vector$<$ Image\+Coordinate $>$ \&}]{coordinate\+Vector,  }\item[{bool}]{rotate = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Adds an attribute (i.\+e. any collection of Pixels) at a fixed relative position along the axis and stores the coordinates. 
+\begin{DoxyParams}{Parameters}
+{\em attribute} & Attribute that will be added to the axis \\
+\hline
+{\em position} & Relative position (between 0 and 1, otherwise set to 0) along the axis where the first pixel of attribute is placed \\
+\hline
+{\em offset\+From\+Axis} & Number of empty pixels between the axis itself and the attribute \\
+\hline
+{\em left\+Or\+Below} & True\+: The attribute is placed to the left of the axis (if axis is vertical) or below it (if axis is horizontal). Otherwise it is placed to the right or above. \\
+\hline
+{\em coordinate\+Vector} & Vector of Image\+Coordinates to which the Image\+Coordinates of the attribute will be added. \\
+\hline
+{\em rotate} & True\+: The attribute is rotated if the axis is vertical, i.\+e. it will extend vertically instead of horizontally. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pair of horizontal and vertical number of Pixels that all Pixels belonging to other parts of the axis have to be moved to make space for the attribute. The shifts are not performed within the method. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_axis_ad56a004d9834e10a655176f6e5ed7919}\label{class_axis_ad56a004d9834e10a655176f6e5ed7919}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mAddRangeToCoordinateVector@{mAddRangeToCoordinateVector}}
+\index{mAddRangeToCoordinateVector@{mAddRangeToCoordinateVector}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mAddRangeToCoordinateVector()}{mAddRangeToCoordinateVector()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Add\+Range\+To\+Coordinate\+Vector (\begin{DoxyParamCaption}\item[{std\+::vector$<$ Image\+Coordinate $>$ \&}]{coordinate\+Vector,  }\item[{const Image\+Coordinate \&}]{first\+New\+Coordinate,  }\item[{std\+::size\+\_\+t}]{h\+Range,  }\item[{std\+::size\+\_\+t}]{v\+Range }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Adds a range of Image\+Coordinates to a vector of Image\+Coordinates 
+\begin{DoxyParams}{Parameters}
+{\em coordinate\+Vector} & Vector to which coordinates will be added. \\
+\hline
+{\em first\+New\+Coordinate} & First of the coordinates that will be added, i.\+e. beginning of the range. \\
+\hline
+{\em h\+Range} & Horizontal extension of the range \\
+\hline
+{\em v\+Range} & Vertical extension of the range \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_axis_a4d7fda2635c07c23290a3e9f55595b2f}\label{class_axis_a4d7fda2635c07c23290a3e9f55595b2f}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mShift@{mShift}}
+\index{mShift@{mShift}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mShift()}{mShift()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Shift (\begin{DoxyParamCaption}\item[{std\+::vector$<$ Image\+Coordinate $>$ \&}]{coordinate\+Vector,  }\item[{int}]{horizontal\+Shift,  }\item[{int}]{vertical\+Shift }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Shifts all Image\+Coordinates in a vector by given number of Pixels 
+\begin{DoxyParams}{Parameters}
+{\em coordinate\+Vector} & Vector of coordinates that will be shifted \\
+\hline
+{\em horizontal\+Shift} & Horizontal shift in number of Pixels \\
+\hline
+{\em vertical\+Shift} & Vertical shift in number of Pixels \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_axis_a6bb7d555653dd071ecfd9564d7b490cb}\label{class_axis_a6bb7d555653dd071ecfd9564d7b490cb}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mUpdateAllCoordinates@{mUpdateAllCoordinates}}
+\index{mUpdateAllCoordinates@{mUpdateAllCoordinates}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mUpdateAllCoordinates()}{mUpdateAllCoordinates()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Update\+All\+Coordinates\hspace{0.3cm}{\ttfamily [private]}}
+
+Updates the vector of all Image\+Coordinates of the axis (m\+All\+Coordinates). Has to be called after any other coordinate vector is changed. \mbox{\Hypertarget{class_axis_af13c217adb857c73e1f8cee729fcbc60}\label{class_axis_af13c217adb857c73e1f8cee729fcbc60}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!setAxisColor@{setAxisColor}}
+\index{setAxisColor@{setAxisColor}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setAxisColor()}{setAxisColor()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::set\+Axis\+Color (\begin{DoxyParamCaption}\item[{const T \&}]{color }\end{DoxyParamCaption})}
+
+Set the Color of the axis. 
+\begin{DoxyParams}{Parameters}
+{\em color} & Color of the axis element (not label and ticks). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_axis_a21077daff3a1dd18bfd585a07a55bcb5}\label{class_axis_a21077daff3a1dd18bfd585a07a55bcb5}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!setAxisElement@{setAxisElement}}
+\index{setAxisElement@{setAxisElement}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setAxisElement()}{setAxisElement()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::set\+Axis\+Element (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ \&}]{axis\+Element }\end{DoxyParamCaption})}
+
+Set the \mbox{\hyperlink{class_pixel}{Pixel}} that represents an element of the axis itself. 
+\begin{DoxyParams}{Parameters}
+{\em axis\+Element} & \mbox{\hyperlink{class_pixel}{Pixel}} out of which the entire axis will be constructed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_axis_af13c217adb857c73e1f8cee729fcbc60}{set\+Axis\+Color( const T\& color )}} 
+
+\mbox{\hyperlink{class_axis_aaf4728c6c61296bd564d6fe6c7f6ad67}{set\+Axis\+Symbol( const std\+::string\& axis\+Symbol )}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_axis_aaf4728c6c61296bd564d6fe6c7f6ad67}\label{class_axis_aaf4728c6c61296bd564d6fe6c7f6ad67}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!setAxisSymbol@{setAxisSymbol}}
+\index{setAxisSymbol@{setAxisSymbol}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setAxisSymbol()}{setAxisSymbol()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::set\+Axis\+Symbol (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{axis\+Symbol }\end{DoxyParamCaption})}
+
+Set the Symbol that represents an element of the axis itself. 
+\begin{DoxyParams}{Parameters}
+{\em axis\+Symbol} & Symbol out of which the entire axis will be constructed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_axis_a31858c490d6e3ac0f75a1f65213d53f0}\label{class_axis_a31858c490d6e3ac0f75a1f65213d53f0}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!setLabelOffset@{setLabelOffset}}
+\index{setLabelOffset@{setLabelOffset}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setLabelOffset()}{setLabelOffset()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::set\+Label\+Offset (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{label\+Offset }\end{DoxyParamCaption})}
+
+Set the offset between axis and label (if any). 
+\begin{DoxyParams}{Parameters}
+{\em label\+Offset} & Number of Pixels between axis itself and the label. Default value\+: 1 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_axis_a5c8834aa8b69ab5d8f7bc991944a2d7c}\label{class_axis_a5c8834aa8b69ab5d8f7bc991944a2d7c}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mAllCoordinates@{mAllCoordinates}}
+\index{mAllCoordinates@{mAllCoordinates}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mAllCoordinates}{mAllCoordinates}}
+{\footnotesize\ttfamily template$<$typename T  = Mono$>$ \\
+std\+::vector$<$Image\+Coordinate$>$ \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+All\+Coordinates\hspace{0.3cm}{\ttfamily [private]}}
+
+All Image\+Coordinates in m\+Plot where Pixels of the axis/label/ticks are shown. \mbox{\Hypertarget{class_axis_a3f3ff178043e3c7b93bff6366407d097}\label{class_axis_a3f3ff178043e3c7b93bff6366407d097}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mAxisCoordinates@{mAxisCoordinates}}
+\index{mAxisCoordinates@{mAxisCoordinates}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mAxisCoordinates}{mAxisCoordinates}}
+{\footnotesize\ttfamily template$<$typename T  = Mono$>$ \\
+std\+::vector$<$Image\+Coordinate$>$ \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Axis\+Coordinates\hspace{0.3cm}{\ttfamily [private]}}
+
+All Image\+Coordinates in m\+Plot where Pixels of the axis itself (i.\+e. m\+Axis\+Element) are shown. \mbox{\Hypertarget{class_axis_aa56ee88933974ec657a11e47d3d26ab2}\label{class_axis_aa56ee88933974ec657a11e47d3d26ab2}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mAxisElement@{mAxisElement}}
+\index{mAxisElement@{mAxisElement}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mAxisElement}{mAxisElement}}
+{\footnotesize\ttfamily template$<$typename T  = Mono$>$ \\
+\mbox{\hyperlink{class_pixel}{Pixel}}$<$T,std\+::string$>$ \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Axis\+Element\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{class_pixel}{Pixel}} representing a single element of the axis. \mbox{\Hypertarget{class_axis_a8ebba948f08a38dc89a5ff4b4395e7ff}\label{class_axis_a8ebba948f08a38dc89a5ff4b4395e7ff}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mIsHorizontal@{mIsHorizontal}}
+\index{mIsHorizontal@{mIsHorizontal}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mIsHorizontal}{mIsHorizontal}}
+{\footnotesize\ttfamily template$<$typename T  = Mono$>$ \\
+bool \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Is\+Horizontal\hspace{0.3cm}{\ttfamily [private]}}
+
+True\+: This is a horitontal axis. False\+: This is a vertical axis. \mbox{\Hypertarget{class_axis_aa6adaea55c2509ec7921ece0f11e4976}\label{class_axis_aa6adaea55c2509ec7921ece0f11e4976}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mLabel@{mLabel}}
+\index{mLabel@{mLabel}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mLabel}{mLabel}}
+{\footnotesize\ttfamily template$<$typename T  = Mono$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{class_pixel}{Pixel}}$<$T,std\+::string$>$ $>$ \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Label\hspace{0.3cm}{\ttfamily [private]}}
+
+Pixels holding the label of the axis. Their positions in m\+Plot are stored in m\+Label\+Coordinates. \mbox{\Hypertarget{class_axis_ac4aefc99fb6df65901a4fedc1f6546d3}\label{class_axis_ac4aefc99fb6df65901a4fedc1f6546d3}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mLabelCoordinates@{mLabelCoordinates}}
+\index{mLabelCoordinates@{mLabelCoordinates}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mLabelCoordinates}{mLabelCoordinates}}
+{\footnotesize\ttfamily template$<$typename T  = Mono$>$ \\
+std\+::vector$<$Image\+Coordinate$>$ \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Label\+Coordinates\hspace{0.3cm}{\ttfamily [private]}}
+
+All Image\+Coordinates in m\+Plot where Pixels of the label are shown. \mbox{\Hypertarget{class_axis_a1c004c195677c7dffc475686c37bf03d}\label{class_axis_a1c004c195677c7dffc475686c37bf03d}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mLabelOffset@{mLabelOffset}}
+\index{mLabelOffset@{mLabelOffset}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mLabelOffset}{mLabelOffset}}
+{\footnotesize\ttfamily template$<$typename T  = Mono$>$ \\
+std\+::size\+\_\+t \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Label\+Offset = 1\hspace{0.3cm}{\ttfamily [private]}}
+
+Space (in number of Pixels) between label and axis. \mbox{\Hypertarget{class_axis_ad2855f2ddeec6e228eff0061fde57716}\label{class_axis_ad2855f2ddeec6e228eff0061fde57716}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mLowerRightIndex@{mLowerRightIndex}}
+\index{mLowerRightIndex@{mLowerRightIndex}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mLowerRightIndex}{mLowerRightIndex}}
+{\footnotesize\ttfamily template$<$typename T  = Mono$>$ \\
+Image\+Coordinate \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Lower\+Right\+Index\hspace{0.3cm}{\ttfamily [private]}}
+
+Lower right index in m\+Plot of the rectangle holding the axis including ticks and labels. \mbox{\Hypertarget{class_axis_a170529e25262bc74fda43c1380235dc1}\label{class_axis_a170529e25262bc74fda43c1380235dc1}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mPlot@{mPlot}}
+\index{mPlot@{mPlot}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mPlot}{mPlot}}
+{\footnotesize\ttfamily template$<$typename T  = Mono$>$ \\
+const \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$T$>$\& \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Plot\hspace{0.3cm}{\ttfamily [private]}}
+
+Plot that this axis is part of. \mbox{\Hypertarget{class_axis_a5d237363f5a6127c4b81702ea81cc7ec}\label{class_axis_a5d237363f5a6127c4b81702ea81cc7ec}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mTicks@{mTicks}}
+\index{mTicks@{mTicks}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mTicks}{mTicks}}
+{\footnotesize\ttfamily template$<$typename T  = Mono$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{class_pixel}{Pixel}}$<$T,std\+::string$>$ $>$ \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Ticks\hspace{0.3cm}{\ttfamily [private]}}
+
+Pixels holding the ticks of the axis. Their positions in m\+Plot are stored in m\+Ticks\+Coordinates. \mbox{\Hypertarget{class_axis_a66634077fb637f35af024977a5631e65}\label{class_axis_a66634077fb637f35af024977a5631e65}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mTicksCoordinates@{mTicksCoordinates}}
+\index{mTicksCoordinates@{mTicksCoordinates}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mTicksCoordinates}{mTicksCoordinates}}
+{\footnotesize\ttfamily template$<$typename T  = Mono$>$ \\
+std\+::vector$<$Image\+Coordinate$>$ \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Ticks\+Coordinates\hspace{0.3cm}{\ttfamily [private]}}
+
+All Image\+Coordinates in m\+Plot where Pixels of the ticks are shown. \mbox{\Hypertarget{class_axis_a341465f683816eb793ad4fba0bec01b7}\label{class_axis_a341465f683816eb793ad4fba0bec01b7}} 
+\index{Axis$<$ T $>$@{Axis$<$ T $>$}!mUpperLeftIndex@{mUpperLeftIndex}}
+\index{mUpperLeftIndex@{mUpperLeftIndex}!Axis$<$ T $>$@{Axis$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mUpperLeftIndex}{mUpperLeftIndex}}
+{\footnotesize\ttfamily template$<$typename T  = Mono$>$ \\
+Image\+Coordinate \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::m\+Upper\+Left\+Index\hspace{0.3cm}{\ttfamily [private]}}
+
+Upper left index in m\+Plot of the rectangle holding the axis including ticks and labels. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+header/axis.\+h\item 
+src/axis.\+cpp\end{DoxyCompactItemize}

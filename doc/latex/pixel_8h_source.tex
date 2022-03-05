@@ -21,38 +21,38 @@
 \DoxyCodeLine{17 }
 \DoxyCodeLine{18 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{19 }
-\DoxyCodeLine{20 \textcolor{comment}{/*Pixel represents a single "{}pixel"{} in an image.}}
-\DoxyCodeLine{21 \textcolor{comment}{-\/ The pixel is represented by a symbol of Type T2 (e.g. char 'x') and a color of color model T1 (e.g. Mono with b = 0 -\/> black)}}
-\DoxyCodeLine{22 \textcolor{comment}{*/}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}../header/color\_models.h"{}}}
 \DoxyCodeLine{23 }
-\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <iostream>}}
-\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <stdexcept>}}
-\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}../header/color\_models.h"{}}}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1 = Mono, \textcolor{keyword}{typename} T2 = \textcolor{keywordtype}{char}> \textcolor{comment}{//T1: color model, T2: type of each pixel (e.g. char)}}
-\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{class_pixel}{Pixel}}}
-\DoxyCodeLine{30 \{}
-\DoxyCodeLine{31 \textcolor{keyword}{public}:}
-\DoxyCodeLine{32     \textcolor{comment}{/*Constructors and destructors*/}}
-\DoxyCodeLine{33     \mbox{\hyperlink{class_pixel}{Pixel}}() = \textcolor{keywordflow}{default}; \textcolor{comment}{//Construct an empty image of size 1x1}}
-\DoxyCodeLine{34     \mbox{\hyperlink{class_pixel}{Pixel}}( T1 color, T2 symbol ); \textcolor{comment}{//Construct an empty image of size 1x1}}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36     \textcolor{comment}{/*Getters and setters*/}}
-\DoxyCodeLine{37     T1 getColor() \textcolor{keyword}{const};}
-\DoxyCodeLine{38     \textcolor{keywordtype}{void} setColor( T1 color );}
-\DoxyCodeLine{39     T2 getSymbol() \textcolor{keyword}{const};}
-\DoxyCodeLine{40     \textcolor{keywordtype}{void} setSymbol( T2 symbol );}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{42 \textcolor{keyword}{private}:}
-\DoxyCodeLine{43     T1 mColor; \textcolor{comment}{//Color of the pixel}}
-\DoxyCodeLine{44     T2 mSymbol; \textcolor{comment}{//Symbol representing the pixel if displayed in the terminal}}
-\DoxyCodeLine{45     \textcolor{keywordtype}{void} verifyCoordinate(std::size\_t i, std::size\_t j) \textcolor{keyword}{const}; \textcolor{comment}{//Verify that (i,j) is within limits of the image size (throws std::out\_of\_range() if not)}}
-\DoxyCodeLine{46 \};}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1, \textcolor{keyword}{typename} T2>}
-\DoxyCodeLine{49 std::ostream\& operator<<( std::ostream\& ostr, \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}}\& p ); \textcolor{comment}{//Outputs the (colored) pixel p to the stream ostr}}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51 \textcolor{comment}{/*Include method definitions (needed here for the compiler because it is a class template!)*/}}
-\DoxyCodeLine{52 \textcolor{preprocessor}{\#include "{}../src/pixel.cpp"{}}}
+\DoxyCodeLine{31 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1 = Mono, \textcolor{keyword}{typename} T2 = \textcolor{keywordtype}{char}>}
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{class_pixel}{Pixel}}}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34 \textcolor{keyword}{public}:}
+\DoxyCodeLine{35     \textcolor{comment}{/*Constructors and destructors*/}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_pixel_aa53b48c24f84e20221192a1102762fe9}{Pixel}}() = \textcolor{keywordflow}{default}; }
+\DoxyCodeLine{44     \mbox{\hyperlink{class_pixel_aa53b48c24f84e20221192a1102762fe9}{Pixel}}( T1 color, T2 symbol );}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{comment}{/*Getters and setters*/}}
+\DoxyCodeLine{51     T1 \mbox{\hyperlink{class_pixel_a28955aa046f5c5f55429b7fe36811c04}{getColor}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pixel_adb440581fa4a05f72dda51e56b48c1f0}{setColor}}( T1 color );}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{63     T2 \mbox{\hyperlink{class_pixel_a464d850416ee007deed8d4575551e94f}{getSymbol}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pixel_abedb8474cba300ddf6a96f967371fa5d}{setSymbol}}( T2 symbol );}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{keyword}{private}:}
+\DoxyCodeLine{72     T1 \mbox{\hyperlink{class_pixel_ab500a09ccea290c6c25d8628c68fc162}{mColor}}; }
+\DoxyCodeLine{73     T2 \mbox{\hyperlink{class_pixel_aab1aac4b17bebc65e978dfb44df9c55f}{mSymbol}};  }
+\DoxyCodeLine{74 \};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 }
+\DoxyCodeLine{80 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1, \textcolor{keyword}{typename} T2>}
+\DoxyCodeLine{81 std::ostream\& operator<<( std::ostream\& ostr, \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}}\& p ); \textcolor{comment}{//Outputs the (colored) pixel p to the stream ostr}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{comment}{/*Include method definitions for the template class*/}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#include "{}../src/pixel.cpp"{}}}
 
 \end{DoxyCode}

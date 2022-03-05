@@ -131,41 +131,42 @@ $(document).ready(function(){initNavTree('image_8h_source.html',''); initResizab
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">/*Constructors and destructors*/</span></div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_function" href="class_image.html#a3ae5ff092990661c251248b7f43e1f42">Image</a>(); </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_function" href="class_image.html#a3ae5ff092990661c251248b7f43e1f42">Image</a>(std::size_t width, std::size_t height); </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_function" href="class_image.html#a3ae5ff092990661c251248b7f43e1f42">Image</a>(std::size_t width, std::size_t height, <span class="keyword">const</span> <a class="code hl_class" href="class_pixel.html">Pixel&lt;T1,T2&gt;</a> &amp;p); </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_image.html">~Image</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="comment">/*Getters and setters*/</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code hl_class" href="class_pixel.html">Pixel&lt;T1,T2&gt;</a>&amp; <a class="code hl_function" href="class_image.html#ab188c3991854090113f3a7d1522d7217">at</a>( std::size_t i, std::size_t j ) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_pixel.html">Pixel&lt;T1,T2&gt;</a>&amp; <a class="code hl_function" href="class_image.html#ab188c3991854090113f3a7d1522d7217">at</a>( std::size_t i, std::size_t j );</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keyword">virtual</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_image.html#a9b138194c925d7397d34ea3950a3a017">getAspectRatio</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_image.html#a1add6796c65167445fd67642452d02d7">setAspectRatio</a>( <span class="keywordtype">float</span> aspectRatio );</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> std::vector&lt; std::vector&lt; Pixel&lt;T1,T2&gt; &gt; &gt;&amp; <a class="code hl_function" href="class_image.html#a6e6c087512eee4d10394ff377379e846">getPixels</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_image.html#ae59fc57ad71369bc708a03175a31e621">setPixels</a>( <span class="keyword">const</span> <a class="code hl_class" href="class_pixel.html">Pixel&lt;T1,T2&gt;</a> &amp;p );</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="class_image.html#a9ac0e27da0e7f63f658789fd7ece481b">getFillSpaces</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_image.html#abacd262ce7b970c0b7ddb9d445180ec2">setFillSpaces</a>( <span class="keywordtype">bool</span> fillSpaces );</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keyword">virtual</span> std::size_t <a class="code hl_function" href="class_image.html#a1e179af1723921271db4c625812457cc">getHeight</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_image.html#af8c4b9b54a1797173a8e59d7592c1dd8">setHeight</a>( std::size_t height );</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keyword">virtual</span> std::size_t <a class="code hl_function" href="class_image.html#a44acdd8649a5e799113b58461690315b">getWidth</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_image.html#ad7d4d207f965baa57f8e270763187796">setWidth</a>( std::size_t width );</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_image.html#a688e4526026154edfb35fec4aacc9297">show</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>};</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">/*Include method definitions for the template class*/</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="preprocessor">#include &quot;../src/image.cpp&quot;</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_function" href="class_image.html#a3ae5ff092990661c251248b7f43e1f42">Image</a>(std::size_t width, std::size_t height);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_function" href="class_image.html#a3ae5ff092990661c251248b7f43e1f42">Image</a>(std::size_t width, std::size_t height, <span class="keyword">const</span> <a class="code hl_class" href="class_pixel.html">Pixel&lt;T1,T2&gt;</a> &amp;p);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_image.html">~Image</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment">/*Getters and setters*/</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code hl_class" href="class_pixel.html">Pixel&lt;T1,T2&gt;</a>&amp; <a class="code hl_function" href="class_image.html#ab188c3991854090113f3a7d1522d7217">at</a>( std::size_t i, std::size_t j ) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">virtual</span> <a class="code hl_class" href="class_pixel.html">Pixel&lt;T1,T2&gt;</a>&amp; <a class="code hl_function" href="class_image.html#ab188c3991854090113f3a7d1522d7217">at</a>( std::size_t i, std::size_t j );</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">virtual</span> <span class="keywordtype">float</span> <a class="code hl_function" href="class_image.html#a9b138194c925d7397d34ea3950a3a017">getAspectRatio</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_image.html#a1add6796c65167445fd67642452d02d7">setAspectRatio</a>( <span class="keywordtype">float</span> aspectRatio );</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keyword">virtual</span> <span class="keyword">const</span> std::vector&lt; std::vector&lt; Pixel&lt;T1,T2&gt; &gt; &gt;&amp; <a class="code hl_function" href="class_image.html#a6e6c087512eee4d10394ff377379e846">getPixels</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_image.html#ae59fc57ad71369bc708a03175a31e621">setPixels</a>( <span class="keyword">const</span> <a class="code hl_class" href="class_pixel.html">Pixel&lt;T1,T2&gt;</a> &amp;p );</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="class_image.html#a9ac0e27da0e7f63f658789fd7ece481b">getFillSpaces</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_image.html#abacd262ce7b970c0b7ddb9d445180ec2">setFillSpaces</a>( <span class="keywordtype">bool</span> fillSpaces );</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keyword">virtual</span> std::size_t <a class="code hl_function" href="class_image.html#a1e179af1723921271db4c625812457cc">getHeight</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_image.html#af8c4b9b54a1797173a8e59d7592c1dd8">setHeight</a>( std::size_t height );</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keyword">virtual</span> std::size_t <a class="code hl_function" href="class_image.html#a44acdd8649a5e799113b58461690315b">getWidth</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_image.html#ad7d4d207f965baa57f8e270763187796">setWidth</a>( std::size_t width );</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_image.html#a688e4526026154edfb35fec4aacc9297">show</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>};</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">/*Include method definitions for the template class*/</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="preprocessor">#include &quot;../src/image.cpp&quot;</span></div>
 <div class="ttc" id="aclass_image_html"><div class="ttname"><a href="class_image.html">Image</a></div><div class="ttdef"><b>Definition:</b> image.h:38</div></div>
 <div class="ttc" id="aclass_image_html_a053031f5a9328f6723419809052581da"><div class="ttname"><a href="class_image.html#a053031f5a9328f6723419809052581da">Image::verifyCoordinate</a></div><div class="ttdeci">virtual void verifyCoordinate(std::size_t i, std::size_t j) const</div><div class="ttdef"><b>Definition:</b> image.cpp:22</div></div>
 <div class="ttc" id="aclass_image_html_a0784025d0c88f233e9b5eb630efda3c0"><div class="ttname"><a href="class_image.html#a0784025d0c88f233e9b5eb630efda3c0">Image::mWidth</a></div><div class="ttdeci">int mWidth</div><div class="ttdef"><b>Definition:</b> image.h:57</div></div>
@@ -186,7 +187,7 @@ $(document).ready(function(){initNavTree('image_8h_source.html',''); initResizab
 <div class="ttc" id="aclass_image_html_ae59fc57ad71369bc708a03175a31e621"><div class="ttname"><a href="class_image.html#ae59fc57ad71369bc708a03175a31e621">Image::setPixels</a></div><div class="ttdeci">virtual void setPixels(const Pixel&lt; T1, T2 &gt; &amp;p)</div><div class="ttdef"><b>Definition:</b> image.cpp:87</div></div>
 <div class="ttc" id="aclass_image_html_af388594a3bd6f902262e0ae25e600fc8"><div class="ttname"><a href="class_image.html#af388594a3bd6f902262e0ae25e600fc8">Image::mFillSpaces</a></div><div class="ttdeci">bool mFillSpaces</div><div class="ttdef"><b>Definition:</b> image.h:50</div></div>
 <div class="ttc" id="aclass_image_html_af8c4b9b54a1797173a8e59d7592c1dd8"><div class="ttname"><a href="class_image.html#af8c4b9b54a1797173a8e59d7592c1dd8">Image::setHeight</a></div><div class="ttdeci">virtual void setHeight(std::size_t height)</div><div class="ttdef"><b>Definition:</b> image.cpp:108</div></div>
-<div class="ttc" id="aclass_pixel_html"><div class="ttname"><a href="class_pixel.html">Pixel</a></div><div class="ttdef"><b>Definition:</b> pixel.h:30</div></div>
+<div class="ttc" id="aclass_pixel_html"><div class="ttname"><a href="class_pixel.html">Pixel</a></div><div class="ttdef"><b>Definition:</b> pixel.h:33</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

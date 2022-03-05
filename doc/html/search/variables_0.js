@@ -1,32 +1,4 @@
 var searchData=
 [
-  ['mallcoordinates_0',['mAllCoordinates',['../class_axis.html#a5c8834aa8b69ab5d8f7bc991944a2d7c',1,'Axis']]],
-  ['maspectratio_1',['mAspectRatio',['../class_image.html#a32d86392cbb67c34dee59add846e498b',1,'Image']]],
-  ['maxiscoordinates_2',['mAxisCoordinates',['../class_axis.html#a3f3ff178043e3c7b93bff6366407d097',1,'Axis']]],
-  ['maxiselement_3',['mAxisElement',['../class_axis.html#aa56ee88933974ec657a11e47d3d26ab2',1,'Axis']]],
-  ['mcoordinatesofdatapoints_4',['mCoordinatesOfDataPoints',['../class_plot2_d.html#a0f441252c55e50f96f688007c351ca71',1,'Plot2D']]],
-  ['mdataframeend_5',['mDataFrameEnd',['../class_plot2_d.html#a70228126cbaaf6e617e2f457ff1004f1',1,'Plot2D']]],
-  ['mdataframestart_6',['mDataFrameStart',['../class_plot2_d.html#a3e2b1ead9aa2e48522bb54a07e241f9b',1,'Plot2D']]],
-  ['mdatasets_7',['mDataSets',['../class_plot2_d.html#a11da671488c635aaf60a6de6897d98ba',1,'Plot2D']]],
-  ['mfillspaces_8',['mFillSpaces',['../class_image.html#af388594a3bd6f902262e0ae25e600fc8',1,'Image']]],
-  ['mheight_9',['mHeight',['../class_image.html#a809704dad5c4f5ce7f71521b710605af',1,'Image']]],
-  ['mhorizontalaxes_10',['mHorizontalAxes',['../class_plot2_d.html#ad3850e9dfce5560cf87a5aa3245c3e59',1,'Plot2D']]],
-  ['mishorizontal_11',['mIsHorizontal',['../class_axis.html#a8ebba948f08a38dc89a5ff4b4395e7ff',1,'Axis']]],
-  ['mlabel_12',['mLabel',['../class_axis.html#aa6adaea55c2509ec7921ece0f11e4976',1,'Axis']]],
-  ['mlabelcoordinates_13',['mLabelCoordinates',['../class_axis.html#ac4aefc99fb6df65901a4fedc1f6546d3',1,'Axis']]],
-  ['mlabeloffset_14',['mLabelOffset',['../class_axis.html#a1c004c195677c7dffc475686c37bf03d',1,'Axis']]],
-  ['mlowerrightindex_15',['mLowerRightIndex',['../class_axis.html#ad2855f2ddeec6e228eff0061fde57716',1,'Axis']]],
-  ['mpixels_16',['mPixels',['../class_image.html#a7ec1a78e86f74a0060bdb97ad04ae235',1,'Image']]],
-  ['mplot_17',['mPlot',['../class_axis.html#a170529e25262bc74fda43c1380235dc1',1,'Axis']]],
-  ['mplotmarkers_18',['mPlotMarkers',['../class_plot2_d.html#a2ef9206d8730dbf2d9d13d51aab8e89a',1,'Plot2D']]],
-  ['mtext_19',['mText',['../class_plot2_d.html#a12370dae595d81fec79523b65ed4a0da',1,'Plot2D']]],
-  ['mticks_20',['mTicks',['../class_axis.html#a5d237363f5a6127c4b81702ea81cc7ec',1,'Axis']]],
-  ['mtickscoordinates_21',['mTicksCoordinates',['../class_axis.html#a66634077fb637f35af024977a5631e65',1,'Axis']]],
-  ['mupperleftindex_22',['mUpperLeftIndex',['../class_axis.html#a341465f683816eb793ad4fba0bec01b7',1,'Axis']]],
-  ['mverticalaxes_23',['mVerticalAxes',['../class_plot2_d.html#a9c3db3812068f632b1a3de673b1e0fc1',1,'Plot2D']]],
-  ['mwidth_24',['mWidth',['../class_image.html#a0784025d0c88f233e9b5eb630efda3c0',1,'Image']]],
-  ['mxplotrange_25',['mXPlotRange',['../class_plot2_d.html#a299c8d2448382785355c9dc406edceb7',1,'Plot2D']]],
-  ['mxscalingfunction_26',['mXScalingFunction',['../class_plot2_d.html#a66015c27cf36470a1ff8376ba15cda4d',1,'Plot2D']]],
-  ['myplotrange_27',['mYPlotRange',['../class_plot2_d.html#a37d647253b19debd0707fe4e4243509a',1,'Plot2D']]],
-  ['myscalingfunction_28',['mYScalingFunction',['../class_plot2_d.html#a195cc1a4b4eafd13f06ec2678608420d',1,'Plot2D']]]
+  ['b_0',['b',['../struct_r_g_b.html#abe4c6992a197eff41d9b4dedfb251c87',1,'RGB::b()'],['../struct_mono.html#a4ae9c66d858f66f2adc0727348137525',1,'Mono::b()']]]
 ];

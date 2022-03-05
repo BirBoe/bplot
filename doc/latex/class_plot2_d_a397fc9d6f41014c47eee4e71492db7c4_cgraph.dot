@@ -1,0 +1,16 @@
+digraph "Plot2D::Plot2D"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Plot2D::Plot2D",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Plot2D::addHorizontalAxis",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_plot2_d.html#af6eb4cb477dcce5f6b1decf29533415c",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Plot2D::addVerticalAxis",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_plot2_d.html#acde2ea83f7089adcb2ee96ccfe046d9e",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Image\< T, std::string\l \>::setPixels",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_image.html#ae59fc57ad71369bc708a03175a31e621",tooltip=" "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Plot2D::setPlotRange",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_plot2_d.html#aaf474365239de9b28942c6bf37af3ddf",tooltip=" "];
+}

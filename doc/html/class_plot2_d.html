@@ -206,7 +206,12 @@ static const <a class="el" href="class_pixel.html">Pixel</a>&lt; T, std::string 
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
-class Plot2D&lt; T &gt;</div><p >A DESCRIPTION HERE </p>
+class Plot2D&lt; T &gt;</div><p >The <a class="el" href="class_plot2_d.html">Plot2D</a> class represents a plot of two-dimensional data that can be printed to the console (or another output stream). Accordingly, it is a special type of <a class="el" href="class_image.html">Image</a> and derived from the <a class="el" href="class_image.html">Image</a> class. A <a class="el" href="class_plot2_d.html">Plot2D</a> consists of axes of a certain value range that can be scaled (e.g. linearly, logarithmically, etc.), a region of the <a class="el" href="class_image.html">Image</a> where data is shown (data frame), and Pixels representing the actual data. Any number of data sets can be part of the same plot. Each data set can be represented in the plot by another plot marker (different symbols, different colors). The class has manages the data itself in its raw form (data set) and the ImageCoordinates corresponding to the positions in the data frame where points from the data set are shown. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Color model used for the plot (default: <a class="el" href="struct_mono.html">Mono</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a397fc9d6f41014c47eee4e71492db7c4" name="a397fc9d6f41014c47eee4e71492db7c4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a397fc9d6f41014c47eee4e71492db7c4">&#9670;&nbsp;</a></span>Plot2D()</h2>
@@ -393,6 +398,10 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p >Adds a labelled horizontal axis to the plot. The position of the axis will be changed to make space for the label. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">vPos</td><td>Horizontal coordinate of the axis </td></tr>
+    <tr><td class="paramname">hPosStart</td><td>Vertical coordinate of the start point of the axis </td></tr>
+    <tr><td class="paramname">hPosEnd</td><td>Vertical coordinate of the end point of the axis </td></tr>
+    <tr><td class="paramname">color</td><td>Color of the axis (not of label or ticks) </td></tr>
     <tr><td class="paramname">label</td><td>Label that is added to the axis </td></tr>
     <tr><td class="paramname">relativeLabelPosition</td><td>Position of the first character of label along the axis; has to be between 0.0 and 1.0 (otherwise set to 0.0) </td></tr>
     <tr><td class="paramname">labelBelow</td><td>Placement relative to the axis (true: below, false: above) </td></tr>
@@ -556,6 +565,10 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p >Adds a labelled vertical axis to the plot. The position of the axis will be changed to make space for the label. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">hPos</td><td>Horizontal coordinate of the axis </td></tr>
+    <tr><td class="paramname">vPosStart</td><td>Vertical coordinate of the start point of the axis </td></tr>
+    <tr><td class="paramname">vPosEnd</td><td>Vertical coordinate of the end point of the axis </td></tr>
+    <tr><td class="paramname">color</td><td>Color of the axis (not of label or ticks) </td></tr>
     <tr><td class="paramname">label</td><td>Label that is added to the axis </td></tr>
     <tr><td class="paramname">relativeLabelPosition</td><td>Position of the first character of label along the axis; has to be between 0.0 and 1.0 (otherwise set to 0.0) </td></tr>
     <tr><td class="paramname">labelLeft</td><td>Placement relative to the axis (true: left, false: right) </td></tr>

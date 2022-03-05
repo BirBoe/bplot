@@ -32,46 +32,46 @@ void Axis<T>::mAddRangeToCoordinateVector( std::vector<ImageCoordinate>& coordin
 }
 
 template <typename T>
-std::pair<int,int> Axis<T>::mAddAttribute( const std::vector< Pixel<T,std::string> >& attribute, float position, std::size_t offsetFromAxis, bool leftOrBottom, std::vector<ImageCoordinate>& coordinateVector , bool rotate )
+std::pair<int,int> Axis<T>::mAddAttribute( const std::vector< Pixel<T,std::string> >& attribute, float position, std::size_t offsetFromAxis, bool leftOrBelow, std::vector<ImageCoordinate>& coordinateVector , bool rotate )
 {
 	if( position > 1. || position < 0. ) position = 0.;
 
 	int hTotalOffset = 0, vTotalOffset = 0;
-	ImageCoordinate startIndex = mAxisCoordinates.at(0);
+	ImageCoordinate startCoordinate = mAxisCoordinates.at(0);
 
 	int overallShift = 0; //If parts of the axis, labels, etc. go out of the index range of the plot, they will be shifted back to within the range
 
 	if( mIsHorizontal ) {
 		std::size_t hOffset = static_cast<std::size_t>( position * (mLowerRightIndex.first - mUpperLeftIndex.first + 1) );
 
-		if( !leftOrBottom ) { //Label is above the axis
+		if( !leftOrBelow ) { //Label is above the axis
 
 			//Check if axis and attribute will fit into the plot. If not: set overallShift accordingly
-			if( startIndex.second  < offsetFromAxis ) {
-				overallShift = offsetFromAxis - startIndex.second;
+			if( startCoordinate.second  < offsetFromAxis ) {
+				overallShift = offsetFromAxis - startCoordinate.second;
 			}
 
 			//Attribute placement
-			mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startIndex.first + hOffset, startIndex.second - offsetFromAxis + overallShift ), attribute.size(), 1 );
+			mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first + hOffset, startCoordinate.second - offsetFromAxis + overallShift ), attribute.size(), 1 );
 
 			//The boundaries of the axis+attributes need to be changed:
-			if( mUpperLeftIndex.second + offsetFromAxis > startIndex.second ) {
-				mUpperLeftIndex.second = startIndex.second - offsetFromAxis;
+			if( mUpperLeftIndex.second + offsetFromAxis > startCoordinate.second ) {
+				mUpperLeftIndex.second = startCoordinate.second - offsetFromAxis;
 			}
 
 		} else { //Label is below the axis
 
 			//Check if axis and attribute will fit into the plot. If not: set overallShift accordingly
-			if( startIndex.second + offsetFromAxis >= mPlot.getHeight() ) {
-				overallShift = mPlot.getHeight() - 1 - startIndex.second - offsetFromAxis;
+			if( startCoordinate.second + offsetFromAxis >= mPlot.getHeight() ) {
+				overallShift = mPlot.getHeight() - 1 - startCoordinate.second - offsetFromAxis;
 			}
 
 			//Attribute placement
-			mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startIndex.first + hOffset, startIndex.second + offsetFromAxis + overallShift ), attribute.size(), 1 );
+			mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first + hOffset, startCoordinate.second + offsetFromAxis + overallShift ), attribute.size(), 1 );
 
 			//The boundaries of the axis+attributes need to be changed:
-			if( mLowerRightIndex.second < startIndex.second + offsetFromAxis ) {
-				mLowerRightIndex.second = startIndex.second + offsetFromAxis;
+			if( mLowerRightIndex.second < startCoordinate.second + offsetFromAxis ) {
+				mLowerRightIndex.second = startCoordinate.second + offsetFromAxis;
 			}
 
 		}
@@ -84,21 +84,21 @@ std::pair<int,int> Axis<T>::mAddAttribute( const std::vector< Pixel<T,std::strin
 	} else {
 		std::size_t vOffset = static_cast<std::size_t>( position * ( mLowerRightIndex.second - mUpperLeftIndex.second + 1 ) );
 
-		if( leftOrBottom ) { //Label is left of the axis
+		if( leftOrBelow ) { //Label is left of the axis
 
 			//Check if axis and attribute will fit into the plot. If not: set overallShift accordingly
-			if( rotate && startIndex.first < offsetFromAxis ) {
-				overallShift = offsetFromAxis - startIndex.first;
+			if( rotate && startCoordinate.first < offsetFromAxis ) {
+				overallShift = offsetFromAxis - startCoordinate.first;
 			}
-			if( !rotate && startIndex.first < offsetFromAxis + attribute.size() ) {
-				overallShift = offsetFromAxis + attribute.size() - startIndex.first;
+			if( !rotate && startCoordinate.first < offsetFromAxis + attribute.size() ) {
+				overallShift = offsetFromAxis + attribute.size() - startCoordinate.first;
 			}
 
 			//Attribute placement
 			if(rotate) {
-				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startIndex.first - offsetFromAxis + overallShift, startIndex.second + vOffset ), 1, attribute.size() );
+				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first - offsetFromAxis + overallShift, startCoordinate.second + vOffset ), 1, attribute.size() );
 			} else {
-				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startIndex.first - offsetFromAxis + overallShift, startIndex.second + vOffset ), attribute.size(), 1 );
+				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first - offsetFromAxis + overallShift, startCoordinate.second + vOffset ), attribute.size(), 1 );
 			}
 
 			//The axis will be potentially moved to the right by hTotalOffset
@@ -108,25 +108,25 @@ std::pair<int,int> Axis<T>::mAddAttribute( const std::vector< Pixel<T,std::strin
 			}
 
 			//The boundaries of the axis+attributes need to be changed:
-			if( mUpperLeftIndex.first + offsetFromAxis > startIndex.first ) {
-				mUpperLeftIndex.first = startIndex.first - offsetFromAxis;
+			if( mUpperLeftIndex.first + offsetFromAxis > startCoordinate.first ) {
+				mUpperLeftIndex.first = startCoordinate.first - offsetFromAxis;
 			}
 
 		} else { //Attribute is right of the axis
 
 			//Check if axis and attribute will fit into the plot. If not: set overallShift accordingly
-			if( rotate && startIndex.first + offsetFromAxis >= mPlot.getWidth() ) {
-				overallShift = mPlot.getWidth() - 1 - startIndex.first - offsetFromAxis;
+			if( rotate && startCoordinate.first + offsetFromAxis >= mPlot.getWidth() ) {
+				overallShift = mPlot.getWidth() - 1 - startCoordinate.first - offsetFromAxis;
 			}
-			if( !rotate && startIndex.first + offsetFromAxis + attribute.size() >= mPlot.getWidth() ) {
-				overallShift = mPlot.getWidth() - 1 - startIndex.first - offsetFromAxis - attribute.size();
+			if( !rotate && startCoordinate.first + offsetFromAxis + attribute.size() >= mPlot.getWidth() ) {
+				overallShift = mPlot.getWidth() - 1 - startCoordinate.first - offsetFromAxis - attribute.size();
 			}
 
 			//Attribute placement
 			if(rotate) {
-				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startIndex.first + offsetFromAxis + overallShift, startIndex.second + vOffset ), 1, attribute.size() );
+				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first + offsetFromAxis + overallShift, startCoordinate.second + vOffset ), 1, attribute.size() );
 			} else {
-				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startIndex.first + offsetFromAxis + overallShift, startIndex.second + vOffset ), attribute.size(), 1 );
+				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first + offsetFromAxis + overallShift, startCoordinate.second + vOffset ), attribute.size(), 1 );
 			}
 
 			if( !rotate ) {
@@ -134,8 +134,8 @@ std::pair<int,int> Axis<T>::mAddAttribute( const std::vector< Pixel<T,std::strin
 			}
 
 			//The boundaries of the axis+attributes need to be changed:
-			if( mLowerRightIndex.first < startIndex.first + offsetFromAxis ) {
-				mLowerRightIndex.first = startIndex.first + offsetFromAxis;
+			if( mLowerRightIndex.first < startCoordinate.first + offsetFromAxis ) {
+				mLowerRightIndex.first = startCoordinate.first + offsetFromAxis;
 			}
 
 		}
@@ -152,12 +152,12 @@ std::pair<int,int> Axis<T>::mAddAttribute( const std::vector< Pixel<T,std::strin
 
 
 template <typename T>
-void Axis<T>::mShift( int horizontalShift, int verticalShift, std::vector<ImageCoordinate>& indexVector )
+void Axis<T>::mShift( std::vector<ImageCoordinate>& coordinateVector, int horizontalShift, int verticalShift )
 {
 	//TODO: What happens if size_t becomes negative somewhere below?
-	for( auto& idx : indexVector ) {
-		idx.first += horizontalShift;
-		idx.second += verticalShift;
+	for( auto& coord : coordinateVector ) {
+		coord.first += horizontalShift;
+		coord.second += verticalShift;
 	}
 }
 
@@ -180,7 +180,7 @@ void Axis<T>::mUpdateAllCoordinates()
 /*Constructors and destructors*/
 
 template <typename T>
-Axis<T>::Axis( const Plot2D<T>& associatedPlot, const std::size_t width, const std::size_t height, const ImageCoordinate startIndex )
+Axis<T>::Axis( const Plot2D<T>& associatedPlot, const std::size_t width, const std::size_t height, const ImageCoordinate startCoordinate )
 	: mPlot(associatedPlot)
 {
 	if( width >= height ) { //Horizontal axis
@@ -193,21 +193,21 @@ Axis<T>::Axis( const Plot2D<T>& associatedPlot, const std::size_t width, const s
 
 	//Set indices representing the axis and the index range as given by mUpperLeftIndex and mLowerRightIndex
 	mAxisCoordinates = std::vector<ImageCoordinate>( width*height );
-	mUpperLeftIndex = startIndex;
+	mUpperLeftIndex = startCoordinate;
 	std::size_t j = 0;
 	if( width > 0 && height > 0 ) {
 		std::size_t jh = 0, jv = 0;
 		for( jh = 0; jh < width; jh++  ) {
 			for( jv = 0; jv < height; jv++ ) {
-				mAxisCoordinates.at(j) = std::make_pair( startIndex.first + jh, startIndex.second + jv );
+				mAxisCoordinates.at(j) = std::make_pair( startCoordinate.first + jh, startCoordinate.second + jv );
 				j++;
 			}
 		}
 		mLowerRightIndex = mAxisCoordinates.at(j-1);
 	} else {
-		mAxisCoordinates.at(0) = startIndex;
-		mUpperLeftIndex = startIndex;
-		mLowerRightIndex = startIndex;
+		mAxisCoordinates.at(0) = startCoordinate;
+		mUpperLeftIndex = startCoordinate;
+		mLowerRightIndex = startCoordinate;
 	}
 
 	mUpdateAllCoordinates();
@@ -217,14 +217,14 @@ Axis<T>::Axis( const Plot2D<T>& associatedPlot, const std::size_t width, const s
 
 /*-------Getters and Setters--------*/
 template <typename T>
-const Pixel<T,std::string>& Axis<T>::at( const ImageCoordinate& idx ) const
+const Pixel<T,std::string>& Axis<T>::at( const ImageCoordinate& coord ) const
 {
-	if( std::find(mAxisCoordinates.begin(), mAxisCoordinates.end(), idx) != mAxisCoordinates.end() ) {
+	if( std::find(mAxisCoordinates.begin(), mAxisCoordinates.end(), coord) != mAxisCoordinates.end() ) {
 		return getAxisElement();
-	} else if( std::find(mLabelCoordinates.begin(), mLabelCoordinates.end(), idx) != mLabelCoordinates.end() ) {
-		return mLabel.at( std::find(mLabelCoordinates.begin(), mLabelCoordinates.end(), idx) - mLabelCoordinates.begin() );
-	} else if( std::find(mTicksCoordinates.begin(), mTicksCoordinates.end(), idx) != mTicksCoordinates.end() ) {
-		return mTicks.at( std::find(mTicksCoordinates.begin(), mTicksCoordinates.end(), idx) - mTicksCoordinates.begin() );
+	} else if( std::find(mLabelCoordinates.begin(), mLabelCoordinates.end(), coord) != mLabelCoordinates.end() ) {
+		return mLabel.at( std::find(mLabelCoordinates.begin(), mLabelCoordinates.end(), coord) - mLabelCoordinates.begin() );
+	} else if( std::find(mTicksCoordinates.begin(), mTicksCoordinates.end(), coord) != mTicksCoordinates.end() ) {
+		return mTicks.at( std::find(mTicksCoordinates.begin(), mTicksCoordinates.end(), coord) - mTicksCoordinates.begin() );
 	} else {
 		return emptyPixel;
 	}
@@ -288,7 +288,7 @@ void Axis<T>::setAxisSymbol( const std::string& axisSymbol )
 
 /*-------------Modifiers------------*/
 template <typename T>
-void Axis<T>::addLabel( const std::string& label, float position, bool leftOrBottom , bool rotateLabel )
+void Axis<T>::addLabel( const std::string& label, float position, bool leftOrBelow , bool rotateLabel )
 {
 	if( mLabel.size() > 0 ) return; //A label already exists
 	mLabel = std::vector<Pixel<T,std::string>>(label.size());
@@ -299,17 +299,17 @@ void Axis<T>::addLabel( const std::string& label, float position, bool leftOrBot
 
 	// Add the label, accounting for all parameters and get back
 	// the coordinate offset totalOffset = (horizontalOffset,verticalOffset) required to accomodate the label
-	auto totalOffset = mAddAttribute( mLabel, position, offsetFromAxis, leftOrBottom, mLabelCoordinates , rotateLabel );
+	auto totalOffset = mAddAttribute( mLabel, position, offsetFromAxis, leftOrBelow, mLabelCoordinates , rotateLabel );
 
 	//Move the axis by totalOffset to make space for the label
-	mShift( totalOffset.first, totalOffset.second, mAxisCoordinates );
+	mShift( mAxisCoordinates, totalOffset.first, totalOffset.second );
 	//mShift( hTotalOffset, vTotalOffset, mTicksCoordinates )
 
 	mUpdateAllCoordinates();
 }
 
 template <typename T>
-void Axis<T>::addTicks( const std::vector<Tick>& ticks, bool leftOrBottom )
+void Axis<T>::addTicks( const std::vector<Tick>& ticks, bool leftOrBelow )
 {
 	float position = 0.0;
 	int hTotalOffset = 0, vTotalOffset = 0;
@@ -324,13 +324,13 @@ void Axis<T>::addTicks( const std::vector<Tick>& ticks, bool leftOrBottom )
 			tickBuf.at(j) = Pixel<T,std::string>(getAxisElement().getColor(), std::string(1,tick.first.at(j)));
 			mTicks.push_back( tickBuf.at(j) );
 		}
-		auto totalOffset = mAddAttribute( tickBuf, position, 1, leftOrBottom, mTicksCoordinates , false );
+		auto totalOffset = mAddAttribute( tickBuf, position, 1, leftOrBelow, mTicksCoordinates , false );
 		/*hTotalOffset = std::max( totalOffset.first, hTotalOffset );
 		vTotalOffset = std::max( totalOffset.second, vTotalOffset );
 		mShift( hTotalOffset, vTotalOffset, mAxisCoordinates );*/
 		if( first ) {
-			mShift( totalOffset.first, totalOffset.second, mAxisCoordinates );
-			mShift( totalOffset.first, totalOffset.second, mLabelCoordinates );
+			mShift( mAxisCoordinates, totalOffset.first, totalOffset.second );
+			mShift( mLabelCoordinates, totalOffset.first, totalOffset.second );
 		}
 		first = false;
 	}

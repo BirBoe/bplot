@@ -31,7 +31,16 @@ using ImageCoordinate = std::pair<std::size_t,std::size_t>; //Pair (jh,jv) of ho
 using DataPointXY = std::pair<double,double>; //Pair (x,y) of data values plotted in the image
 using DataSet = std::vector<DataPointXY>; //DataSet corresponding to one "curve" in the plot
 
-/** A DESCRIPTION HERE
+/**
+	* The Plot2D class represents a plot of two-dimensional data that can be printed to the console (or another output stream).
+	* Accordingly, it is a special type of Image and derived from the Image class.
+	* A Plot2D consists of axes of a certain value range that can be scaled (e.g. linearly, logarithmically, etc.),
+	* a region of the Image where data is shown (data frame), and Pixels representing the actual data.
+	* Any number of data sets can be part of the same plot. Each data set can be represented in the plot
+	* by another plot marker (different symbols, different colors).
+	* The class has manages the data itself in its raw form (data set) and the
+	* ImageCoordinates corresponding to the positions in the data frame where points from the data set are shown.
+	* @tparam T Color model used for the plot (default: Mono).
 	*/
 
 template <typename T>
@@ -170,6 +179,10 @@ public:
 
 	/**
 		* Adds a labelled vertical axis to the plot. The position of the axis will be changed to make space for the label.
+		* @param hPos Horizontal coordinate of the axis
+		* @param vPosStart Vertical coordinate of the start point of the axis
+		* @param vPosEnd Vertical coordinate of the end point of the axis
+		* @param color Color of the axis (not of label or ticks)
 		* @param label Label that is added to the axis
 		* @param relativeLabelPosition Position of the first character of label along the axis; has to be between 0.0 and 1.0 (otherwise set to 0.0)
 		* @param labelLeft Placement relative to the axis (true: left, false: right)
@@ -180,6 +193,10 @@ public:
 
 	/**
 		* Adds a labelled horizontal axis to the plot. The position of the axis will be changed to make space for the label.
+		* @param vPos Horizontal coordinate of the axis
+		* @param hPosStart Vertical coordinate of the start point of the axis
+		* @param hPosEnd Vertical coordinate of the end point of the axis
+		* @param color Color of the axis (not of label or ticks)
 		* @param label Label that is added to the axis
 		* @param relativeLabelPosition Position of the first character of label along the axis; has to be between 0.0 and 1.0 (otherwise set to 0.0)
 		* @param labelBelow Placement relative to the axis (true: below, false: above)

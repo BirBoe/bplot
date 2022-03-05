@@ -17,36 +17,68 @@
 
 #pragma once
 
-/*Pixel represents a single "pixel" in an image.
-- The pixel is represented by a symbol of Type T2 (e.g. char 'x') and a color of color model T1 (e.g. Mono with b = 0 -> black)
-*/
-
 #include <iostream>
 #include <stdexcept>
 #include "../header/color_models.h"
 
-template <typename T1 = Mono, typename T2 = char> //T1: color model, T2: type of each pixel (e.g. char)
+/**
+	* The Pixel class represents the smallest unit of an Image and as such can be printed to the console (or another outpus stream).
+	* A Pixel is represented as a symbol (for example a char, string or int) of a given color (Mono of RGB).
+	* @tparam T1 Color model for this Pixel (default: Mono).
+	* @tparam T2 Type of symbols that represent the Pixel in the command line (Default: char).
+	*/
+
+template <typename T1 = Mono, typename T2 = char>
 class Pixel
 {
 public:
 	/*Constructors and destructors*/
-	Pixel() = default; //Construct an empty image of size 1x1
-	Pixel( T1 color, T2 symbol ); //Construct an empty image of size 1x1
+
+	Pixel() = default; /*!< Constructs a Pixel with default values for the color model and the symbol type used */
+
+	/**
+	  * Constructs a Pixel as symbol of given color
+		* @param color Color of the Pixel.
+		* @param symbol Symbol that is represents the Pixel in the command line.
+		*/
+	Pixel( T1 color, T2 symbol );
 
 	/*Getters and setters*/
+	/**
+	  * Get color of the Pixel
+		* @return Color of the Pixel
+		*/
 	T1 getColor() const;
+
+	/**
+	  * Set color of the Pixel
+		* @param color Color of the Pixel
+		*/
 	void setColor( T1 color );
+
+	/**
+	  * Get symbol that represents the Pixel in the command line.
+		* @return Symbol of the Pixel
+		*/
 	T2 getSymbol() const;
+
+	/**
+	  * Set symbol that represents the Pixel in the command line.
+		* @param symbol Symbol of the Pixel
+		*/
 	void setSymbol( T2 symbol );
 
 private:
-	T1 mColor; //Color of the pixel
-	T2 mSymbol; //Symbol representing the pixel if displayed in the terminal
-	void verifyCoordinate(std::size_t i, std::size_t j) const; //Verify that (i,j) is within limits of the image size (throws std::out_of_range() if not)
+	T1 mColor; /*!< Color of the pixel */
+	T2 mSymbol;  /*!< Symbol that is shown if the pixel is printed to the command line */
 };
 
+
+/**
+	* Print a Pixel to an output stream using ansi codes to set its color.
+	*/
 template <typename T1, typename T2>
 std::ostream& operator<<( std::ostream& ostr, const Pixel<T1,T2>& p ); //Outputs the (colored) pixel p to the stream ostr
 
-/*Include method definitions (needed here for the compiler because it is a class template!)*/
+/*Include method definitions for the template class*/
 #include "../src/pixel.cpp"

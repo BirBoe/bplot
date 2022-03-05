@@ -149,11 +149,7 @@ Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T1 = Mono, typename T2 = char&gt;<br />
-class Image&lt; T1, T2 &gt;</div><p >CHANGE DESCRIPTION <a class="el" href="class_image.html">Image</a> is an image that can be printed onto the screen, e.g. to the console output</p><ul>
-<li><a class="el" href="class_pixel.html">Pixel</a> values are represented by a PxQ "matrix" (vectors) of "Pixel" objects for a PxQ image (P,Q: no. of pixels).</li>
-<li>Data can be loaded into the image</li>
-</ul>
-<p >The image can be printed to the set output using the method <a class="el" href="class_image.html#a688e4526026154edfb35fec4aacc9297">show()</a> </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+class Image&lt; T1, T2 &gt;</div><p >The <a class="el" href="class_image.html">Image</a> class represents an image that can be printed to the console (or another output stream). The <a class="el" href="class_image.html">Image</a> is a collection of <a class="el" href="class_pixel.html">Pixel</a> objects that are ordered in a width x height "matrix". The <a class="el" href="class_image.html">Image</a> can be either black and white (<a class="el" href="struct_mono.html">Mono</a>) or colored (<a class="el" href="struct_r_g_b.html">RGB</a>). </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T1</td><td>Color model for this image (default: <a class="el" href="struct_mono.html">Mono</a>). </td></tr>
     <tr><td class="paramname">T2</td><td>Type of symbols that represent a <a class="el" href="class_pixel.html">Pixel</a> (Default: char). </td></tr>
@@ -174,7 +170,7 @@ template&lt;typename T1 , typename T2 &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Constructs an empty image of size 1 x 1. </p>
+<p >Constructs an empty image (of default Pixels) of size 1 x 1. </p>
 
 </div>
 </div>
@@ -205,7 +201,13 @@ template&lt;typename T1 , typename T2 &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Constructs an empty image of size width x height. </p>
+<p >Constructs an empty image (of default Pixels) of given size. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>Width of the <a class="el" href="class_image.html">Image</a> in number of Pixels. </td></tr>
+    <tr><td class="paramname">height</td><td>Height of the <a class="el" href="class_image.html">Image</a> in number of Pixels. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -242,7 +244,14 @@ template&lt;typename T1 , typename T2 &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Constructs an image of size width x height with all pixels set equal to p. </p>
+<p >Constructs an empty image of given size with identical Pixels. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>Width of the <a class="el" href="class_image.html">Image</a> in number of Pixels. </td></tr>
+    <tr><td class="paramname">height</td><td>Height of the <a class="el" href="class_image.html">Image</a> in number of Pixels. </td></tr>
+    <tr><td class="paramname">p</td><td><a class="el" href="class_pixel.html">Pixel</a> that all Pixels in the <a class="el" href="class_image.html">Image</a> will be set equal to. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -705,7 +714,7 @@ template&lt;typename T1 , typename T2 &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Check if (i,j) is a valid coordinate inside the image. </p><dl class="exception"><dt>Exceptions</dt><dd>
+<p >Checks if (i,j) is a valid coordinate inside the image. </p><dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::out_of_range</td><td>if (i,j) lies outside the image </td></tr>
   </table>

@@ -35,78 +35,78 @@
 \DoxyCodeLine{31 \textcolor{keyword}{using} DataPointXY = std::pair<double,double>; \textcolor{comment}{//Pair (x,y) of data values plotted in the image}}
 \DoxyCodeLine{32 \textcolor{keyword}{using} DataSet = std::vector<DataPointXY>; \textcolor{comment}{//DataSet corresponding to one "{}curve"{} in the plot}}
 \DoxyCodeLine{33 }
-\DoxyCodeLine{37 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{38 \textcolor{keyword}{class }\mbox{\hyperlink{class_plot2_d}{Plot2D}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_image}{Image}}<T,std::string>}
-\DoxyCodeLine{39 \{}
-\DoxyCodeLine{40 \textcolor{keyword}{private}:}
-\DoxyCodeLine{41     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}} emptyPixel = \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}}(T(),\textcolor{stringliteral}{"{} "{}});}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43     std::vector<Axis<T>> \mbox{\hyperlink{class_plot2_d_ad3850e9dfce5560cf87a5aa3245c3e59}{mHorizontalAxes}}; }
-\DoxyCodeLine{44     std::vector<Axis<T>> \mbox{\hyperlink{class_plot2_d_a9c3db3812068f632b1a3de673b1e0fc1}{mVerticalAxes}}; }
-\DoxyCodeLine{49     std::vector<std::pair<std::string,ImageCoordinate>> \mbox{\hyperlink{class_plot2_d_a12370dae595d81fec79523b65ed4a0da}{mText}};}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{54     ImageCoordinate \mbox{\hyperlink{class_plot2_d_a3e2b1ead9aa2e48522bb54a07e241f9b}{mDataFrameStart}};}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{59     ImageCoordinate \mbox{\hyperlink{class_plot2_d_a70228126cbaaf6e617e2f457ff1004f1}{mDataFrameEnd}};}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61     std::pair<double,double> \mbox{\hyperlink{class_plot2_d_a299c8d2448382785355c9dc406edceb7}{mXPlotRange}}; }
-\DoxyCodeLine{62     std::pair<double,double> \mbox{\hyperlink{class_plot2_d_a37d647253b19debd0707fe4e4243509a}{mYPlotRange}}; }
-\DoxyCodeLine{67     std::function<double(\textcolor{keywordtype}{double})> \mbox{\hyperlink{class_plot2_d_a66015c27cf36470a1ff8376ba15cda4d}{mXScalingFunction}} = [](\textcolor{keywordtype}{double} x)\{ \textcolor{keywordflow}{return} x; \};}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{72     std::function<double(\textcolor{keywordtype}{double})> \mbox{\hyperlink{class_plot2_d_a195cc1a4b4eafd13f06ec2678608420d}{mYScalingFunction}} = [](\textcolor{keywordtype}{double} y)\{ \textcolor{keywordflow}{return} y; \};}
-\DoxyCodeLine{73 }
-\DoxyCodeLine{77     std::vector< std::shared\_ptr<const DataSet> > \mbox{\hyperlink{class_plot2_d_a11da671488c635aaf60a6de6897d98ba}{mDataSets}};}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{83     std::vector< std::vector<ImageCoordinate> > \mbox{\hyperlink{class_plot2_d_a0f441252c55e50f96f688007c351ca71}{mCoordinatesOfDataPoints}};}
-\DoxyCodeLine{84 }
-\DoxyCodeLine{89     std::vector< Pixel<T,std::string> > \mbox{\hyperlink{class_plot2_d_a2ef9206d8730dbf2d9d13d51aab8e89a}{mPlotMarkers}};}
-\DoxyCodeLine{90 }
-\DoxyCodeLine{94     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_a4a4c1094df054884b55180e1249f1855}{mClear}}();}
-\DoxyCodeLine{95 }
-\DoxyCodeLine{101     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_aaba1d6b0982a67867f4e63f93a8cfc1e}{mDataSetToCoordinates}}( std::size\_t jDataSet );}
-\DoxyCodeLine{102 }
-\DoxyCodeLine{107     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_a05ed3b8f655efea3e71076658dcc3913}{mAllDataSetsToCoordinates}}();}
-\DoxyCodeLine{108 }
-\DoxyCodeLine{114     ImageCoordinate \mbox{\hyperlink{class_plot2_d_aa1597d1644b442b11894e359dc374ff0}{mDataPointToCoordinate}}( \textcolor{keyword}{const} DataPointXY\& dataPoint );}
-\DoxyCodeLine{115 }
-\DoxyCodeLine{116 \textcolor{keyword}{public}:}
-\DoxyCodeLine{117     \textcolor{comment}{/*-\/-\/-\/Constructors and destructors-\/-\/-\/*/}}
-\DoxyCodeLine{118     \textcolor{comment}{//Plot2D() = default; //Constructs an empty plot with all values set to zero or equivalent}}
-\DoxyCodeLine{119 }
-\DoxyCodeLine{125     \mbox{\hyperlink{class_plot2_d_a397fc9d6f41014c47eee4e71492db7c4}{Plot2D}}( std::size\_t width, std::size\_t height );}
-\DoxyCodeLine{126 }
-\DoxyCodeLine{127     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{46 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{47 \textcolor{keyword}{class }\mbox{\hyperlink{class_plot2_d}{Plot2D}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_image}{Image}}<T,std::string>}
+\DoxyCodeLine{48 \{}
+\DoxyCodeLine{49 \textcolor{keyword}{private}:}
+\DoxyCodeLine{50     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}} emptyPixel = \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}}(T(),\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     std::vector<Axis<T>> \mbox{\hyperlink{class_plot2_d_ad3850e9dfce5560cf87a5aa3245c3e59}{mHorizontalAxes}}; }
+\DoxyCodeLine{53     std::vector<Axis<T>> \mbox{\hyperlink{class_plot2_d_a9c3db3812068f632b1a3de673b1e0fc1}{mVerticalAxes}}; }
+\DoxyCodeLine{58     std::vector<std::pair<std::string,ImageCoordinate>> \mbox{\hyperlink{class_plot2_d_a12370dae595d81fec79523b65ed4a0da}{mText}};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{63     ImageCoordinate \mbox{\hyperlink{class_plot2_d_a3e2b1ead9aa2e48522bb54a07e241f9b}{mDataFrameStart}};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{68     ImageCoordinate \mbox{\hyperlink{class_plot2_d_a70228126cbaaf6e617e2f457ff1004f1}{mDataFrameEnd}};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     std::pair<double,double> \mbox{\hyperlink{class_plot2_d_a299c8d2448382785355c9dc406edceb7}{mXPlotRange}}; }
+\DoxyCodeLine{71     std::pair<double,double> \mbox{\hyperlink{class_plot2_d_a37d647253b19debd0707fe4e4243509a}{mYPlotRange}}; }
+\DoxyCodeLine{76     std::function<double(\textcolor{keywordtype}{double})> \mbox{\hyperlink{class_plot2_d_a66015c27cf36470a1ff8376ba15cda4d}{mXScalingFunction}} = [](\textcolor{keywordtype}{double} x)\{ \textcolor{keywordflow}{return} x; \};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{81     std::function<double(\textcolor{keywordtype}{double})> \mbox{\hyperlink{class_plot2_d_a195cc1a4b4eafd13f06ec2678608420d}{mYScalingFunction}} = [](\textcolor{keywordtype}{double} y)\{ \textcolor{keywordflow}{return} y; \};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{86     std::vector< std::shared\_ptr<const DataSet> > \mbox{\hyperlink{class_plot2_d_a11da671488c635aaf60a6de6897d98ba}{mDataSets}};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{92     std::vector< std::vector<ImageCoordinate> > \mbox{\hyperlink{class_plot2_d_a0f441252c55e50f96f688007c351ca71}{mCoordinatesOfDataPoints}};}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{98     std::vector< Pixel<T,std::string> > \mbox{\hyperlink{class_plot2_d_a2ef9206d8730dbf2d9d13d51aab8e89a}{mPlotMarkers}};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{103     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_a4a4c1094df054884b55180e1249f1855}{mClear}}();}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{110     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_aaba1d6b0982a67867f4e63f93a8cfc1e}{mDataSetToCoordinates}}( std::size\_t jDataSet );}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{116     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_a05ed3b8f655efea3e71076658dcc3913}{mAllDataSetsToCoordinates}}();}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{123     ImageCoordinate \mbox{\hyperlink{class_plot2_d_aa1597d1644b442b11894e359dc374ff0}{mDataPointToCoordinate}}( \textcolor{keyword}{const} DataPointXY\& dataPoint );}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 \textcolor{keyword}{public}:}
+\DoxyCodeLine{126     \textcolor{comment}{/*-\/-\/-\/Constructors and destructors-\/-\/-\/*/}}
+\DoxyCodeLine{127     \textcolor{comment}{//Plot2D() = default; //Constructs an empty plot with all values set to zero or equivalent}}
 \DoxyCodeLine{128 }
-\DoxyCodeLine{129     \textcolor{comment}{/*-\/-\/-\/Getters and Setters-\/-\/-\/-\/*/}}
-\DoxyCodeLine{130 }
-\DoxyCodeLine{135     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_aea5e9703a077095946670717b46c69b6}{setXAxisScaling}}( \textcolor{keyword}{const} std::function<\textcolor{keywordtype}{double}(\textcolor{keywordtype}{double})>\& xScalingFunction );}
-\DoxyCodeLine{136 }
-\DoxyCodeLine{141     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_ab8d7c4a7fd5881935647257e537d84ca}{setYAxisScaling}}( \textcolor{keyword}{const} std::function<\textcolor{keywordtype}{double}(\textcolor{keywordtype}{double})>\& yScalingFunction );}
-\DoxyCodeLine{142 }
-\DoxyCodeLine{148     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_aaf474365239de9b28942c6bf37af3ddf}{setPlotRange}}( \textcolor{keyword}{const} std::pair<double,double>\& xPlotRange, \textcolor{keyword}{const} std::pair<double,double>\& yPlotRange );}
-\DoxyCodeLine{149 }
-\DoxyCodeLine{150     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{134     \mbox{\hyperlink{class_plot2_d_a397fc9d6f41014c47eee4e71492db7c4}{Plot2D}}( std::size\_t width, std::size\_t height );}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \textcolor{comment}{/*-\/-\/-\/Getters and Setters-\/-\/-\/-\/*/}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{144     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_aea5e9703a077095946670717b46c69b6}{setXAxisScaling}}( \textcolor{keyword}{const} std::function<\textcolor{keywordtype}{double}(\textcolor{keywordtype}{double})>\& xScalingFunction );}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{150     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_ab8d7c4a7fd5881935647257e537d84ca}{setYAxisScaling}}( \textcolor{keyword}{const} std::function<\textcolor{keywordtype}{double}(\textcolor{keywordtype}{double})>\& yScalingFunction );}
 \DoxyCodeLine{151 }
-\DoxyCodeLine{152     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/Modifiers-\/-\/-\/-\/-\/-\/-\/-\/*/}}
-\DoxyCodeLine{160     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}{addVerticalAxis}}( std::size\_t hPos, std::size\_t vPosStart, std::size\_t vPosEnd, T color );}
-\DoxyCodeLine{161 }
-\DoxyCodeLine{169     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}{addHorizontalAxis}}( std::size\_t vPos, std::size\_t hPosStart, std::size\_t hPosEnd, T color );}
+\DoxyCodeLine{157     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_aaf474365239de9b28942c6bf37af3ddf}{setPlotRange}}( \textcolor{keyword}{const} std::pair<double,double>\& xPlotRange, \textcolor{keyword}{const} std::pair<double,double>\& yPlotRange );}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/Modifiers-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{169     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}{addVerticalAxis}}( std::size\_t hPos, std::size\_t vPosStart, std::size\_t vPosEnd, T color );}
 \DoxyCodeLine{170 }
-\DoxyCodeLine{179     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}{addVerticalAxis}}( std::size\_t hPos, std::size\_t vPosStart, std::size\_t vPosEnd, T color, \textcolor{keyword}{const} std::string\& label, \textcolor{keywordtype}{float} relativeLabelPosition = 0.5, \textcolor{keywordtype}{bool} labelLeft = \textcolor{keyword}{true}, \textcolor{keywordtype}{bool} rotateLabel = \textcolor{keyword}{false} );}
-\DoxyCodeLine{180 }
-\DoxyCodeLine{188     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}{addHorizontalAxis}}( std::size\_t vPos, std::size\_t hPosStart, std::size\_t hPosEnd, T color, \textcolor{keyword}{const} std::string\& label, \textcolor{keywordtype}{float} relativeLabelPosition = 0.5, \textcolor{keywordtype}{bool} labelBelow = \textcolor{keyword}{true} );}
-\DoxyCodeLine{189 }
-\DoxyCodeLine{195     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_a609838a36eeb52a934e8518117232e95}{addText}}( \textcolor{keyword}{const} std::string\& text, ImageCoordinate\& textPosition );}
-\DoxyCodeLine{196 }
-\DoxyCodeLine{202     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_acd22e547d8903adfb1c682dfb84918f9}{addDataSet}}( std::shared\_ptr<const DataSet> dataSet, \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}} plotMarker );}
-\DoxyCodeLine{203 }
-\DoxyCodeLine{204     \textcolor{comment}{//"{}REMOVERS"{}}}
-\DoxyCodeLine{205     \textcolor{comment}{//void flush(); //Removes all data and data points}}
+\DoxyCodeLine{178     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}{addHorizontalAxis}}( std::size\_t vPos, std::size\_t hPosStart, std::size\_t hPosEnd, T color );}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{192     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}{addVerticalAxis}}( std::size\_t hPos, std::size\_t vPosStart, std::size\_t vPosEnd, T color, \textcolor{keyword}{const} std::string\& label, \textcolor{keywordtype}{float} relativeLabelPosition = 0.5, \textcolor{keywordtype}{bool} labelLeft = \textcolor{keyword}{true}, \textcolor{keywordtype}{bool} rotateLabel = \textcolor{keyword}{false} );}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{205     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}{addHorizontalAxis}}( std::size\_t vPos, std::size\_t hPosStart, std::size\_t hPosEnd, T color, \textcolor{keyword}{const} std::string\& label, \textcolor{keywordtype}{float} relativeLabelPosition = 0.5, \textcolor{keywordtype}{bool} labelBelow = \textcolor{keyword}{true} );}
 \DoxyCodeLine{206 }
-\DoxyCodeLine{207     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
-\DoxyCodeLine{208 \};}
-\DoxyCodeLine{209 }
-\DoxyCodeLine{210 \textcolor{comment}{/*Include method definitions for the template class*/}}
-\DoxyCodeLine{211 \textcolor{preprocessor}{\#include "{}../src/plot2d.cpp"{}}}
+\DoxyCodeLine{212     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_a609838a36eeb52a934e8518117232e95}{addText}}( \textcolor{keyword}{const} std::string\& text, ImageCoordinate\& textPosition );}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{219     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_plot2_d_acd22e547d8903adfb1c682dfb84918f9}{addDataSet}}( std::shared\_ptr<const DataSet> dataSet, \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}} plotMarker );}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{221     \textcolor{comment}{//"{}REMOVERS"{}}}
+\DoxyCodeLine{222     \textcolor{comment}{//void flush(); //Removes all data and data points}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{225 \};}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227 \textcolor{comment}{/*Include method definitions for the template class*/}}
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#include "{}../src/plot2d.cpp"{}}}
 
 \end{DoxyCode}

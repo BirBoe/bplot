@@ -62,13 +62,7 @@ int \mbox{\hyperlink{class_image_a809704dad5c4f5ce7f71521b710605af}{m\+Height}}
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename T1 = Mono, typename T2 = char$>$\newline
 class Image$<$ T1, T2 $>$}
-CHANGE DESCRIPTION \mbox{\hyperlink{class_image}{Image}} is an image that can be printed onto the screen, e.\+g. to the console output
-\begin{DoxyItemize}
-\item \mbox{\hyperlink{class_pixel}{Pixel}} values are represented by a PxQ \char`\"{}matrix\char`\"{} (vectors) of \char`\"{}\+Pixel\char`\"{} objects for a PxQ image (P,Q\+: no. of pixels).
-\item Data can be loaded into the image
-\end{DoxyItemize}
-
-The image can be printed to the set output using the method \mbox{\hyperlink{class_image_a688e4526026154edfb35fec4aacc9297}{show()}} 
+The \mbox{\hyperlink{class_image}{Image}} class represents an image that can be printed to the console (or another output stream). The \mbox{\hyperlink{class_image}{Image}} is a collection of \mbox{\hyperlink{class_pixel}{Pixel}} objects that are ordered in a width x height \char`\"{}matrix\char`\"{}. The \mbox{\hyperlink{class_image}{Image}} can be either black and white (\mbox{\hyperlink{struct_mono}{Mono}}) or colored (\mbox{\hyperlink{struct_r_g_b}{RGB}}). 
 \begin{DoxyTemplParams}{Template Parameters}
 {\em T1} & Color model for this image (default\+: \mbox{\hyperlink{struct_mono}{Mono}}). \\
 \hline
@@ -85,21 +79,37 @@ The image can be printed to the set output using the method \mbox{\hyperlink{cla
 {\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
 \mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\mbox{\hyperlink{class_image}{\+::\+Image}}}
 
-Constructs an empty image of size 1 x 1. \mbox{\Hypertarget{class_image_ace440a6ab7d7a54155d14d4346994b86}\label{class_image_ace440a6ab7d7a54155d14d4346994b86}} 
+Constructs an empty image (of default Pixels) of size 1 x 1. \mbox{\Hypertarget{class_image_ace440a6ab7d7a54155d14d4346994b86}\label{class_image_ace440a6ab7d7a54155d14d4346994b86}} 
 \index{Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}!Image@{Image}}
 \index{Image@{Image}!Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}}
 \doxysubsubsection{\texorpdfstring{Image()}{Image()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
 \mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\mbox{\hyperlink{class_image}{\+::\+Image}} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{width,  }\item[{std\+::size\+\_\+t}]{height }\end{DoxyParamCaption})}
 
-Constructs an empty image of size width x height. \mbox{\Hypertarget{class_image_ab10e2f8b804065513c4e6e2d90f2c96b}\label{class_image_ab10e2f8b804065513c4e6e2d90f2c96b}} 
+Constructs an empty image (of default Pixels) of given size. 
+\begin{DoxyParams}{Parameters}
+{\em width} & Width of the \mbox{\hyperlink{class_image}{Image}} in number of Pixels. \\
+\hline
+{\em height} & Height of the \mbox{\hyperlink{class_image}{Image}} in number of Pixels. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_image_ab10e2f8b804065513c4e6e2d90f2c96b}\label{class_image_ab10e2f8b804065513c4e6e2d90f2c96b}} 
 \index{Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}!Image@{Image}}
 \index{Image@{Image}!Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}}
 \doxysubsubsection{\texorpdfstring{Image()}{Image()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
 \mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\mbox{\hyperlink{class_image}{\+::\+Image}} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{width,  }\item[{std\+::size\+\_\+t}]{height,  }\item[{const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \&}]{p }\end{DoxyParamCaption})}
 
-Constructs an image of size width x height with all pixels set equal to p. 
+Constructs an empty image of given size with identical Pixels. 
+\begin{DoxyParams}{Parameters}
+{\em width} & Width of the \mbox{\hyperlink{class_image}{Image}} in number of Pixels. \\
+\hline
+{\em height} & Height of the \mbox{\hyperlink{class_image}{Image}} in number of Pixels. \\
+\hline
+{\em p} & \mbox{\hyperlink{class_pixel}{Pixel}} that all Pixels in the \mbox{\hyperlink{class_image}{Image}} will be set equal to. \\
+\hline
+\end{DoxyParams}
+
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_image_ac5f5b360ac1a4ebbf832ec3a774b3a82}\label{class_image_ac5f5b360ac1a4ebbf832ec3a774b3a82}} 
@@ -267,7 +277,7 @@ Output the image to the command line. \mbox{\Hypertarget{class_image_a053031f5a9
 {\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
 void \mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\+::verify\+Coordinate (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
 
-Check if (i,j) is a valid coordinate inside the image. 
+Checks if (i,j) is a valid coordinate inside the image. 
 \begin{DoxyExceptions}{Exceptions}
 {\em std\+::out\+\_\+of\+\_\+range} & if (i,j) lies outside the image \\
 \hline

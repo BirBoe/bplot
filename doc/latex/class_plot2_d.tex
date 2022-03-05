@@ -82,7 +82,12 @@ static const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T, std\+::string $>$ {\bfs
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$typename T$>$\newline
 class Plot2\+D$<$ T $>$}
-A DESCRIPTION HERE 
+The \mbox{\hyperlink{class_plot2_d}{Plot2D}} class represents a plot of two-\/dimensional data that can be printed to the console (or another output stream). Accordingly, it is a special type of \mbox{\hyperlink{class_image}{Image}} and derived from the \mbox{\hyperlink{class_image}{Image}} class. A \mbox{\hyperlink{class_plot2_d}{Plot2D}} consists of axes of a certain value range that can be scaled (e.\+g. linearly, logarithmically, etc.), a region of the \mbox{\hyperlink{class_image}{Image}} where data is shown (data frame), and Pixels representing the actual data. Any number of data sets can be part of the same plot. Each data set can be represented in the plot by another plot marker (different symbols, different colors). The class has manages the data itself in its raw form (data set) and the Image\+Coordinates corresponding to the positions in the data frame where points from the data set are shown. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Color model used for the plot (default\+: \mbox{\hyperlink{struct_mono}{Mono}}). \\
+\hline
+\end{DoxyTemplParams}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_plot2_d_a397fc9d6f41014c47eee4e71492db7c4}\label{class_plot2_d_a397fc9d6f41014c47eee4e71492db7c4}} 
@@ -143,6 +148,14 @@ void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::add\+Horizontal\+Axis 
 
 Adds a labelled horizontal axis to the plot. The position of the axis will be changed to make space for the label. 
 \begin{DoxyParams}{Parameters}
+{\em v\+Pos} & Horizontal coordinate of the axis \\
+\hline
+{\em h\+Pos\+Start} & Vertical coordinate of the start point of the axis \\
+\hline
+{\em h\+Pos\+End} & Vertical coordinate of the end point of the axis \\
+\hline
+{\em color} & Color of the axis (not of label or ticks) \\
+\hline
 {\em label} & Label that is added to the axis \\
 \hline
 {\em relative\+Label\+Position} & Position of the first character of label along the axis; has to be between 0.\+0 and 1.\+0 (otherwise set to 0.\+0) \\
@@ -194,6 +207,14 @@ void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::add\+Vertical\+Axis (\
 
 Adds a labelled vertical axis to the plot. The position of the axis will be changed to make space for the label. 
 \begin{DoxyParams}{Parameters}
+{\em h\+Pos} & Horizontal coordinate of the axis \\
+\hline
+{\em v\+Pos\+Start} & Vertical coordinate of the start point of the axis \\
+\hline
+{\em v\+Pos\+End} & Vertical coordinate of the end point of the axis \\
+\hline
+{\em color} & Color of the axis (not of label or ticks) \\
+\hline
 {\em label} & Label that is added to the axis \\
 \hline
 {\em relative\+Label\+Position} & Position of the first character of label along the axis; has to be between 0.\+0 and 1.\+0 (otherwise set to 0.\+0) \\

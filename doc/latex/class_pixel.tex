@@ -1,39 +1,132 @@
 \hypertarget{class_pixel}{}\doxysection{Pixel\texorpdfstring{$<$}{<} T1, T2 \texorpdfstring{$>$}{>} Class Template Reference}
 \label{class_pixel}\index{Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}}
+
+
+{\ttfamily \#include $<$pixel.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_pixel_aa9304bea7c69a96a8aea3e9c1fff43a1}\label{class_pixel_aa9304bea7c69a96a8aea3e9c1fff43a1}} 
-{\bfseries Pixel} (T1 color, T2 symbol)
+\mbox{\hyperlink{class_pixel_aa53b48c24f84e20221192a1102762fe9}{Pixel}} ()=default
 \item 
-\mbox{\Hypertarget{class_pixel_a28955aa046f5c5f55429b7fe36811c04}\label{class_pixel_a28955aa046f5c5f55429b7fe36811c04}} 
-T1 {\bfseries get\+Color} () const
+\mbox{\hyperlink{class_pixel_aa9304bea7c69a96a8aea3e9c1fff43a1}{Pixel}} (T1 color, T2 symbol)
 \item 
-\mbox{\Hypertarget{class_pixel_adb440581fa4a05f72dda51e56b48c1f0}\label{class_pixel_adb440581fa4a05f72dda51e56b48c1f0}} 
-void {\bfseries set\+Color} (T1 color)
+T1 \mbox{\hyperlink{class_pixel_a28955aa046f5c5f55429b7fe36811c04}{get\+Color}} () const
 \item 
-\mbox{\Hypertarget{class_pixel_a464d850416ee007deed8d4575551e94f}\label{class_pixel_a464d850416ee007deed8d4575551e94f}} 
-T2 {\bfseries get\+Symbol} () const
+void \mbox{\hyperlink{class_pixel_adb440581fa4a05f72dda51e56b48c1f0}{set\+Color}} (T1 color)
 \item 
-\mbox{\Hypertarget{class_pixel_abedb8474cba300ddf6a96f967371fa5d}\label{class_pixel_abedb8474cba300ddf6a96f967371fa5d}} 
-void {\bfseries set\+Symbol} (T2 symbol)
-\end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
+T2 \mbox{\hyperlink{class_pixel_a464d850416ee007deed8d4575551e94f}{get\+Symbol}} () const
 \item 
-\mbox{\Hypertarget{class_pixel_ab8ef0b8a1b989d87962eb9a4862b995e}\label{class_pixel_ab8ef0b8a1b989d87962eb9a4862b995e}} 
-void {\bfseries verify\+Coordinate} (std\+::size\+\_\+t i, std\+::size\+\_\+t j) const
+void \mbox{\hyperlink{class_pixel_abedb8474cba300ddf6a96f967371fa5d}{set\+Symbol}} (T2 symbol)
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_pixel_ab500a09ccea290c6c25d8628c68fc162}\label{class_pixel_ab500a09ccea290c6c25d8628c68fc162}} 
-T1 {\bfseries m\+Color}
+T1 \mbox{\hyperlink{class_pixel_ab500a09ccea290c6c25d8628c68fc162}{m\+Color}}
 \item 
-\mbox{\Hypertarget{class_pixel_aab1aac4b17bebc65e978dfb44df9c55f}\label{class_pixel_aab1aac4b17bebc65e978dfb44df9c55f}} 
-T2 {\bfseries m\+Symbol}
+T2 \mbox{\hyperlink{class_pixel_aab1aac4b17bebc65e978dfb44df9c55f}{m\+Symbol}}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T1 = Mono, typename T2 = char$>$\newline
+class Pixel$<$ T1, T2 $>$}
+The \mbox{\hyperlink{class_pixel}{Pixel}} class represents the smallest unit of an \mbox{\hyperlink{class_image}{Image}} and as such can be printed to the console (or another outpus stream). A \mbox{\hyperlink{class_pixel}{Pixel}} is represented as a symbol (for example a char, string or int) of a given color (\mbox{\hyperlink{struct_mono}{Mono}} of \mbox{\hyperlink{struct_r_g_b}{RGB}}). 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T1} & Color model for this \mbox{\hyperlink{class_pixel}{Pixel}} (default\+: \mbox{\hyperlink{struct_mono}{Mono}}). \\
+\hline
+{\em T2} & Type of symbols that represent the \mbox{\hyperlink{class_pixel}{Pixel}} in the command line (Default\+: char). \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_pixel_aa53b48c24f84e20221192a1102762fe9}\label{class_pixel_aa53b48c24f84e20221192a1102762fe9}} 
+\index{Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}!Pixel@{Pixel}}
+\index{Pixel@{Pixel}!Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}}
+\doxysubsubsection{\texorpdfstring{Pixel()}{Pixel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T1  = Mono, typename T2  = char$>$ \\
+\mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$\mbox{\hyperlink{class_pixel}{\+::\+Pixel}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Constructs a \mbox{\hyperlink{class_pixel}{Pixel}} with default values for the color model and the symbol type used \mbox{\Hypertarget{class_pixel_aa9304bea7c69a96a8aea3e9c1fff43a1}\label{class_pixel_aa9304bea7c69a96a8aea3e9c1fff43a1}} 
+\index{Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}!Pixel@{Pixel}}
+\index{Pixel@{Pixel}!Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}}
+\doxysubsubsection{\texorpdfstring{Pixel()}{Pixel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
+\mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$\mbox{\hyperlink{class_pixel}{\+::\+Pixel}} (\begin{DoxyParamCaption}\item[{T1}]{color,  }\item[{T2}]{symbol }\end{DoxyParamCaption})}
+
+Constructs a \mbox{\hyperlink{class_pixel}{Pixel}} as symbol of given color 
+\begin{DoxyParams}{Parameters}
+{\em color} & Color of the \mbox{\hyperlink{class_pixel}{Pixel}}. \\
+\hline
+{\em symbol} & Symbol that is represents the \mbox{\hyperlink{class_pixel}{Pixel}} in the command line. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pixel_a28955aa046f5c5f55429b7fe36811c04}\label{class_pixel_a28955aa046f5c5f55429b7fe36811c04}} 
+\index{Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}!getColor@{getColor}}
+\index{getColor@{getColor}!Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}}
+\doxysubsubsection{\texorpdfstring{getColor()}{getColor()}}
+{\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
+T1 \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$\+::get\+Color}
+
+Get color of the \mbox{\hyperlink{class_pixel}{Pixel}} \begin{DoxyReturn}{Returns}
+Color of the \mbox{\hyperlink{class_pixel}{Pixel}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pixel_a464d850416ee007deed8d4575551e94f}\label{class_pixel_a464d850416ee007deed8d4575551e94f}} 
+\index{Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}!getSymbol@{getSymbol}}
+\index{getSymbol@{getSymbol}!Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}}
+\doxysubsubsection{\texorpdfstring{getSymbol()}{getSymbol()}}
+{\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
+T2 \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$\+::get\+Symbol}
+
+Get symbol that represents the \mbox{\hyperlink{class_pixel}{Pixel}} in the command line. \begin{DoxyReturn}{Returns}
+Symbol of the \mbox{\hyperlink{class_pixel}{Pixel}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_pixel_adb440581fa4a05f72dda51e56b48c1f0}\label{class_pixel_adb440581fa4a05f72dda51e56b48c1f0}} 
+\index{Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}!setColor@{setColor}}
+\index{setColor@{setColor}!Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}}
+\doxysubsubsection{\texorpdfstring{setColor()}{setColor()}}
+{\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
+void \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$\+::set\+Color (\begin{DoxyParamCaption}\item[{T1}]{color }\end{DoxyParamCaption})}
+
+Set color of the \mbox{\hyperlink{class_pixel}{Pixel}} 
+\begin{DoxyParams}{Parameters}
+{\em color} & Color of the \mbox{\hyperlink{class_pixel}{Pixel}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_pixel_abedb8474cba300ddf6a96f967371fa5d}\label{class_pixel_abedb8474cba300ddf6a96f967371fa5d}} 
+\index{Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}!setSymbol@{setSymbol}}
+\index{setSymbol@{setSymbol}!Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}}
+\doxysubsubsection{\texorpdfstring{setSymbol()}{setSymbol()}}
+{\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
+void \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$\+::set\+Symbol (\begin{DoxyParamCaption}\item[{T2}]{symbol }\end{DoxyParamCaption})}
+
+Set symbol that represents the \mbox{\hyperlink{class_pixel}{Pixel}} in the command line. 
+\begin{DoxyParams}{Parameters}
+{\em symbol} & Symbol of the \mbox{\hyperlink{class_pixel}{Pixel}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pixel_ab500a09ccea290c6c25d8628c68fc162}\label{class_pixel_ab500a09ccea290c6c25d8628c68fc162}} 
+\index{Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}!mColor@{mColor}}
+\index{mColor@{mColor}!Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}}
+\doxysubsubsection{\texorpdfstring{mColor}{mColor}}
+{\footnotesize\ttfamily template$<$typename T1  = Mono, typename T2  = char$>$ \\
+T1 \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$\+::m\+Color\hspace{0.3cm}{\ttfamily [private]}}
+
+Color of the pixel \mbox{\Hypertarget{class_pixel_aab1aac4b17bebc65e978dfb44df9c55f}\label{class_pixel_aab1aac4b17bebc65e978dfb44df9c55f}} 
+\index{Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}!mSymbol@{mSymbol}}
+\index{mSymbol@{mSymbol}!Pixel$<$ T1, T2 $>$@{Pixel$<$ T1, T2 $>$}}
+\doxysubsubsection{\texorpdfstring{mSymbol}{mSymbol}}
+{\footnotesize\ttfamily template$<$typename T1  = Mono, typename T2  = char$>$ \\
+T2 \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$\+::m\+Symbol\hspace{0.3cm}{\ttfamily [private]}}
+
+Symbol that is shown if the pixel is printed to the command line 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

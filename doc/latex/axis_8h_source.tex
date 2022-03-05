@@ -35,60 +35,73 @@
 \DoxyCodeLine{31 \textcolor{keyword}{using} ImageCoordinate = std::pair<std::size\_t,std::size\_t>; \textcolor{comment}{//Stores a pair (jh,jv) of horizontal and vertical indices in the base image of the plot}}
 \DoxyCodeLine{32 \textcolor{keyword}{using} Tick = std::pair<std::string,float>; \textcolor{comment}{//Stores a "{}Tick"{} next to the axis in the form (TickLabel, relativePosition)}}
 \DoxyCodeLine{33 }
-\DoxyCodeLine{36 \textcolor{comment}{/* Axis represents an axis in a plot associated to it */}}
-\DoxyCodeLine{37 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T = Mono>}
-\DoxyCodeLine{38 \textcolor{keyword}{class }\mbox{\hyperlink{class_axis}{Axis}}}
-\DoxyCodeLine{39 \{}
-\DoxyCodeLine{40 \textcolor{keyword}{private}:}
-\DoxyCodeLine{41     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}} emptyPixel = \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}}(T(),\textcolor{stringliteral}{"{} "{}});}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43     \textcolor{keyword}{const} \mbox{\hyperlink{class_plot2_d}{Plot2D<T>}} \&\mbox{\hyperlink{class_axis_a170529e25262bc74fda43c1380235dc1}{mPlot}}; }
-\DoxyCodeLine{45     ImageCoordinate \mbox{\hyperlink{class_axis_a341465f683816eb793ad4fba0bec01b7}{mUpperLeftIndex}}; }
-\DoxyCodeLine{46     ImageCoordinate \mbox{\hyperlink{class_axis_ad2855f2ddeec6e228eff0061fde57716}{mLowerRightIndex}}; }
-\DoxyCodeLine{48     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_axis_a8ebba948f08a38dc89a5ff4b4395e7ff}{mIsHorizontal}}; }
-\DoxyCodeLine{49     \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}} \mbox{\hyperlink{class_axis_aa56ee88933974ec657a11e47d3d26ab2}{mAxisElement}}; }
-\DoxyCodeLine{50     std::vector< Pixel<T,std::string> > \mbox{\hyperlink{class_axis_aa6adaea55c2509ec7921ece0f11e4976}{mLabel}}; }
-\DoxyCodeLine{51     std::vector< Pixel<T,std::string> > \mbox{\hyperlink{class_axis_a5d237363f5a6127c4b81702ea81cc7ec}{mTicks}}; }
-\DoxyCodeLine{52     std::size\_t \mbox{\hyperlink{class_axis_a1c004c195677c7dffc475686c37bf03d}{mLabelOffset}} = 1; }
-\DoxyCodeLine{54     \textcolor{comment}{//TODO: The following four should possibly better be maps or sets in order to improve lookups!}}
-\DoxyCodeLine{55     std::vector<ImageCoordinate> \mbox{\hyperlink{class_axis_a5c8834aa8b69ab5d8f7bc991944a2d7c}{mAllCoordinates}}; }
-\DoxyCodeLine{56     std::vector<ImageCoordinate> \mbox{\hyperlink{class_axis_a3f3ff178043e3c7b93bff6366407d097}{mAxisCoordinates}}; }
-\DoxyCodeLine{57     std::vector<ImageCoordinate> \mbox{\hyperlink{class_axis_ac4aefc99fb6df65901a4fedc1f6546d3}{mLabelCoordinates}}; }
-\DoxyCodeLine{58     std::vector<ImageCoordinate> \mbox{\hyperlink{class_axis_a66634077fb637f35af024977a5631e65}{mTicksCoordinates}}; }
-\DoxyCodeLine{60     std::pair<int,int> mAddAttribute( \textcolor{keyword}{const} std::vector< \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}} >\& attribute, \textcolor{keywordtype}{float} position, std::size\_t offsetFromAxis, \textcolor{keywordtype}{bool} leftOrBottom, std::vector<ImageCoordinate>\& coordinateVector , \textcolor{keywordtype}{bool} rotate = \textcolor{keyword}{false} );}
-\DoxyCodeLine{61     \textcolor{keywordtype}{void} mAddRangeToCoordinateVector( std::vector<ImageCoordinate>\& coordinateVector, \textcolor{keyword}{const} ImageCoordinate\& firstNewCoordinate, std::size\_t hRange, std::size\_t vRange );}
-\DoxyCodeLine{62     \textcolor{keywordtype}{void} mShift( \textcolor{keywordtype}{int} horizontalShift, \textcolor{keywordtype}{int} verticalShift, std::vector<ImageCoordinate>\& coordinateVector ); \textcolor{comment}{//Shift all indices in all the indexVectors horizontally by horizontalShift and vertically by verticalShift}}
-\DoxyCodeLine{63     \textcolor{keywordtype}{void} mUpdateAllCoordinates(); \textcolor{comment}{//Updates the data member mAllCoordinates (e.g. after mAxisCoordinates etc. have been changed)}}
-\DoxyCodeLine{64 }
-\DoxyCodeLine{65 \textcolor{keyword}{public}:}
-\DoxyCodeLine{66     \textcolor{comment}{/*Constructors and destructors*/}}
-\DoxyCodeLine{67     \textcolor{comment}{//Axis() = delete; //No default constructor because an Axis always needs an associated Plot2D in which it lives}}
-\DoxyCodeLine{68     \mbox{\hyperlink{class_axis}{Axis}}( \textcolor{keyword}{const} \mbox{\hyperlink{class_plot2_d}{Plot2D<T>}}\& associatedPlot, \textcolor{keyword}{const} std::size\_t width, \textcolor{keyword}{const} std::size\_t height, \textcolor{keyword}{const} ImageCoordinate startIndex );}
-\DoxyCodeLine{69 }
-\DoxyCodeLine{70     \textcolor{comment}{/*-\/-\/-\/Getters and Setters-\/-\/-\/-\/*/}}
-\DoxyCodeLine{71     \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}}\& at( \textcolor{keyword}{const} ImageCoordinate\& idx ) \textcolor{keyword}{const};}
-\DoxyCodeLine{72     \textcolor{keyword}{const} std::vector<ImageCoordinate>\& getAxisCoordinates() \textcolor{keyword}{const};}
-\DoxyCodeLine{73     \textcolor{keyword}{const} std::vector<ImageCoordinate>\& getLabelCoordinates() \textcolor{keyword}{const};}
-\DoxyCodeLine{74     \textcolor{keyword}{const} std::vector<ImageCoordinate>\& getCoordinates() \textcolor{keyword}{const};}
-\DoxyCodeLine{75     \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}}\& getAxisElement() \textcolor{keyword}{const};}
-\DoxyCodeLine{76     \textcolor{keyword}{const} std::size\_t getLabelOffset() \textcolor{keyword}{const};}
-\DoxyCodeLine{77 }
-\DoxyCodeLine{78     \textcolor{keywordtype}{void} setAxisElement( \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}}\& axisElement);}
-\DoxyCodeLine{79     \textcolor{keywordtype}{void} setAxisColor( \textcolor{keyword}{const} T\& color );}
-\DoxyCodeLine{80     \textcolor{keywordtype}{void} setAxisSymbol( \textcolor{keyword}{const} std::string\& axisSymbol );}
-\DoxyCodeLine{81 }
-\DoxyCodeLine{82     \textcolor{keywordtype}{void} setLabelOffset( std::size\_t labelOffset );}
-\DoxyCodeLine{83     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
-\DoxyCodeLine{84 }
-\DoxyCodeLine{85     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/Modifiers-\/-\/-\/-\/-\/-\/-\/-\/*/}}
-\DoxyCodeLine{86     \textcolor{keywordtype}{void} addLabel( \textcolor{keyword}{const} std::string\& label, \textcolor{keywordtype}{float} position, \textcolor{keywordtype}{bool} leftOrBottom = \textcolor{keyword}{true}, \textcolor{keywordtype}{bool} rotateLabel = \textcolor{keyword}{false} ); \textcolor{comment}{//adds a label at position (0<=position<=1) relative to leftmost (horizontal axis) or top (vertical axis) pixel}}
-\DoxyCodeLine{87     \textcolor{keywordtype}{void} addTicks( \textcolor{keyword}{const} std::vector<Tick>\& ticks, \textcolor{keywordtype}{bool} leftOrBottom = \textcolor{keyword}{true} ); \textcolor{comment}{//adds the ticks "{}ticks.at(j).first"{} at relative positions "{}ticks.at(j).second"{}}}
+\DoxyCodeLine{42 \textcolor{comment}{/* Axis represents an axis in a plot associated to it */}}
+\DoxyCodeLine{43 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T = Mono>}
+\DoxyCodeLine{44 \textcolor{keyword}{class }\mbox{\hyperlink{class_axis}{Axis}}}
+\DoxyCodeLine{45 \{}
+\DoxyCodeLine{46 \textcolor{keyword}{private}:}
+\DoxyCodeLine{47     \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}} emptyPixel = \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}}(T(),\textcolor{stringliteral}{"{} "{}});}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keyword}{const} \mbox{\hyperlink{class_plot2_d}{Plot2D<T>}} \&\mbox{\hyperlink{class_axis_a170529e25262bc74fda43c1380235dc1}{mPlot}}; }
+\DoxyCodeLine{51     ImageCoordinate \mbox{\hyperlink{class_axis_a341465f683816eb793ad4fba0bec01b7}{mUpperLeftIndex}}; }
+\DoxyCodeLine{52     ImageCoordinate \mbox{\hyperlink{class_axis_ad2855f2ddeec6e228eff0061fde57716}{mLowerRightIndex}}; }
+\DoxyCodeLine{54     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_axis_a8ebba948f08a38dc89a5ff4b4395e7ff}{mIsHorizontal}}; }
+\DoxyCodeLine{55     \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}} \mbox{\hyperlink{class_axis_aa56ee88933974ec657a11e47d3d26ab2}{mAxisElement}}; }
+\DoxyCodeLine{56     std::vector< Pixel<T,std::string> > \mbox{\hyperlink{class_axis_aa6adaea55c2509ec7921ece0f11e4976}{mLabel}}; }
+\DoxyCodeLine{57     std::vector< Pixel<T,std::string> > \mbox{\hyperlink{class_axis_a5d237363f5a6127c4b81702ea81cc7ec}{mTicks}}; }
+\DoxyCodeLine{58     std::size\_t \mbox{\hyperlink{class_axis_a1c004c195677c7dffc475686c37bf03d}{mLabelOffset}} = 1; }
+\DoxyCodeLine{60     \textcolor{comment}{//TODO: The following four should probably better be maps or sets in order to improve lookups!}}
+\DoxyCodeLine{61     std::vector<ImageCoordinate> \mbox{\hyperlink{class_axis_a5c8834aa8b69ab5d8f7bc991944a2d7c}{mAllCoordinates}}; }
+\DoxyCodeLine{62     std::vector<ImageCoordinate> \mbox{\hyperlink{class_axis_a3f3ff178043e3c7b93bff6366407d097}{mAxisCoordinates}}; }
+\DoxyCodeLine{63     std::vector<ImageCoordinate> \mbox{\hyperlink{class_axis_ac4aefc99fb6df65901a4fedc1f6546d3}{mLabelCoordinates}}; }
+\DoxyCodeLine{64     std::vector<ImageCoordinate> \mbox{\hyperlink{class_axis_a66634077fb637f35af024977a5631e65}{mTicksCoordinates}}; }
+\DoxyCodeLine{78     std::pair<int,int> \mbox{\hyperlink{class_axis_ac518d286218478e33dda87bea8ce9f6d}{mAddAttribute}}( \textcolor{keyword}{const} std::vector< \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}} >\& attribute, \textcolor{keywordtype}{float} position, std::size\_t offsetFromAxis, \textcolor{keywordtype}{bool} leftOrBelow, std::vector<ImageCoordinate>\& coordinateVector , \textcolor{keywordtype}{bool} rotate = \textcolor{keyword}{false} );}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{87     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_axis_ad56a004d9834e10a655176f6e5ed7919}{mAddRangeToCoordinateVector}}( std::vector<ImageCoordinate>\& coordinateVector, \textcolor{keyword}{const} ImageCoordinate\& firstNewCoordinate, std::size\_t hRange, std::size\_t vRange );}
 \DoxyCodeLine{88 }
-\DoxyCodeLine{89     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
-\DoxyCodeLine{90 }
-\DoxyCodeLine{91 \};}
-\DoxyCodeLine{92 }
-\DoxyCodeLine{93 \textcolor{comment}{/*Include method definitions for the template class*/}}
-\DoxyCodeLine{94 \textcolor{preprocessor}{\#include "{}../src/axis.cpp"{}}}
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_axis_a4d7fda2635c07c23290a3e9f55595b2f}{mShift}}( std::vector<ImageCoordinate>\& coordinateVector, \textcolor{keywordtype}{int} horizontalShift, \textcolor{keywordtype}{int} verticalShift );}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{100     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_axis_a6bb7d555653dd071ecfd9564d7b490cb}{mUpdateAllCoordinates}}(); \textcolor{comment}{//Updates the data member mAllCoordinates (e.g. after mAxisCoordinates etc. have been changed)}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{keyword}{public}:}
+\DoxyCodeLine{103     \textcolor{comment}{/*Constructors and destructors*/}}
+\DoxyCodeLine{104     \textcolor{comment}{//Axis() = delete; //No default constructor because an Axis always needs an associated Plot2D in which it lives}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{113     \mbox{\hyperlink{class_axis_a7634a8448420214d908c1502702f544e}{Axis}}( \textcolor{keyword}{const} \mbox{\hyperlink{class_plot2_d}{Plot2D<T>}}\& associatedPlot, \textcolor{keyword}{const} std::size\_t width, \textcolor{keyword}{const} std::size\_t height, \textcolor{keyword}{const} ImageCoordinate startCoordinate );}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \textcolor{comment}{/*-\/-\/-\/Getters and Setters-\/-\/-\/-\/*/}}
+\DoxyCodeLine{121     \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}}\& \mbox{\hyperlink{class_axis_a5ba5086773fd7e3d29b4f89caae52d3b}{at}}( \textcolor{keyword}{const} ImageCoordinate\& coord ) \textcolor{keyword}{const};}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{127     \textcolor{keyword}{const} std::vector<ImageCoordinate>\& \mbox{\hyperlink{class_axis_ac2efd8b6c50ae2e5a3350dbb37a4819a}{getAxisCoordinates}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{133     \textcolor{keyword}{const} std::vector<ImageCoordinate>\& \mbox{\hyperlink{class_axis_a886abf6cc90501566d5f04dc4d5a1a3c}{getLabelCoordinates}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{139     \textcolor{keyword}{const} std::vector<ImageCoordinate>\& \mbox{\hyperlink{class_axis_a0540d6c1c6149176369748a825893e9f}{getCoordinates}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{145     \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}}\& \mbox{\hyperlink{class_axis_a7f74114dcfe89a9063857ea2f6bd1f8b}{getAxisElement}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{153     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_axis_a21077daff3a1dd18bfd585a07a55bcb5}{setAxisElement}}( \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T,std::string>}}\& axisElement);}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{159     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_axis_af13c217adb857c73e1f8cee729fcbc60}{setAxisColor}}( \textcolor{keyword}{const} T\& color );}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{165     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_axis_aaf4728c6c61296bd564d6fe6c7f6ad67}{setAxisSymbol}}( \textcolor{keyword}{const} std::string\& axisSymbol );}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{171     \textcolor{keyword}{const} std::size\_t \mbox{\hyperlink{class_axis_a34f6c13f0182636ce440f96efb11c300}{getLabelOffset}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{177     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_axis_a31858c490d6e3ac0f75a1f65213d53f0}{setLabelOffset}}( std::size\_t labelOffset );}
+\DoxyCodeLine{178     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/Modifiers-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{190     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_axis_ab88ead46c702ae993b205ceedaf69e5e}{addLabel}}( \textcolor{keyword}{const} std::string\& label, \textcolor{keywordtype}{float} position, \textcolor{keywordtype}{bool} leftOrBelow = \textcolor{keyword}{true}, \textcolor{keywordtype}{bool} rotateLabel = \textcolor{keyword}{false} );}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{198     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_axis_a3ad4f718066cfb8147aaacc5ec749616}{addTicks}}( \textcolor{keyword}{const} std::vector<Tick>\& ticks, \textcolor{keywordtype}{bool} leftOrBelow = \textcolor{keyword}{true} );}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202 \};}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 \textcolor{comment}{/*Include method definitions for the template class*/}}
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#include "{}../src/axis.cpp"{}}}
 
 \end{DoxyCode}

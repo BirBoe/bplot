@@ -25,10 +25,10 @@
 #include "../header/color_models.h"
 #include "../header/pixel.h"
 
-/** CHANGE DESCRIPTION Image is an image that can be printed onto the screen, e.g. to the console output
-	* - Pixel values are represented by a PxQ "matrix" (vectors) of "Pixel" objects for a PxQ image (P,Q: no. of pixels).
-	* - Data can be loaded into the image
-	*- The image can be printed to the set output using the method show()
+/**
+	* The Image class represents an image that can be printed to the console (or another output stream).
+	* The Image is a collection of Pixel objects that are ordered in a width x height "matrix".
+	* The Image can be either black and white (Mono) or colored (RGB).
 	* @tparam T1 Color model for this image (default: Mono).
 	* @tparam T2 Type of symbols that represent a Pixel (Default: char).
 	*/
@@ -58,16 +58,29 @@ private:
 	int mHeight; /*!< Height of the image in number of Pixels. */
 
 	/**
-		* Check if (i,j) is a valid coordinate inside the image.
+		* Checks if (i,j) is a valid coordinate inside the image.
 		* @throw std::out_of_range if (i,j) lies outside the image
 		*/
 	virtual void verifyCoordinate(std::size_t i, std::size_t j) const;
 
 public:
 	/*Constructors and destructors*/
-	Image(); /**< Constructs an empty image of size 1 x 1.*/
-	Image(std::size_t width, std::size_t height); /**< Constructs an empty image of size width x height.*/
-	Image(std::size_t width, std::size_t height, const Pixel<T1,T2> &p); /**< Constructs an image of size width x height with all pixels set equal to p.*/
+	Image(); /**< Constructs an empty image (of default Pixels) of size 1 x 1.*/
+
+	/**
+		* Constructs an empty image (of default Pixels) of given size.
+		* @param width Width of the Image in number of Pixels.
+		* @param height Height of the Image in number of Pixels.
+		*/
+	Image(std::size_t width, std::size_t height);
+
+	/**
+		* Constructs an empty image of given size with identical Pixels.
+		* @param width Width of the Image in number of Pixels.
+		* @param height Height of the Image in number of Pixels.
+		* @param p Pixel that all Pixels in the Image will be set equal to.
+		*/
+	Image(std::size_t width, std::size_t height, const Pixel<T1,T2> &p);
 	virtual ~Image() = default;
 
 	/*Getters and setters*/

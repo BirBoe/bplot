@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['g_0',['g',['../struct_r_g_b.html#af970a72243681add6fdab6f215568b05',1,'RGB']]]
+  ['r_0',['r',['../struct_r_g_b.html#ac06dc5fdbe17be3b71a5ba8866f23fea',1,'RGB']]]
 ];
