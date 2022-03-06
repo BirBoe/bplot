@@ -29,59 +29,70 @@
 \DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}../header/color\_models.h"{}}}
 \DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}../header/pixel.h"{}}}
 \DoxyCodeLine{27 }
-\DoxyCodeLine{36 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1 = Mono, \textcolor{keyword}{typename} T2 = \textcolor{keywordtype}{char}>}
-\DoxyCodeLine{37 \textcolor{keyword}{class }\mbox{\hyperlink{class_image}{Image}}}
-\DoxyCodeLine{38 \{}
-\DoxyCodeLine{39 \textcolor{keyword}{private}:}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{45     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_image_a32d86392cbb67c34dee59add846e498b}{mAspectRatio}} = 1.;}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{50     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_image_af388594a3bd6f902262e0ae25e600fc8}{mFillSpaces}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{55     std::vector< std::vector< Pixel<T1,T2> > > \mbox{\hyperlink{class_image_a7ec1a78e86f74a0060bdb97ad04ae235}{mPixels}};}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{57     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_image_a0784025d0c88f233e9b5eb630efda3c0}{mWidth}}; }
-\DoxyCodeLine{58     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_image_a809704dad5c4f5ce7f71521b710605af}{mHeight}}; }
-\DoxyCodeLine{64     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_a053031f5a9328f6723419809052581da}{verifyCoordinate}}(std::size\_t i, std::size\_t j) \textcolor{keyword}{const};}
-\DoxyCodeLine{65 }
-\DoxyCodeLine{66 \textcolor{keyword}{public}:}
-\DoxyCodeLine{67     \textcolor{comment}{/*Constructors and destructors*/}}
-\DoxyCodeLine{68     \mbox{\hyperlink{class_image_a3ae5ff092990661c251248b7f43e1f42}{Image}}(); }
-\DoxyCodeLine{75     \mbox{\hyperlink{class_image_a3ae5ff092990661c251248b7f43e1f42}{Image}}(std::size\_t width, std::size\_t height);}
-\DoxyCodeLine{76 }
-\DoxyCodeLine{83     \mbox{\hyperlink{class_image_a3ae5ff092990661c251248b7f43e1f42}{Image}}(std::size\_t width, std::size\_t height, \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}} \&p);}
-\DoxyCodeLine{84     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_image}{\string~Image}}() = \textcolor{keywordflow}{default};}
-\DoxyCodeLine{85 }
-\DoxyCodeLine{86     \textcolor{comment}{/*Getters and setters*/}}
-\DoxyCodeLine{87 }
-\DoxyCodeLine{94     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}}\& \mbox{\hyperlink{class_image_ab188c3991854090113f3a7d1522d7217}{at}}( std::size\_t i, std::size\_t j ) \textcolor{keyword}{const};}
-\DoxyCodeLine{95 }
-\DoxyCodeLine{103     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}}\& \mbox{\hyperlink{class_image_ab188c3991854090113f3a7d1522d7217}{at}}( std::size\_t i, std::size\_t j );}
-\DoxyCodeLine{104 }
-\DoxyCodeLine{109     \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} \mbox{\hyperlink{class_image_a9b138194c925d7397d34ea3950a3a017}{getAspectRatio}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{110 }
-\DoxyCodeLine{115     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_a1add6796c65167445fd67642452d02d7}{setAspectRatio}}( \textcolor{keywordtype}{float} aspectRatio );}
-\DoxyCodeLine{116 }
-\DoxyCodeLine{121     \textcolor{keyword}{virtual} \textcolor{keyword}{const} std::vector< std::vector< Pixel<T1,T2> > >\& \mbox{\hyperlink{class_image_a6e6c087512eee4d10394ff377379e846}{getPixels}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{122 }
-\DoxyCodeLine{127     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_ae59fc57ad71369bc708a03175a31e621}{setPixels}}( \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}} \&p );}
-\DoxyCodeLine{128 }
-\DoxyCodeLine{133     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_image_a9ac0e27da0e7f63f658789fd7ece481b}{getFillSpaces}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{134 }
-\DoxyCodeLine{139     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_abacd262ce7b970c0b7ddb9d445180ec2}{setFillSpaces}}( \textcolor{keywordtype}{bool} fillSpaces );}
-\DoxyCodeLine{140 }
-\DoxyCodeLine{145     \textcolor{keyword}{virtual} std::size\_t \mbox{\hyperlink{class_image_a1e179af1723921271db4c625812457cc}{getHeight}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{146 }
-\DoxyCodeLine{151     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_af8c4b9b54a1797173a8e59d7592c1dd8}{setHeight}}( std::size\_t height );}
-\DoxyCodeLine{152 }
-\DoxyCodeLine{157     \textcolor{keyword}{virtual} std::size\_t \mbox{\hyperlink{class_image_a44acdd8649a5e799113b58461690315b}{getWidth}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{158 }
-\DoxyCodeLine{163     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_ad7d4d207f965baa57f8e270763187796}{setWidth}}( std::size\_t width );}
-\DoxyCodeLine{164 }
-\DoxyCodeLine{168     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_a688e4526026154edfb35fec4aacc9297}{show}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{169 \};}
-\DoxyCodeLine{170 }
-\DoxyCodeLine{171 \textcolor{comment}{/*Include method definitions for the template class*/}}
-\DoxyCodeLine{172 \textcolor{preprocessor}{\#include "{}../src/image.cpp"{}}}
+\DoxyCodeLine{28 \textcolor{keyword}{using} ImageCoordinate = std::pair<std::size\_t,std::size\_t>;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{38 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1 = Mono, \textcolor{keyword}{typename} T2 = \textcolor{keywordtype}{char}>}
+\DoxyCodeLine{39 \textcolor{keyword}{class }\mbox{\hyperlink{class_image}{Image}}}
+\DoxyCodeLine{40 \{}
+\DoxyCodeLine{41 \textcolor{keyword}{private}:}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{47     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_image_a32d86392cbb67c34dee59add846e498b}{mAspectRatio}} = 1.;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_image_af388594a3bd6f902262e0ae25e600fc8}{mFillSpaces}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{57     std::vector< std::vector< Pixel<T1,T2> > > \mbox{\hyperlink{class_image_a7ec1a78e86f74a0060bdb97ad04ae235}{mPixels}};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_image_a0784025d0c88f233e9b5eb630efda3c0}{mWidth}}; }
+\DoxyCodeLine{60     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_image_a809704dad5c4f5ce7f71521b710605af}{mHeight}}; }
+\DoxyCodeLine{67     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_a32812a1d27d92a4adca6163ab7a0babb}{verifyCoordinate}}( \textcolor{keyword}{const} ImageCoordinate\& coord ) \textcolor{keyword}{const};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{keyword}{public}:}
+\DoxyCodeLine{70     \textcolor{comment}{/*-\/-\/-\/-\/Constructors and destructors-\/-\/-\/-\/*/}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \mbox{\hyperlink{class_image_a3ae5ff092990661c251248b7f43e1f42}{Image}}(); }
+\DoxyCodeLine{79     \mbox{\hyperlink{class_image_a3ae5ff092990661c251248b7f43e1f42}{Image}}( std::size\_t width, std::size\_t height );}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{87     \mbox{\hyperlink{class_image_a3ae5ff092990661c251248b7f43e1f42}{Image}}( std::size\_t width, std::size\_t height, \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}} \&p );}
+\DoxyCodeLine{88     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_image}{\string~Image}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{comment}{/*-\/-\/-\/-\/Getters and setters-\/-\/-\/-\/*/}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{100     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}}\& \mbox{\hyperlink{class_image_a36f8e0c66453ec4497faafb5051dd1a7}{at}}( \textcolor{keyword}{const} ImageCoordinate\& coord ) \textcolor{keyword}{const};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{108     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}}\& \mbox{\hyperlink{class_image_a36f8e0c66453ec4497faafb5051dd1a7}{at}}( \textcolor{keyword}{const} ImageCoordinate\& coord );}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{114     \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} \mbox{\hyperlink{class_image_a9b138194c925d7397d34ea3950a3a017}{getAspectRatio}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{120     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_a1add6796c65167445fd67642452d02d7}{setAspectRatio}}( \textcolor{keywordtype}{float} aspectRatio );}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{126     \textcolor{keyword}{virtual} \textcolor{keyword}{const} std::vector< std::vector< Pixel<T1,T2> > >\& \mbox{\hyperlink{class_image_a6e6c087512eee4d10394ff377379e846}{getPixels}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{132     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_af1c9c9a6af5dba781027b3dd3542570a}{setAllPixels}}( \textcolor{keyword}{const} \mbox{\hyperlink{class_pixel}{Pixel<T1,T2>}} \&p );}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{138     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_image_a9ac0e27da0e7f63f658789fd7ece481b}{getFillSpaces}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{144     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_abacd262ce7b970c0b7ddb9d445180ec2}{setFillSpaces}}( \textcolor{keywordtype}{bool} fillSpaces );}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{150     \textcolor{keyword}{virtual} std::size\_t \mbox{\hyperlink{class_image_a1e179af1723921271db4c625812457cc}{getHeight}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{156     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_af8c4b9b54a1797173a8e59d7592c1dd8}{setHeight}}( std::size\_t height );}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{162     \textcolor{keyword}{virtual} std::size\_t \mbox{\hyperlink{class_image_a44acdd8649a5e799113b58461690315b}{getWidth}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{168     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_ad7d4d207f965baa57f8e270763187796}{setWidth}}( std::size\_t width );}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172     \textcolor{comment}{/*-\/-\/-\/-\/Other Methods-\/-\/-\/-\/*/}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{177     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_image_a688e4526026154edfb35fec4aacc9297}{show}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{180 \};}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182 \textcolor{comment}{/*Include method definitions for the template class*/}}
+\DoxyCodeLine{183 \textcolor{preprocessor}{\#include "{}../src/image.cpp"{}}}
 
 \end{DoxyCode}

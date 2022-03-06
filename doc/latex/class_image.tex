@@ -13,9 +13,9 @@
 \item 
 \mbox{\hyperlink{class_image_ab10e2f8b804065513c4e6e2d90f2c96b}{Image}} (std\+::size\+\_\+t width, std\+::size\+\_\+t height, const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \&p)
 \item 
-virtual const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \& \mbox{\hyperlink{class_image_ab188c3991854090113f3a7d1522d7217}{at}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j) const
+virtual const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \& \mbox{\hyperlink{class_image_a36f8e0c66453ec4497faafb5051dd1a7}{at}} (const Image\+Coordinate \&coord) const
 \item 
-virtual \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \& \mbox{\hyperlink{class_image_ac5f5b360ac1a4ebbf832ec3a774b3a82}{at}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j)
+virtual \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \& \mbox{\hyperlink{class_image_a4be143c4e7bcfcb95bcf684fad4aac4e}{at}} (const Image\+Coordinate \&coord)
 \item 
 virtual float \mbox{\hyperlink{class_image_a9b138194c925d7397d34ea3950a3a017}{get\+Aspect\+Ratio}} () const
 \item 
@@ -23,7 +23,7 @@ virtual void \mbox{\hyperlink{class_image_a1add6796c65167445fd67642452d02d7}{set
 \item 
 virtual const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ $>$ $>$ \& \mbox{\hyperlink{class_image_a6e6c087512eee4d10394ff377379e846}{get\+Pixels}} () const
 \item 
-virtual void \mbox{\hyperlink{class_image_ae59fc57ad71369bc708a03175a31e621}{set\+Pixels}} (const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \&p)
+virtual void \mbox{\hyperlink{class_image_af1c9c9a6af5dba781027b3dd3542570a}{set\+All\+Pixels}} (const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \&p)
 \item 
 virtual bool \mbox{\hyperlink{class_image_a9ac0e27da0e7f63f658789fd7ece481b}{get\+Fill\+Spaces}} () const
 \item 
@@ -42,7 +42,7 @@ virtual void \mbox{\hyperlink{class_image_a688e4526026154edfb35fec4aacc9297}{sho
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \mbox{\hyperlink{class_image_a053031f5a9328f6723419809052581da}{verify\+Coordinate}} (std\+::size\+\_\+t i, std\+::size\+\_\+t j) const
+virtual void \mbox{\hyperlink{class_image_a32812a1d27d92a4adca6163ab7a0babb}{verify\+Coordinate}} (const Image\+Coordinate \&coord) const
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -112,45 +112,44 @@ Constructs an empty image of given size with identical Pixels.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_image_ac5f5b360ac1a4ebbf832ec3a774b3a82}\label{class_image_ac5f5b360ac1a4ebbf832ec3a774b3a82}} 
+\mbox{\Hypertarget{class_image_a4be143c4e7bcfcb95bcf684fad4aac4e}\label{class_image_a4be143c4e7bcfcb95bcf684fad4aac4e}} 
 \index{Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}!at@{at}}
 \index{at@{at}!Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}}
 \doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
-\mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \& \mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\+::at (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+\mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \& \mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\+::at (\begin{DoxyParamCaption}\item[{const Image\+Coordinate \&}]{coord }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 Get the \mbox{\hyperlink{class_pixel}{Pixel}} at a specific coordinate in the image. 
 \begin{DoxyParams}{Parameters}
-{\em i} & Horizontal coordinate \\
-\hline
-{\em j} & Vertical coordinate \\
+{\em coord} & Image\+Coordinate\+: pair of horizontal and vertical indices \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-(Non-\/const) reference to the \mbox{\hyperlink{class_pixel}{Pixel}} 
+(Non-\/const) reference to the \mbox{\hyperlink{class_pixel}{Pixel}} at coord 
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::out\+\_\+of\+\_\+range} & if (i,j) lies outside the image. \\
+{\em std\+::out\+\_\+of\+\_\+range} & if coord lies outside the image. \\
 \hline
 \end{DoxyExceptions}
-\mbox{\Hypertarget{class_image_ab188c3991854090113f3a7d1522d7217}\label{class_image_ab188c3991854090113f3a7d1522d7217}} 
+\mbox{\Hypertarget{class_image_a36f8e0c66453ec4497faafb5051dd1a7}\label{class_image_a36f8e0c66453ec4497faafb5051dd1a7}} 
 \index{Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}!at@{at}}
 \index{at@{at}!Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}}
 \doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
-const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \& \mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\+::at (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \& \mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\+::at (\begin{DoxyParamCaption}\item[{const Image\+Coordinate \&}]{coord }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
 Get the \mbox{\hyperlink{class_pixel}{Pixel}} at a specific coordinate in the image. 
 \begin{DoxyParams}{Parameters}
-{\em i} & Horizontal coordinate \\
-\hline
-{\em j} & Vertical coordinate \\
+{\em coord} & Image\+Coordinate\+: pair of horizontal and vertical indices \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the \mbox{\hyperlink{class_pixel}{Pixel}} at coord 
+\end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::out\+\_\+of\+\_\+range} & if (i,j) lies outside the image. \\
+{\em std\+::out\+\_\+of\+\_\+range} & if coord lies outside the image. \\
 \hline
 \end{DoxyExceptions}
 \mbox{\Hypertarget{class_image_a9b138194c925d7397d34ea3950a3a017}\label{class_image_a9b138194c925d7397d34ea3950a3a017}} 
@@ -203,6 +202,18 @@ std\+::size\+\_\+t \mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\+::get\+W
 Get width of the image. \begin{DoxyReturn}{Returns}
 width of the image in pixels 
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_image_af1c9c9a6af5dba781027b3dd3542570a}\label{class_image_af1c9c9a6af5dba781027b3dd3542570a}} 
+\index{Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}!setAllPixels@{setAllPixels}}
+\index{setAllPixels@{setAllPixels}!Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}}
+\doxysubsubsection{\texorpdfstring{setAllPixels()}{setAllPixels()}}
+{\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
+void \mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\+::set\+All\+Pixels (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Fill the whole image with identical Pixels. 
+\begin{DoxyParams}{Parameters}
+{\em p} & \mbox{\hyperlink{class_pixel}{Pixel}} that all Pixels in the image will be set equal to. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_image_a1add6796c65167445fd67642452d02d7}\label{class_image_a1add6796c65167445fd67642452d02d7}} 
 \index{Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}!setAspectRatio@{setAspectRatio}}
 \index{setAspectRatio@{setAspectRatio}!Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}}
@@ -239,18 +250,6 @@ Set height of the image.
 {\em height} & Height of the image in pixels \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_image_ae59fc57ad71369bc708a03175a31e621}\label{class_image_ae59fc57ad71369bc708a03175a31e621}} 
-\index{Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}!setPixels@{setPixels}}
-\index{setPixels@{setPixels}!Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}}
-\doxysubsubsection{\texorpdfstring{setPixels()}{setPixels()}}
-{\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
-void \mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\+::set\+Pixels (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_pixel}{Pixel}}$<$ T1, T2 $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
-
-Fill the whole image with identical Pixels. 
-\begin{DoxyParams}{Parameters}
-{\em p} & \mbox{\hyperlink{class_pixel}{Pixel}} that all Pixels in the image will be set equal to. \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{class_image_ad7d4d207f965baa57f8e270763187796}\label{class_image_ad7d4d207f965baa57f8e270763187796}} 
 \index{Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}!setWidth@{setWidth}}
 \index{setWidth@{setWidth}!Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}}
@@ -270,16 +269,21 @@ Set width of the image.
 {\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
 void \mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\+::show\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Output the image to the command line. \mbox{\Hypertarget{class_image_a053031f5a9328f6723419809052581da}\label{class_image_a053031f5a9328f6723419809052581da}} 
+Output the image to the command line. \mbox{\Hypertarget{class_image_a32812a1d27d92a4adca6163ab7a0babb}\label{class_image_a32812a1d27d92a4adca6163ab7a0babb}} 
 \index{Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}!verifyCoordinate@{verifyCoordinate}}
 \index{verifyCoordinate@{verifyCoordinate}!Image$<$ T1, T2 $>$@{Image$<$ T1, T2 $>$}}
 \doxysubsubsection{\texorpdfstring{verifyCoordinate()}{verifyCoordinate()}}
 {\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
-void \mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\+::verify\+Coordinate (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{i,  }\item[{std\+::size\+\_\+t}]{j }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+void \mbox{\hyperlink{class_image}{Image}}$<$ T1, T2 $>$\+::verify\+Coordinate (\begin{DoxyParamCaption}\item[{const Image\+Coordinate \&}]{coord }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
 
-Checks if (i,j) is a valid coordinate inside the image. 
+Checks if an Image\+Coordinate is a valid coordinate inside the image. 
+\begin{DoxyParams}{Parameters}
+{\em coord} & Image\+Coordinate to be verified\+: pair of horizontal and vertical indices \\
+\hline
+\end{DoxyParams}
+
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::out\+\_\+of\+\_\+range} & if (i,j) lies outside the image \\
+{\em std\+::out\+\_\+of\+\_\+range} & if Image\+Coordinate lies outside the image \\
 \hline
 \end{DoxyExceptions}
 

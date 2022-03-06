@@ -120,7 +120,7 @@ Constructs a (horizontal or vertical) \mbox{\hyperlink{class_axis}{Axis}} of giv
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 void \mbox{\hyperlink{class_axis}{Axis}}$<$ T $>$\+::add\+Label (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{label,  }\item[{float}]{position,  }\item[{bool}]{left\+Or\+Below = {\ttfamily true},  }\item[{bool}]{rotate\+Label = {\ttfamily false} }\end{DoxyParamCaption})}
 
-Adds a label to the axis at a fixed relative position. 
+Adds a label to the axis at a fixed relative position. Does nothing, if another label was added before. 
 \begin{DoxyParams}{Parameters}
 {\em label} & Label of the axis. \\
 \hline
@@ -131,6 +131,8 @@ Adds a label to the axis at a fixed relative position.
 {\em rotate\+Label} & True\+: The label is rotated if the axis is vertical, i.\+e. it will extend vertically instead of horizontally. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]Should ticks be shifted to make space for the label \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_axis_a3ad4f718066cfb8147aaacc5ec749616}\label{class_axis_a3ad4f718066cfb8147aaacc5ec749616}} 
 \index{Axis$<$ T $>$@{Axis$<$ T $>$}!addTicks@{addTicks}}
 \index{addTicks@{addTicks}!Axis$<$ T $>$@{Axis$<$ T $>$}}
@@ -145,6 +147,8 @@ Adds ticks to the axis.
 {\em left\+Or\+Below} & True\+: The ticks are placed to the left of the axis (if axis is vertical) or below it (if axis is horizontal). Otherwise they are placed to the right or above. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Perform the axis shift in a better way so that ticks of different length work correctly. \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_axis_a5ba5086773fd7e3d29b4f89caae52d3b}\label{class_axis_a5ba5086773fd7e3d29b4f89caae52d3b}} 
 \index{Axis$<$ T $>$@{Axis$<$ T $>$}!at@{at}}
 \index{at@{at}!Axis$<$ T $>$@{Axis$<$ T $>$}}
@@ -235,6 +239,8 @@ Adds an attribute (i.\+e. any collection of Pixels) at a fixed relative position
 \begin{DoxyReturn}{Returns}
 A pair of horizontal and vertical number of Pixels that all Pixels belonging to other parts of the axis have to be moved to make space for the attribute. The shifts are not performed within the method. 
 \end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]The method is too long and should be decomposed in a useful way! \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_axis_ad56a004d9834e10a655176f6e5ed7919}\label{class_axis_ad56a004d9834e10a655176f6e5ed7919}} 
 \index{Axis$<$ T $>$@{Axis$<$ T $>$}!mAddRangeToCoordinateVector@{mAddRangeToCoordinateVector}}
 \index{mAddRangeToCoordinateVector@{mAddRangeToCoordinateVector}!Axis$<$ T $>$@{Axis$<$ T $>$}}
@@ -269,6 +275,8 @@ Shifts all Image\+Coordinates in a vector by given number of Pixels
 {\em vertical\+Shift} & Vertical shift in number of Pixels \\
 \hline
 \end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]What happens if size\+\_\+t becomes negative somewhere? \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_axis_a6bb7d555653dd071ecfd9564d7b490cb}\label{class_axis_a6bb7d555653dd071ecfd9564d7b490cb}} 
 \index{Axis$<$ T $>$@{Axis$<$ T $>$}!mUpdateAllCoordinates@{mUpdateAllCoordinates}}
 \index{mUpdateAllCoordinates@{mUpdateAllCoordinates}!Axis$<$ T $>$@{Axis$<$ T $>$}}

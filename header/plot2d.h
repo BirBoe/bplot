@@ -27,7 +27,7 @@
 #include "../header/image.h"
 #include "../header/pixel.h"
 
-using ImageCoordinate = std::pair<std::size_t,std::size_t>; //Pair (jh,jv) of horizontal and vertical indices in the base image
+using ImageCoordinate = std::pair<std::size_t,std::size_t>; /*!< Coordinate in an Image: Pair (jh,jv) of horizontal and vertical indices. */
 using DataPointXY = std::pair<double,double>; //Pair (x,y) of data values plotted in the image
 using DataSet = std::vector<DataPointXY>; //DataSet corresponding to one "curve" in the plot
 
@@ -119,11 +119,13 @@ private:
 		* Transform a data point to a coordinate in the base image of the plot
 		* @param dataPoint Pair of (x,y) values that will be transformed
 		* @return Coordinate of the data point in the base image of the plot.
+		* @todo Write the code of this method in a more compact and readable form.
 		*/
 	ImageCoordinate mDataPointToCoordinate( const DataPointXY& dataPoint );
 
 public:
 	/*---Constructors and destructors---*/
+
 	//Plot2D() = default; //Constructs an empty plot with all values set to zero or equivalent
 
 	/**
@@ -133,7 +135,7 @@ public:
 		*/
 	Plot2D( std::size_t width, std::size_t height );
 
-	/*--------------------------*/
+	/*---------------------------------*/
 
 	/*---Getters and Setters----*/
 
@@ -159,6 +161,7 @@ public:
 	/*--------------------------*/
 
 	/*---------Modifiers--------*/
+
 	/**
 		* Adds a vertical axis to the plot.
 		* @param hPos Horizontal coordinate of the axis
@@ -188,6 +191,7 @@ public:
 		* @param labelLeft Placement relative to the axis (true: left, false: right)
 		* @param rotateLabel If true: rotate the label by 90 degrees clockwise. This can be useful to save space in the plot.
 		* @see addVerticalAxis( std::size_t hPos, std::size_t vPosStart, std::size_t vPosEnd, T color )
+		* @todo remove the experimental ticks
 		*/
 	void addVerticalAxis( std::size_t hPos, std::size_t vPosStart, std::size_t vPosEnd, T color, const std::string& label, float relativeLabelPosition = 0.5, bool labelLeft = true, bool rotateLabel = false );
 
@@ -201,6 +205,7 @@ public:
 		* @param relativeLabelPosition Position of the first character of label along the axis; has to be between 0.0 and 1.0 (otherwise set to 0.0)
 		* @param labelBelow Placement relative to the axis (true: below, false: above)
 		* @see addHorizontalAxis( std::size_t vPos, std::size_t hPosStart, std::size_t hPosEnd, T color )
+		* @todo remove the experimental ticks
 		*/
 	void addHorizontalAxis( std::size_t vPos, std::size_t hPosStart, std::size_t hPosEnd, T color, const std::string& label, float relativeLabelPosition = 0.5, bool labelBelow = true );
 
@@ -208,6 +213,7 @@ public:
 		* Adds text (string) to the plot.
 		* @param text Text that will be added
 		* @param textPosition Position where the first character of text will appear in the plot
+		* @todo Remove this method or change the way in which the text is added.
 		*/
 	void addText( const std::string& text, ImageCoordinate& textPosition );
 
@@ -215,6 +221,7 @@ public:
 		* Add a data set to the plot with specified plot markers.
 		* @param dataSet Pointer to the data set (vector of (x,y)-pairs of double values)
 		* @param plotMarker Pixel that will be used to mark the data points from the set in the plot
+		* @todo Add ticks automatically.
 		*/
 	void addDataSet( std::shared_ptr<const DataSet> dataSet, Pixel<T,std::string> plotMarker );
 

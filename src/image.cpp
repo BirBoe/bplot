@@ -17,16 +17,20 @@
 
 #include "../header/image.h"
 
-/*------------------------------------------------------------------*/
+/*---------------------Private member functions---------------------*/
+
 template <typename T1, typename T2>
-void Image<T1,T2>::verifyCoordinate(std::size_t i, std::size_t j) const
+void Image<T1,T2>::verifyCoordinate( const ImageCoordinate& coord ) const
 {
-    if( i >= mWidth || j >= mHeight ) {
+    if( coord.first >= mWidth || coord.second >= mHeight ) {
         throw std::out_of_range("");
     }
 }
 
-/*---Constructors and destructors---*/
+/*------------------------------------------------------------------*/
+
+/*------------------Constructors and destructors--------------------*/
+
 template <typename T1, typename T2>
 Image<T1,T2>::Image()
     : Image(1,1)
@@ -34,7 +38,7 @@ Image<T1,T2>::Image()
 }
 
 template <typename T1, typename T2>
-Image<T1,T2>::Image(std::size_t width, std::size_t height)
+Image<T1,T2>::Image( std::size_t width, std::size_t height )
     : mWidth(width)
     , mHeight(height)
 {
@@ -42,17 +46,18 @@ Image<T1,T2>::Image(std::size_t width, std::size_t height)
 }
 
 template <typename T1, typename T2>
-Image<T1,T2>::Image(std::size_t width, std::size_t height, const Pixel<T1,T2> &p)
+Image<T1,T2>::Image( std::size_t width, std::size_t height, const Pixel<T1,T2> &p )
     : mWidth(width)
     , mHeight(height)
 {
-    setPixels(p);
+    setAllPixels(p);
 }
 
-/*----------------------------------*/
+/*------------------------------------------------------------------*/
 
 
-/*-------Getters and Setters--------*/
+/*----------------------Getters and Setters-------------------------*/
+
 template <typename T1, typename T2>
 void Image<T1,T2>::setAspectRatio( float aspectRatio ) {
     mAspectRatio = aspectRatio;
@@ -64,18 +69,18 @@ float Image<T1,T2>::getAspectRatio() const {
 }
 
 template <typename T1, typename T2>
-const Pixel<T1,T2>& Image<T1,T2>::at( std::size_t i, std::size_t j ) const {
-    verifyCoordinate(i,j);
-    return mPixels.at(j).at(i);
+const Pixel<T1,T2>& Image<T1,T2>::at( const ImageCoordinate& coord ) const {
+    verifyCoordinate(coord); //Throws std::out_of_range if coord is invalid
+    return mPixels.at(coord.second).at(coord.first);
 }
 
 template <typename T1, typename T2>
-Pixel<T1,T2>& Image<T1,T2>::at( std::size_t i, std::size_t j ) {
+Pixel<T1,T2>& Image<T1,T2>::at( const ImageCoordinate& coord ) {
     /*Scott Meyer's const_cast: forward call to const version of at() above
      * (cast *this to a const Image& using std:as_const,
      * call const at() and remove const using a const_cast())
      */
-     return const_cast< Pixel<T1,T2>& >( std::as_const(*this).at(i,j) );
+     return const_cast< Pixel<T1,T2>& >( std::as_const(*this).at(coord) );
 }
 
 template <typename T1, typename T2>
@@ -84,7 +89,7 @@ const std::vector< std::vector< Pixel<T1,T2> > >& Image<T1,T2>::getPixels() cons
 }
 
 template <typename T1, typename T2>
-void Image<T1,T2>::setPixels( const Pixel<T1,T2> &p ) {
+void Image<T1,T2>::setAllPixels( const Pixel<T1,T2> &p ) {
     mPixels = std::vector< std::vector< Pixel<T1,T2> > >( getHeight(), std::vector< Pixel<T1,T2> >(getWidth(),p) );
 }
 
@@ -108,7 +113,7 @@ template <typename T1, typename T2>
 void Image<T1,T2>::setHeight( std::size_t height )
 {
     mHeight = height;
-    mPixels.resize( mHeight, std::vector< Pixel<T1,T2> >(mWidth) );
+    mPixels.resize( height, std::vector< Pixel<T1,T2> >(getWidth()) );
 }
 
 template <typename T1, typename T2>
@@ -122,21 +127,25 @@ void Image<T1,T2>::setWidth( std::size_t width )
 {
     mWidth = width;
     for( auto& row : mPixels ) {
-        row.resize( mWidth );
+        row.resize( width );
     }
 }
 
-/*----------------------------------*/
+/*------------------------------------------------------------------*/
 
-/*------Other member functions-------*/
+/*-------------------------Other methods----------------------------*/
+
 template <typename T1, typename T2>
 void Image<T1,T2>::show() const
 {
-    int aR = static_cast<int>( mAspectRatio + 0.5 ); //Round up mAspectRatio
+    int roundedAspectRatio = static_cast<int>( mAspectRatio + 0.5 ); //Round up mAspectRatio
     for( auto& row : getPixels() ) {
         for( auto& pixel : row ) {
             std::cout << pixel;
-            for( int k = 2; k <= aR; k++ ) {
+
+            /* If the aspect ratio is larger than 1: "Stretch" the image
+             * by either outputting the pixel again or insert a spacing */
+            for( int k = 2; k <= roundedAspectRatio; k++ ) {
                 if( mFillSpaces ) std::cout << pixel;
                 else std::cout << ' ';
             }
@@ -145,4 +154,4 @@ void Image<T1,T2>::show() const
     }
 }
 
-/*----------------------------------*/
+/*------------------------------------------------------------------*/

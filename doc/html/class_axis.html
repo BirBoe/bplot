@@ -269,7 +269,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Adds a label to the axis at a fixed relative position. </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Adds a label to the axis at a fixed relative position. Does nothing, if another label was added before. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">label</td><td>Label of the axis. </td></tr>
     <tr><td class="paramname">position</td><td>Relative position (between 0 and 1, otherwise set to 0) along the axis where the first character of the label is placed. </td></tr>
@@ -278,6 +278,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Should ticks be shifted to make space for the label </dd></dl>
 
 </div>
 </div>
@@ -315,6 +316,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Perform the axis shift in a better way so that ticks of different length work correctly. </dd></dl>
 
 </div>
 </div>
@@ -501,6 +503,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pair of horizontal and vertical number of Pixels that all Pixels belonging to other parts of the axis have to be moved to make space for the attribute. The shifts are not performed within the method. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>The method is too long and should be decomposed in a useful way! </dd></dl>
 
 </div>
 </div>
@@ -612,6 +615,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>What happens if size_t becomes negative somewhere? </dd></dl>
 
 </div>
 </div>

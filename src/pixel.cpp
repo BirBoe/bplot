@@ -55,11 +55,11 @@ void Pixel<T1,T2>::setSymbol( T2 symbol )
 
 /*----------------------------------*/
 
-/*-------Operator--------*/
+/*-------Operators--------*/
 template <typename T1, typename T2>
 std::ostream& operator<<( std::ostream& ostr, const Pixel<T1,T2>& p )
 {
     ostr << color_to_ansi( p.getColor() ) << p.getSymbol() << "\033[0m"; //"\033[0m" = RESET
     return ostr;
 }
-/*-----------------------*/
+/*------------------------*/

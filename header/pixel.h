@@ -32,7 +32,7 @@ template <typename T1 = Mono, typename T2 = char>
 class Pixel
 {
 public:
-	/*Constructors and destructors*/
+	/*----Constructors and destructors----*/
 
 	Pixel() = default; /*!< Constructs a Pixel with default values for the color model and the symbol type used */
 
@@ -43,7 +43,10 @@ public:
 		*/
 	Pixel( T1 color, T2 symbol );
 
-	/*Getters and setters*/
+	/*-----------------------------------*/
+
+	/*----Getters and setters----*/
+	
 	/**
 	  * Get color of the Pixel
 		* @return Color of the Pixel
@@ -67,6 +70,8 @@ public:
 		* @param symbol Symbol of the Pixel
 		*/
 	void setSymbol( T2 symbol );
+
+	/*--------------------------*/
 
 private:
 	T1 mColor; /*!< Color of the pixel */

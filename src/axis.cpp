@@ -18,14 +18,16 @@
 #include "../header/plot2d.h"
 
 /*-------------------Private member functions-----------------------*/
+
 template <typename T>
 void Axis<T>::mAddRangeToCoordinateVector( std::vector<ImageCoordinate>& coordinateVector, const ImageCoordinate& firstNewCoordinate, std::size_t hRange, std::size_t vRange )
 {
 	std::size_t firstIndex = coordinateVector.size();
 	coordinateVector.resize( coordinateVector.size() + hRange*vRange );
 
-	for( std::size_t jh = 0; jh < hRange; jh++) {
-		for( std::size_t jv = 0; jv < vRange; jv++ ) {
+	//Add the range of coordinates to the coordinateVector in row-major order
+	for( std::size_t jv = 0; jv < vRange; jv++ ) {
+		for( std::size_t jh = 0; jh < hRange; jh++) {
 			coordinateVector.at(firstIndex + jh + jv * hRange) = std::make_pair( firstNewCoordinate.first + jh, firstNewCoordinate.second + jv );
 		}
 	}
@@ -36,117 +38,113 @@ std::pair<int,int> Axis<T>::mAddAttribute( const std::vector< Pixel<T,std::strin
 {
 	if( position > 1. || position < 0. ) position = 0.;
 
-	int hTotalOffset = 0, vTotalOffset = 0;
+	int hTotalOffset = 0, vTotalOffset = 0; //Horizontal and vertical shifts that the method will return as a pair
 	ImageCoordinate startCoordinate = mAxisCoordinates.at(0);
 
-	int overallShift = 0; //If parts of the axis, labels, etc. go out of the index range of the plot, they will be shifted back to within the range
+	//If parts of the axis, labels, etc. go out of the coordinate range of the plot, they will be shifted back to within the range by overallShift
+	int overallShift = 0;
 
 	if( mIsHorizontal ) {
-		std::size_t hOffset = static_cast<std::size_t>( position * (mLowerRightIndex.first - mUpperLeftIndex.first + 1) );
+
+		std::size_t absolutePosition = static_cast<std::size_t>( position * (mLowerRightIndex.first - mUpperLeftIndex.first + 1) );
 
 		if( !leftOrBelow ) { //Label is above the axis
 
-			//Check if axis and attribute will fit into the plot. If not: set overallShift accordingly
-			if( startCoordinate.second  < offsetFromAxis ) {
-				overallShift = offsetFromAxis - startCoordinate.second;
+			if( startCoordinate.second  < offsetFromAxis ) { //If axis and attribute will not fit inside the plot...
+				overallShift = offsetFromAxis - startCoordinate.second; //...they will be shifted vertically by this amount ( < 0, i.e. upwards )
 			}
 
-			//Attribute placement
-			mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first + hOffset, startCoordinate.second - offsetFromAxis + overallShift ), attribute.size(), 1 );
+			//Compute the coordinate range required for the attribute and add it to the vector of coordinates
+			mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first + absolutePosition, startCoordinate.second - offsetFromAxis + overallShift ), attribute.size(), 1 );
 
-			//The boundaries of the axis+attributes need to be changed:
-			if( mUpperLeftIndex.second + offsetFromAxis > startCoordinate.second ) {
-				mUpperLeftIndex.second = startCoordinate.second - offsetFromAxis;
+			if( mUpperLeftIndex.second + offsetFromAxis > startCoordinate.second ) { //If the attribute does not fit inside the coordinate range of this axis...
+				mUpperLeftIndex.second = startCoordinate.second - offsetFromAxis; //...change the boundary of the range.
 			}
 
 		} else { //Label is below the axis
 
-			//Check if axis and attribute will fit into the plot. If not: set overallShift accordingly
-			if( startCoordinate.second + offsetFromAxis >= mPlot.getHeight() ) {
-				overallShift = mPlot.getHeight() - 1 - startCoordinate.second - offsetFromAxis;
+			if( startCoordinate.second + offsetFromAxis >= mPlot.getHeight() ) { //If axis and attribute will not fit inside the plot...
+				overallShift = mPlot.getHeight() - 1 - startCoordinate.second - offsetFromAxis; //...they will be shifted to the left by this amount ( > 0, i.e. downwards )
 			}
 
-			//Attribute placement
-			mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first + hOffset, startCoordinate.second + offsetFromAxis + overallShift ), attribute.size(), 1 );
+			mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first + absolutePosition, startCoordinate.second + offsetFromAxis + overallShift ), attribute.size(), 1 );
 
-			//The boundaries of the axis+attributes need to be changed:
-			if( mLowerRightIndex.second < startCoordinate.second + offsetFromAxis ) {
-				mLowerRightIndex.second = startCoordinate.second + offsetFromAxis;
+			if( mLowerRightIndex.second < startCoordinate.second + offsetFromAxis ) { //If the attribute does not fit inside the coordinate range of this axis...
+				mLowerRightIndex.second = startCoordinate.second + offsetFromAxis; //...change the boundary of the range.
 			}
 
 		}
 
-		//Account for the overall vertical Shift of the axis
+		//Apply the overallShift to the necessary vertical coordinates
 		vTotalOffset += overallShift;
 		mUpperLeftIndex.second += overallShift;
 		mLowerRightIndex.second += overallShift;
 
-	} else {
-		std::size_t vOffset = static_cast<std::size_t>( position * ( mLowerRightIndex.second - mUpperLeftIndex.second + 1 ) );
+	} else { //This is a vertical axis
+
+		std::size_t absolutePosition = static_cast<std::size_t>( position * ( mLowerRightIndex.second - mUpperLeftIndex.second + 1 ) );
 
 		if( leftOrBelow ) { //Label is left of the axis
 
-			//Check if axis and attribute will fit into the plot. If not: set overallShift accordingly
-			if( rotate && startCoordinate.first < offsetFromAxis ) {
-				overallShift = offsetFromAxis - startCoordinate.first;
+			if( rotate && startCoordinate.first < offsetFromAxis ) { //If axis and the rotated attribute will not fit inside the plot...
+				overallShift = offsetFromAxis - startCoordinate.first; //...they will be shifted horiontally by this amount ( < 0, i.e. to the left )
 			}
-			if( !rotate && startCoordinate.first < offsetFromAxis + attribute.size() ) {
-				overallShift = offsetFromAxis + attribute.size() - startCoordinate.first;
+			if( !rotate && startCoordinate.first < offsetFromAxis + attribute.size() ) { //If axis and the attribute will not fit inside the plot...
+				overallShift = offsetFromAxis + attribute.size() - startCoordinate.first; //...they will be shifted horiontally by this amount ( > 0, i.e. to the right )
 			}
 
-			//Attribute placement
+			//Compute the coordinate range required for the attribute and add it to the vector of coordinates
 			if(rotate) {
-				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first - offsetFromAxis + overallShift, startCoordinate.second + vOffset ), 1, attribute.size() );
+				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first - offsetFromAxis + overallShift, startCoordinate.second + absolutePosition ), 1, attribute.size() );
 			} else {
-				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first - offsetFromAxis + overallShift, startCoordinate.second + vOffset ), attribute.size(), 1 );
+				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first - offsetFromAxis + overallShift, startCoordinate.second + absolutePosition ), attribute.size(), 1 );
 			}
 
-			//The axis will be potentially moved to the right by hTotalOffset
+			//If the attribute is not rotated, space is required to accomodate the label:
 			if( !rotate ) {
 				hTotalOffset += attribute.size();
 				offsetFromAxis += attribute.size();
 			}
 
-			//The boundaries of the axis+attributes need to be changed:
-			if( mUpperLeftIndex.first + offsetFromAxis > startCoordinate.first ) {
-				mUpperLeftIndex.first = startCoordinate.first - offsetFromAxis;
+			if( mUpperLeftIndex.first + offsetFromAxis > startCoordinate.first ) { //If the attribute does not fit inside the coordinate range of this axis...
+				mUpperLeftIndex.first = startCoordinate.first - offsetFromAxis; //...change the boundary of the range.
 			}
 
 		} else { //Attribute is right of the axis
 
-			//Check if axis and attribute will fit into the plot. If not: set overallShift accordingly
-			if( rotate && startCoordinate.first + offsetFromAxis >= mPlot.getWidth() ) {
-				overallShift = mPlot.getWidth() - 1 - startCoordinate.first - offsetFromAxis;
+			if( rotate && startCoordinate.first + offsetFromAxis >= mPlot.getWidth() ) { //If axis and the rotated attribute will not fit inside the plot...
+				overallShift = mPlot.getWidth() - 1 - startCoordinate.first - offsetFromAxis; //...they will be shifted horiontally by this amount ( < 0, i.e. to the left )
 			}
-			if( !rotate && startCoordinate.first + offsetFromAxis + attribute.size() >= mPlot.getWidth() ) {
-				overallShift = mPlot.getWidth() - 1 - startCoordinate.first - offsetFromAxis - attribute.size();
+			if( !rotate && startCoordinate.first + offsetFromAxis + attribute.size() >= mPlot.getWidth() ) { //If axis and the attribute will not fit inside the plot...
+				overallShift = mPlot.getWidth() - 1 - startCoordinate.first - offsetFromAxis - attribute.size(); //...they will be shifted horiontally by this amount ( > 0, i.e. to the right )
 			}
 
-			//Attribute placement
+			//Compute the coordinate range required for the attribute and add it to the vector of coordinates
 			if(rotate) {
-				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first + offsetFromAxis + overallShift, startCoordinate.second + vOffset ), 1, attribute.size() );
+				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first + offsetFromAxis + overallShift, startCoordinate.second + absolutePosition ), 1, attribute.size() );
 			} else {
-				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first + offsetFromAxis + overallShift, startCoordinate.second + vOffset ), attribute.size(), 1 );
+				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first + offsetFromAxis + overallShift, startCoordinate.second + absolutePosition ), attribute.size(), 1 );
 			}
 
+			//If the attribute is not rotated, space is required to accomodate the label:
 			if( !rotate ) {
 				offsetFromAxis += attribute.size();
 			}
 
-			//The boundaries of the axis+attributes need to be changed:
-			if( mLowerRightIndex.first < startCoordinate.first + offsetFromAxis ) {
-				mLowerRightIndex.first = startCoordinate.first + offsetFromAxis;
+			if( mLowerRightIndex.first < startCoordinate.first + offsetFromAxis ) { //If the attribute does not fit inside the coordinate range of this axis...
+				mLowerRightIndex.first = startCoordinate.first + offsetFromAxis; //...change the boundary of the range.
 			}
 
 		}
 
-		//Account for the overall horizontal Shift of the axis
+		//Apply the overallShift to the necessary vertical coordinates
 		hTotalOffset += overallShift;
 		mUpperLeftIndex.first += overallShift;
 		mLowerRightIndex.first += overallShift;
 
 	}
 
+	//Return the potentially necessary shifts, so that the caller of the method can apply them
 	return std::make_pair(hTotalOffset,vTotalOffset);
 }
 
@@ -154,7 +152,6 @@ std::pair<int,int> Axis<T>::mAddAttribute( const std::vector< Pixel<T,std::strin
 template <typename T>
 void Axis<T>::mShift( std::vector<ImageCoordinate>& coordinateVector, int horizontalShift, int verticalShift )
 {
-	//TODO: What happens if size_t becomes negative somewhere below?
 	for( auto& coord : coordinateVector ) {
 		coord.first += horizontalShift;
 		coord.second += verticalShift;
@@ -177,7 +174,7 @@ void Axis<T>::mUpdateAllCoordinates()
 /*------------------------------------------------------------------*/
 
 
-/*Constructors and destructors*/
+/*--------------------Constructors and destructors------------------*/
 
 template <typename T>
 Axis<T>::Axis( const Plot2D<T>& associatedPlot, const std::size_t width, const std::size_t height, const ImageCoordinate startCoordinate )
@@ -191,7 +188,7 @@ Axis<T>::Axis( const Plot2D<T>& associatedPlot, const std::size_t width, const s
 		setAxisElement( Pixel<T,std::string>( T(), "|" ) );
 	}
 
-	//Set indices representing the axis and the index range as given by mUpperLeftIndex and mLowerRightIndex
+	//Compute the coordinates in the plot where the axis will be shown
 	mAxisCoordinates = std::vector<ImageCoordinate>( width*height );
 	mUpperLeftIndex = startCoordinate;
 	std::size_t j = 0;
@@ -203,22 +200,25 @@ Axis<T>::Axis( const Plot2D<T>& associatedPlot, const std::size_t width, const s
 				j++;
 			}
 		}
-		mLowerRightIndex = mAxisCoordinates.at(j-1);
+		mLowerRightIndex = mAxisCoordinates.at(j-1); //The last coordinate from the loops will be the lower-rightmost of the range
 	} else {
 		mAxisCoordinates.at(0) = startCoordinate;
 		mUpperLeftIndex = startCoordinate;
 		mLowerRightIndex = startCoordinate;
 	}
 
+	//Update the vector of all coordinates, accounting for the above mAxisCoordinates
 	mUpdateAllCoordinates();
 }
-/*-----------------------------*/
+/*------------------------------------------------------------------*/
 
 
-/*-------Getters and Setters--------*/
+/*---------------------Getters and Setters--------------------------*/
+
 template <typename T>
 const Pixel<T,std::string>& Axis<T>::at( const ImageCoordinate& coord ) const
 {
+	//Perform lookups in all coordinate vectors to find out what part of the axis is located at coord
 	if( std::find(mAxisCoordinates.begin(), mAxisCoordinates.end(), coord) != mAxisCoordinates.end() ) {
 		return getAxisElement();
 	} else if( std::find(mLabelCoordinates.begin(), mLabelCoordinates.end(), coord) != mLabelCoordinates.end() ) {
@@ -284,24 +284,28 @@ void Axis<T>::setAxisSymbol( const std::string& axisSymbol )
 	mAxisElement.setSymbol(axisSymbol);
 }
 
-/*----------------------------------*/
+/*------------------------------------------------------------------*/
 
-/*-------------Modifiers------------*/
+
+/*--------------------------Modifiers-------------------------------*/
+
 template <typename T>
 void Axis<T>::addLabel( const std::string& label, float position, bool leftOrBelow , bool rotateLabel )
 {
 	if( mLabel.size() > 0 ) return; //A label already exists
+
+	//Set mLabel equal to the label: "transform" the string "label" to a vector of Pixels
 	mLabel = std::vector<Pixel<T,std::string>>(label.size());
 	for( int j = 0; j < label.size(); j++ ) {
 		mLabel.at(j) = Pixel<T,std::string>(getAxisElement().getColor(), std::string(1,label.at(j)));
 	}
-	std::size_t offsetFromAxis = getLabelOffset() + 1; //Offset in coordinates between label and axis
+	std::size_t offsetFromAxis = getLabelOffset() + 1; //Offset in number of Pixels between label and axis
 
 	// Add the label, accounting for all parameters and get back
-	// the coordinate offset totalOffset = (horizontalOffset,verticalOffset) required to accomodate the label
+	// the potential horizontal and vertical offsets required to accomodate the label
 	auto totalOffset = mAddAttribute( mLabel, position, offsetFromAxis, leftOrBelow, mLabelCoordinates , rotateLabel );
 
-	//Move the axis by totalOffset to make space for the label
+	//Move the axis by the required offset to make space for the label
 	mShift( mAxisCoordinates, totalOffset.first, totalOffset.second );
 	//mShift( hTotalOffset, vTotalOffset, mTicksCoordinates )
 
@@ -312,23 +316,27 @@ template <typename T>
 void Axis<T>::addTicks( const std::vector<Tick>& ticks, bool leftOrBelow )
 {
 	float position = 0.0;
-	int hTotalOffset = 0, vTotalOffset = 0;
 	std::vector< Pixel<T,std::string> > tickBuf;
 
 	bool first = true;
+
 	for( auto& tick : ticks ) {
 
 		position = tick.second;
+
+		//Set tickBuf equal to this tick: "transform" the string "tick.first" to a vector of Pixels
 		tickBuf.resize( tick.first.size() );
 		for( int j = 0; j < tick.first.size(); j++ ) {
 			tickBuf.at(j) = Pixel<T,std::string>(getAxisElement().getColor(), std::string(1,tick.first.at(j)));
 			mTicks.push_back( tickBuf.at(j) );
 		}
+
+		// Add this tick, accounting for all parameters and get back
+		// the potential horizontal and vertical offsets required to accomodate the label
 		auto totalOffset = mAddAttribute( tickBuf, position, 1, leftOrBelow, mTicksCoordinates , false );
-		/*hTotalOffset = std::max( totalOffset.first, hTotalOffset );
-		vTotalOffset = std::max( totalOffset.second, vTotalOffset );
-		mShift( hTotalOffset, vTotalOffset, mAxisCoordinates );*/
+
 		if( first ) {
+			//Move the axis and the label by the required offset to make space for the label
 			mShift( mAxisCoordinates, totalOffset.first, totalOffset.second );
 			mShift( mLabelCoordinates, totalOffset.first, totalOffset.second );
 		}
@@ -338,5 +346,4 @@ void Axis<T>::addTicks( const std::vector<Tick>& ticks, bool leftOrBelow )
 	mUpdateAllCoordinates();
 }
 
-
-/*----------------------------------*/
+/*------------------------------------------------------------------*/

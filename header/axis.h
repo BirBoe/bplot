@@ -39,7 +39,6 @@ using Tick = std::pair<std::string,float>; //Stores a "Tick" next to the axis in
 	* @tparam T2 Type of symbols that represent a Pixel (Default: char).
 	*/
 
-/* Axis represents an axis in a plot associated to it */
 template <typename T = Mono>
 class Axis
 {
@@ -74,6 +73,7 @@ private:
 		* @param rotate True: The attribute is rotated if the axis is vertical, i.e. it will extend vertically instead of horizontally.
 		* @return A pair of horizontal and vertical number of Pixels that all Pixels belonging to other parts of the axis
 		* 				have to be moved to make space for the attribute. The shifts are not performed within the method.
+		* @todo The method is too long and should be decomposed in a useful way!
 		*/
 	std::pair<int,int> mAddAttribute( const std::vector< Pixel<T,std::string> >& attribute, float position, std::size_t offsetFromAxis, bool leftOrBelow, std::vector<ImageCoordinate>& coordinateVector , bool rotate = false );
 
@@ -91,6 +91,7 @@ private:
 		* @param coordinateVector Vector of coordinates that will be shifted
 		* @param horizontalShift Horizontal shift in number of Pixels
 		* @param verticalShift Vertical shift in number of Pixels
+		* @todo What happens if size_t becomes negative somewhere?
 		*/
 	void mShift( std::vector<ImageCoordinate>& coordinateVector, int horizontalShift, int verticalShift );
 
@@ -100,7 +101,7 @@ private:
 	void mUpdateAllCoordinates(); //Updates the data member mAllCoordinates (e.g. after mAxisCoordinates etc. have been changed)
 
 public:
-	/*Constructors and destructors*/
+	/*----Constructors and destructors----*/
 	//Axis() = delete; //No default constructor because an Axis always needs an associated Plot2D in which it lives
 
 	/**
@@ -112,7 +113,9 @@ public:
 		*/
 	Axis( const Plot2D<T>& associatedPlot, const std::size_t width, const std::size_t height, const ImageCoordinate startCoordinate );
 
-	/*---Getters and Setters----*/
+	/*------------------------------------*/
+
+	/*--------Getters and Setters--------*/
 	/**
 		* Get the Pixel at a specific coordinate in the plot of which the axis is a part.
 		* @param coord Coordinate in the plot of which the axis is a part.
@@ -175,17 +178,19 @@ public:
 		* @param labelOffset Number of Pixels between axis itself and the label. Default value: 1
 		*/
 	void setLabelOffset( std::size_t labelOffset );
+
 	/*--------------------------*/
 
 	/*---------Modifiers--------*/
 
 	/**
-		* Adds a label to the axis at a fixed relative position.
+		* Adds a label to the axis at a fixed relative position. Does nothing, if another label was added before.
 		* @param label Label of the axis.
 		* @param position Relative position (between 0 and 1, otherwise set to 0) along the axis where the first character of the label is placed.
 		* @param leftOrBelow True: The label is placed to the left of the axis (if axis is vertical) or below it (if axis is horizontal).
 		*											Otherwise it is placed to the right or above.
 		* @param rotateLabel True: The label is rotated if the axis is vertical, i.e. it will extend vertically instead of horizontally.
+		* @todo Should ticks be shifted to make space for the label
 		*/
 	void addLabel( const std::string& label, float position, bool leftOrBelow = true, bool rotateLabel = false );
 
@@ -194,6 +199,7 @@ public:
 		* @param ticks Vector of ticks that will be added (tick: pair of string (its label) and float (its relative position, between 0 and 1, otherwise set to 0).
 		* @param leftOrBelow True: The ticks are placed to the left of the axis (if axis is vertical) or below it (if axis is horizontal).
 		*											Otherwise they are placed to the right or above.
+		* @todo Perform the axis shift in a better way so that ticks of different length work correctly.
 		*/
 	void addTicks( const std::vector<Tick>& ticks, bool leftOrBelow = true );
 

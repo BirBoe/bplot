@@ -25,6 +25,8 @@
 #include "../header/color_models.h"
 #include "../header/pixel.h"
 
+using ImageCoordinate = std::pair<std::size_t,std::size_t>;
+
 /**
 	* The Image class represents an image that can be printed to the console (or another output stream).
 	* The Image is a collection of Pixel objects that are ordered in a width x height "matrix".
@@ -58,13 +60,15 @@ private:
 	int mHeight; /*!< Height of the image in number of Pixels. */
 
 	/**
-		* Checks if (i,j) is a valid coordinate inside the image.
-		* @throw std::out_of_range if (i,j) lies outside the image
+		* Checks if an ImageCoordinate is a valid coordinate inside the image.
+		* @param coord ImageCoordinate to be verified: pair of horizontal and vertical indices
+		* @throw std::out_of_range if ImageCoordinate lies outside the image
 		*/
-	virtual void verifyCoordinate(std::size_t i, std::size_t j) const;
+	virtual void verifyCoordinate( const ImageCoordinate& coord ) const;
 
 public:
-	/*Constructors and destructors*/
+	/*----Constructors and destructors----*/
+
 	Image(); /**< Constructs an empty image (of default Pixels) of size 1 x 1.*/
 
 	/**
@@ -72,7 +76,7 @@ public:
 		* @param width Width of the Image in number of Pixels.
 		* @param height Height of the Image in number of Pixels.
 		*/
-	Image(std::size_t width, std::size_t height);
+	Image( std::size_t width, std::size_t height );
 
 	/**
 		* Constructs an empty image of given size with identical Pixels.
@@ -80,27 +84,28 @@ public:
 		* @param height Height of the Image in number of Pixels.
 		* @param p Pixel that all Pixels in the Image will be set equal to.
 		*/
-	Image(std::size_t width, std::size_t height, const Pixel<T1,T2> &p);
+	Image( std::size_t width, std::size_t height, const Pixel<T1,T2> &p );
 	virtual ~Image() = default;
 
-	/*Getters and setters*/
+	/*------------------------------------*/
+
+	/*----Getters and setters----*/
 
 	/**
 		* Get the Pixel at a specific coordinate in the image.
-		* @param i Horizontal coordinate
-		* @param j Vertical coordinate
-		* @throw std::out_of_range if (i,j) lies outside the image.
+		* @param coord ImageCoordinate: pair of horizontal and vertical indices
+		* @return Reference to the Pixel at coord
+		* @throw std::out_of_range if coord lies outside the image.
 		*/
-	virtual const Pixel<T1,T2>& at( std::size_t i, std::size_t j ) const;
+	virtual const Pixel<T1,T2>& at( const ImageCoordinate& coord ) const;
 
 	/**
 		* Get the Pixel at a specific coordinate in the image.
-		* @param i Horizontal coordinate
-		* @param j Vertical coordinate
-		* @return (Non-const) reference to the Pixel
-		* @throw std::out_of_range if (i,j) lies outside the image.
+		* @param coord ImageCoordinate: pair of horizontal and vertical indices
+		* @return (Non-const) reference to the Pixel at coord
+		* @throw std::out_of_range if coord lies outside the image.
 		*/
-	virtual Pixel<T1,T2>& at( std::size_t i, std::size_t j );
+	virtual Pixel<T1,T2>& at( const ImageCoordinate& coord );
 
 	/**
 		* Get the current aspect ratio
@@ -124,7 +129,7 @@ public:
 		* Fill the whole image with identical Pixels.
 		* @param p Pixel that all Pixels in the image will be set equal to.
 		*/
-	virtual void setPixels( const Pixel<T1,T2> &p );
+	virtual void setAllPixels( const Pixel<T1,T2> &p );
 
 	/**
 		* Get the current value of the option "FillSpaces"
@@ -162,10 +167,16 @@ public:
 		*/
 	virtual void setWidth( std::size_t width );
 
+	/*--------------------------*/
+
+	/*----Other Methods----*/
+
 	/**
 		* Output the image to the command line.
 		*/
 	virtual void show() const;
+
+	/*--------------------------*/
 };
 
 /*Include method definitions for the template class*/

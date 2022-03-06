@@ -23,8 +23,8 @@ template <typename T>
 void Plot2D<T>::mClear()
 {
 	for( auto& vectorOfCoordinates : mCoordinatesOfDataPoints ) {
-		for( auto& c : vectorOfCoordinates ) {
-				this->at( c.first, c.second ) = emptyPixel;
+		for( auto& coord : vectorOfCoordinates ) {
+				this->at(coord) = emptyPixel;
 			}
 	}
 }
@@ -32,18 +32,20 @@ void Plot2D<T>::mClear()
 template <typename T>
 void Plot2D<T>::mDataSetToCoordinates( std::size_t jDataSet )
 {
-	//Compute DataPoints and set pixels for this DataSet in image
+	//Compute ImageCoordinates and set pixels for the DataSet mDataSets.at(jDataSet) in the image
 	std::size_t i = 0;
-	for( auto& dataPoint : *(mDataSets.at(jDataSet)) ) { //Loop over all (x,y) pairs in data
+	for( auto& dataPoint : *(mDataSets.at(jDataSet)) ) { //Loop over all DataPoints [(x,y) pairs] in the data set
 		//Remove pixels for this DataSet from image
-		this->at( mCoordinatesOfDataPoints.at(jDataSet).at(i).first, mCoordinatesOfDataPoints.at(jDataSet).at(i).second ) = emptyPixel;
+		this->at( mCoordinatesOfDataPoints.at(jDataSet).at(i) ) = emptyPixel;
 
-		//Compute DataPoints and set pixels for this DataSet in image
+		//Compute ImageCoordinates and set the pixels for this data set at the (new) ImageCoordinates in the Image
 		mCoordinatesOfDataPoints.at(jDataSet).at(i) = mDataPointToCoordinate(dataPoint);
-		this->at( mCoordinatesOfDataPoints.at(jDataSet).at(i).first, mCoordinatesOfDataPoints.at(jDataSet).at(i).second ) = mPlotMarkers.at(jDataSet);
+		this->at( mCoordinatesOfDataPoints.at(jDataSet).at(i) ) = mPlotMarkers.at(jDataSet);
 		i++;
 	}
-	this->at(0,0) = emptyPixel; //(0,0) is a "dump pixel" that collects data points that lie outside the frame. It always has to be cleared
+	/* (0,0) is a "dump pixel" that collects data points that would lie outside the data frame.
+	 * It could have be returned by mDataPointToCoordinate(), so we have to "clean it up" here. */
+	this->at( std::make_pair(0,0) ) = emptyPixel;
 }
 
 template <typename T>
@@ -57,11 +59,14 @@ void Plot2D<T>::mAllDataSetsToCoordinates()
 template <typename T>
 ImageCoordinate Plot2D<T>::mDataPointToCoordinate( const DataPointXY& dataPoint )
 {
+	/*Transform the x value of the dataPoint to a horizontal coordinate along the x axis.
+	 * Account for the scaling function and the plot range. */
 	std::size_t xReturn = static_cast<std::size_t>( (mXScalingFunction(dataPoint.first)-mXScalingFunction(mXPlotRange.first))/(mXScalingFunction(mXPlotRange.second)+mXScalingFunction(mXPlotRange.first)) * (mDataFrameEnd.first - mDataFrameStart.first) ) + mDataFrameStart.first;
-	if( xReturn > mDataFrameEnd.first ) return std::make_pair(0,0); //If the point is outside the data frame, place it outside the image
+	if( xReturn > mDataFrameEnd.first ) return std::make_pair(0,0); //(0,0) is a "dump pixel" that collects data points that would lie outside the data frame.
 
+	//Same for the y value
 	std::size_t yReturn = this->getHeight() - 1 - ( static_cast<std::size_t>( (mYScalingFunction(dataPoint.second)-mYScalingFunction(mYPlotRange.first))/(mYScalingFunction(mYPlotRange.second)+mYScalingFunction(mYPlotRange.first)) * (mDataFrameEnd.second - mDataFrameStart.second) ) + mDataFrameStart.second );
-	if( yReturn > mDataFrameEnd.second ) return std::make_pair(0,0); //If the point is outside the data frame, place it outside the image
+	if( yReturn > mDataFrameEnd.second ) return std::make_pair(0,0); //(0,0) is a "dump pixel" that collects data points that would lie outside the data frame.
 
 	return std::make_pair(xReturn,yReturn);
 }
@@ -69,40 +74,44 @@ ImageCoordinate Plot2D<T>::mDataPointToCoordinate( const DataPointXY& dataPoint 
 /*------------------------------------------------------------------*/
 
 
-/*Constructors and destructors*/
+/*-------------------Constructors and destructors-------------------*/
 
 template <typename T>
 Plot2D<T>::Plot2D( std::size_t width, std::size_t height ) : Image<T,std::string>(width,height)
 {
-	this->setPixels(emptyPixel); //Set all pixels in the image to empty
+	this->setAllPixels(emptyPixel); //Set all pixels in the image to empty
   if( width > 2 && height > 2 )
   {
-	  addVerticalAxis( 0, 1, height - 3, T(), "Testlabel", 0.3, true, true ); //Left
+		//Add default axes
+	  addVerticalAxis( 0, 1, height - 3, T(), "y", 0.3, true, true ); //Left
     addVerticalAxis( width - 1, 1, height - 3, T() ); //Right
     addHorizontalAxis( 0, 5, width - 2, T() ); //Top
-    addHorizontalAxis( height - 3, 5, width - 2, T(), "Testlabel", 0.4, true ); //Bottom
+    addHorizontalAxis( height - 3, 5, width - 2, T(), "x", 0.4, true ); //Bottom
 
+		//Set the coordinate ranges in the plot and a default plot range
     mDataFrameStart = std::make_pair(5,2);
   	mDataFrameEnd = std::make_pair(width-2,height-4);
 		setPlotRange( std::make_pair(0.,width-3), std::make_pair(0.,height-3) );
   }
 }
-/*-----------------------------*/
+
+/*------------------------------------------------------------------*/
 
 
-/*-------Getters and Setters--------*/
+/*-----------------------Getters and Setters------------------------*/
+
 template <typename T>
 void Plot2D<T>::setXAxisScaling( const std::function<double(double)>& xScalingFunction )
 {
 	mXScalingFunction = xScalingFunction;
-	mAllDataSetsToCoordinates();
+	mAllDataSetsToCoordinates(); //The new scaling changes the position of data points in the data frame.
 }
 
 template <typename T>
 void Plot2D<T>::setYAxisScaling( const std::function<double(double)>& yScalingFunction )
 {
 	mYScalingFunction = yScalingFunction;
-	mAllDataSetsToCoordinates();
+	mAllDataSetsToCoordinates(); //The new scaling changes the position of data points in the data frame.
 }
 
 template <typename T>
@@ -110,18 +119,24 @@ void Plot2D<T>::setPlotRange( const std::pair<double,double>& xPlotRange, const 
 {
 	mXPlotRange = xPlotRange;
 	mYPlotRange = yPlotRange;
-	mAllDataSetsToCoordinates();
+	mAllDataSetsToCoordinates(); //The new plot range changes the position of data points in the data frame.
 }
 
-/*----------------------------------*/
+/*------------------------------------------------------------------*/
+
+
+/*----------------------------Modifiers-----------------------------*/
+
 template <typename T>
 void Plot2D<T>::addVerticalAxis( std::size_t hPos, std::size_t vPosStart, std::size_t vPosEnd, T color )
 {
   if( vPosStart > vPosEnd ) std::swap(vPosStart,vPosEnd);
 	mVerticalAxes.push_back( Axis<T>( *this, 1, vPosEnd - vPosStart + 1, std::make_pair( hPos, vPosStart ) ) );
 	mVerticalAxes.back().setAxisColor( color );
-	for( auto& idx : mVerticalAxes.back().getCoordinates() ) {
-		this->at( idx.first, idx.second ) = mVerticalAxes.back().at(idx);
+
+	//Get the coordinates of the new axis and add the correct Pixels to the plot
+	for( auto& coord : mVerticalAxes.back().getCoordinates() ) {
+		this->at(coord) = mVerticalAxes.back().at(coord);
 	}
 }
 
@@ -131,8 +146,10 @@ void Plot2D<T>::addHorizontalAxis( std::size_t vPos, std::size_t hPosStart, std:
 	if( hPosStart > hPosEnd ) std::swap(hPosStart,hPosEnd);
 	mHorizontalAxes.push_back( Axis<T>( *this, hPosEnd - hPosStart + 1, 1, std::make_pair( hPosStart, vPos ) ) );
 	mHorizontalAxes.back().setAxisColor( color );
-	for( auto& idx : mHorizontalAxes.back().getCoordinates() ) {
-		this->at( idx.first, idx.second ) = mHorizontalAxes.back().at(idx);
+
+	//Get the coordinates of the new axis and add the correct Pixels to the plot
+	for( auto& coord : mHorizontalAxes.back().getCoordinates() ) {
+		this->at(coord) = mHorizontalAxes.back().at(coord);
 	}
 }
 
@@ -153,8 +170,9 @@ void Plot2D<T>::addVerticalAxis( std::size_t hPos, std::size_t vPosStart, std::s
 	mVerticalAxes.back().addTicks(testTicks,false);
 	/*----*/
 
-	for( auto& idx : mVerticalAxes.back().getCoordinates() ) {
-		this->at( idx.first, idx.second ) = mVerticalAxes.back().at(idx);
+	//Get the coordinates of the new axis and add the correct Pixels to the plot
+	for( auto& coord : mVerticalAxes.back().getCoordinates() ) {
+		this->at(coord) = mVerticalAxes.back().at(coord);
 	}
 }
 
@@ -175,18 +193,21 @@ void Plot2D<T>::addHorizontalAxis( std::size_t vPos, std::size_t hPosStart, std:
 	mHorizontalAxes.back().addTicks(testTicks, true);
 	/*----*/
 
-	for( auto& idx : mHorizontalAxes.back().getCoordinates() ) {
-		this->at( idx.first, idx.second ) = mHorizontalAxes.back().at(idx);
+	//Get the coordinates of the new axis and add the correct Pixels to the plot
+	for( auto& coord : mHorizontalAxes.back().getCoordinates() ) {
+		this->at(coord) = mHorizontalAxes.back().at(coord);
 	}
 }
 
 template <typename T>
 void Plot2D<T>::addText( const std::string& text, ImageCoordinate& textPosition )
 {
-  this->at( textPosition.first, textPosition.second ).setSymbol(text);
+	//Set the text as a single Pixel and set the following Pixels to "" to "make space"
+  this->at(textPosition).setSymbol(text);
   for( int j = 1; j < text.length(); j++ ) {
-    this->at( textPosition.first+j, textPosition.second ).setSymbol("");
+    this->at(textPosition).setSymbol("");
   }
+	//Add to the text vector to keep track
   mText.push_back(std::make_pair(text,std::make_pair(textPosition.first,textPosition.second)));
 }
 
@@ -214,13 +235,16 @@ void Plot2D<T>::addDataSet( std::shared_ptr<const DataSet> dataSet, Pixel<T,std:
 			double dy = (ymax-ymin)/( dataSet->size() - 1 );
 			//Set the plot range
 			setPlotRange( std::make_pair( xmin - dx, xmax + dx ), std::make_pair( ymin - dy, ymax + dy ) );
-			//TODO: Add ticks
+			//Add ticks to the axes
 
 	}
 
+	//Add to the necessary data members to keep track
 	mDataSets.push_back(dataSet);
   mPlotMarkers.push_back(plotMarker);
-
+	//Compute the ImageCoordinates where data points of this data set are shown in the plot
   mCoordinatesOfDataPoints.push_back(std::vector<ImageCoordinate>(dataSet->size()));
 	mDataSetToCoordinates( mCoordinatesOfDataPoints.size() - 1 );
 }
+
+/*------------------------------------------------------------------*/
