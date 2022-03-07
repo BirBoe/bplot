@@ -18,6 +18,7 @@
 #pragma once
 
 #include <algorithm> //std::swap
+#include <limits> //std::numeric_limits
 #include <memory> //Smart pointers
 #include <string>
 #include <utility> //std::pair
@@ -121,7 +122,13 @@ private:
 		* @return Coordinate of the data point in the base image of the plot.
 		* @todo Write the code of this method in a more compact and readable form.
 		*/
-	ImageCoordinate mDataPointToCoordinate( const DataPointXY& dataPoint );
+	ImageCoordinate mDataPointToCoordinate( const DataPointXY& dataPoint ) const;
+
+	/**
+		* Update the plot to account for any changes of the axes.
+		* Needs to be called after (one or more) axes have been changed.
+		*/
+		void mUpdateAxisCoordinates();
 
 public:
 	/*---Constructors and destructors---*/
@@ -221,7 +228,7 @@ public:
 		* Add a data set to the plot with specified plot markers.
 		* @param dataSet Pointer to the data set (vector of (x,y)-pairs of double values)
 		* @param plotMarker Pixel that will be used to mark the data points from the set in the plot
-		* @todo Add ticks automatically.
+		* @todo This method is quite long adn should be decomposed.
 		*/
 	void addDataSet( std::shared_ptr<const DataSet> dataSet, Pixel<T,std::string> plotMarker );
 

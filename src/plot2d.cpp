@@ -57,15 +57,30 @@ void Plot2D<T>::mAllDataSetsToCoordinates()
 }
 
 template <typename T>
-ImageCoordinate Plot2D<T>::mDataPointToCoordinate( const DataPointXY& dataPoint )
+void Plot2D<T>::mUpdateAxisCoordinates()
+{
+	for( auto& axis : mVerticalAxes ) {
+		for( auto& coord : axis.getCoordinates() ) {
+			this->at(coord) = axis.at(coord); //Get the coordinates of the axis and add the correct Pixels to the plot
+		}
+	}
+	for( auto& axis : mHorizontalAxes ) {
+		for( auto& coord : axis.getCoordinates() ) {
+			this->at(coord) = axis.at(coord);
+		}
+	}
+}
+
+template <typename T>
+ImageCoordinate Plot2D<T>::mDataPointToCoordinate( const DataPointXY& dataPoint ) const
 {
 	/*Transform the x value of the dataPoint to a horizontal coordinate along the x axis.
 	 * Account for the scaling function and the plot range. */
-	std::size_t xReturn = static_cast<std::size_t>( (mXScalingFunction(dataPoint.first)-mXScalingFunction(mXPlotRange.first))/(mXScalingFunction(mXPlotRange.second)+mXScalingFunction(mXPlotRange.first)) * (mDataFrameEnd.first - mDataFrameStart.first) ) + mDataFrameStart.first;
+	std::size_t xReturn = static_cast<std::size_t>( (mXScalingFunction(dataPoint.first)-mXScalingFunction(mXPlotRange.first))/(mXScalingFunction(mXPlotRange.second)-mXScalingFunction(mXPlotRange.first)) * (mDataFrameEnd.first - mDataFrameStart.first) ) + mDataFrameStart.first;
 	if( xReturn > mDataFrameEnd.first ) return std::make_pair(0,0); //(0,0) is a "dump pixel" that collects data points that would lie outside the data frame.
 
 	//Same for the y value
-	std::size_t yReturn = this->getHeight() - 1 - ( static_cast<std::size_t>( (mYScalingFunction(dataPoint.second)-mYScalingFunction(mYPlotRange.first))/(mYScalingFunction(mYPlotRange.second)+mYScalingFunction(mYPlotRange.first)) * (mDataFrameEnd.second - mDataFrameStart.second) ) + mDataFrameStart.second );
+	std::size_t yReturn = this->getHeight() - 1 - ( static_cast<std::size_t>( (mYScalingFunction(dataPoint.second)-mYScalingFunction(mYPlotRange.first))/(mYScalingFunction(mYPlotRange.second)-mYScalingFunction(mYPlotRange.first)) * (mDataFrameEnd.second - mDataFrameStart.second) ) + mDataFrameStart.second );
 	if( yReturn > mDataFrameEnd.second ) return std::make_pair(0,0); //(0,0) is a "dump pixel" that collects data points that would lie outside the data frame.
 
 	return std::make_pair(xReturn,yReturn);
@@ -85,8 +100,8 @@ Plot2D<T>::Plot2D( std::size_t width, std::size_t height ) : Image<T,std::string
 		//Add default axes
 	  addVerticalAxis( 0, 1, height - 3, T(), "y", 0.3, true, true ); //Left
     addVerticalAxis( width - 1, 1, height - 3, T() ); //Right
-    addHorizontalAxis( 0, 5, width - 2, T() ); //Top
     addHorizontalAxis( height - 3, 5, width - 2, T(), "x", 0.4, true ); //Bottom
+    addHorizontalAxis( 0, 5, width - 2, T() ); //Top
 
 		//Set the coordinate ranges in the plot and a default plot range
     mDataFrameStart = std::make_pair(5,2);
@@ -134,10 +149,8 @@ void Plot2D<T>::addVerticalAxis( std::size_t hPos, std::size_t vPosStart, std::s
 	mVerticalAxes.push_back( Axis<T>( *this, 1, vPosEnd - vPosStart + 1, std::make_pair( hPos, vPosStart ) ) );
 	mVerticalAxes.back().setAxisColor( color );
 
-	//Get the coordinates of the new axis and add the correct Pixels to the plot
-	for( auto& coord : mVerticalAxes.back().getCoordinates() ) {
-		this->at(coord) = mVerticalAxes.back().at(coord);
-	}
+	//Update the coordinates to account for the new axis
+	mUpdateAxisCoordinates();
 }
 
 template <typename T>
@@ -148,9 +161,7 @@ void Plot2D<T>::addHorizontalAxis( std::size_t vPos, std::size_t hPosStart, std:
 	mHorizontalAxes.back().setAxisColor( color );
 
 	//Get the coordinates of the new axis and add the correct Pixels to the plot
-	for( auto& coord : mHorizontalAxes.back().getCoordinates() ) {
-		this->at(coord) = mHorizontalAxes.back().at(coord);
-	}
+	mUpdateAxisCoordinates();
 }
 
 template <typename T>
@@ -161,19 +172,8 @@ void Plot2D<T>::addVerticalAxis( std::size_t hPos, std::size_t vPosStart, std::s
 	mVerticalAxes.back().setAxisColor( color );
 	mVerticalAxes.back().addLabel(label, relativeLabelPosition, labelLeft, rotateLabel);
 
-	/*TEST*/
-	std::vector< std::pair<std::string,float> > testTicks;
-	testTicks.reserve( 11 );
-	for( int t = 0; t < 11; t++ ) {
-		testTicks.push_back( std::make_pair( std::to_string(10*t), 1. - 0.1*t ) );
-	}
-	mVerticalAxes.back().addTicks(testTicks,false);
-	/*----*/
-
-	//Get the coordinates of the new axis and add the correct Pixels to the plot
-	for( auto& coord : mVerticalAxes.back().getCoordinates() ) {
-		this->at(coord) = mVerticalAxes.back().at(coord);
-	}
+	//Update the coordinates to account for the new axis
+	mUpdateAxisCoordinates();
 }
 
 template <typename T>
@@ -184,19 +184,8 @@ void Plot2D<T>::addHorizontalAxis( std::size_t vPos, std::size_t hPosStart, std:
 	mHorizontalAxes.back().setAxisColor( color );
 	mHorizontalAxes.back().addLabel(label, relativeLabelPosition, labelBelow);
 
-	/*TEST*/
-	std::vector< std::pair<std::string,float> > testTicks;
-	testTicks.reserve( 10 );
-	for( int t = 0; t < 10; t++ ) {
-		testTicks.push_back( std::make_pair( std::to_string(t), 0.1*t ) );
-	}
-	mHorizontalAxes.back().addTicks(testTicks, true);
-	/*----*/
-
-	//Get the coordinates of the new axis and add the correct Pixels to the plot
-	for( auto& coord : mHorizontalAxes.back().getCoordinates() ) {
-		this->at(coord) = mHorizontalAxes.back().at(coord);
-	}
+	//Update the coordinates to account for the new axis
+	mUpdateAxisCoordinates();
 }
 
 template <typename T>
@@ -217,7 +206,7 @@ void Plot2D<T>::addDataSet( std::shared_ptr<const DataSet> dataSet, Pixel<T,std:
 	//If this is the first data set added to the plot (mData empty):
 	//Set the plot range to fit all data points, i.e. extract min and max x and y values from data
 	if( mDataSets.size() == 0 ) {
-		double xmin = 0., xmax = 0., ymin = 0., ymax = 0.;
+		double xmin = std::numeric_limits<double>::max(), xmax = std::numeric_limits<double>::min(), ymin = xmin, ymax = xmax;
 			for( auto& dataPoint : *dataSet ) {
 				if( dataPoint.first < xmin ) {
 					xmin = dataPoint.first;
@@ -230,13 +219,43 @@ void Plot2D<T>::addDataSet( std::shared_ptr<const DataSet> dataSet, Pixel<T,std:
 					ymax = dataPoint.second;
 				}
 			}
+
 			//Add an offset (otherwise some data points lie on the axes and will not be shown)
 			double dx = (xmax-xmin)/( dataSet->size() - 1 );
 			double dy = (ymax-ymin)/( dataSet->size() - 1 );
+			dx = (xmax-xmin)/20;
+			dy = (ymax-ymin)/10;
+
 			//Set the plot range
 			setPlotRange( std::make_pair( xmin - dx, xmax + dx ), std::make_pair( ymin - dy, ymax + dy ) );
-			//Add ticks to the axes
 
+			//Compute equidistant ticks and add to the axes (if any)
+			unsigned int noOfTicks = 10;
+			std::size_t jTick = 0;
+			float tickstep = 1./noOfTicks;
+			std::vector<Tick> ticks(noOfTicks);
+
+			if( mHorizontalAxes.size() > 0 ) {
+
+				ticks.at(0) = std::make_pair<std::string,float>( std::to_string(static_cast<int>(xmin)), dx/(xmax-xmin+2.*dx) );
+				for( jTick = 1; jTick < noOfTicks; jTick++ ) {
+					ticks.at(jTick).first = std::to_string( static_cast<int>(xmin + jTick * tickstep * (xmax-xmin+2.*dx)) );
+					ticks.at(jTick).second = ticks.at(jTick-1).second + tickstep;
+				}
+				mHorizontalAxes.at(0).addTicks(ticks);
+
+			} if( mVerticalAxes.size() > 0 ) {
+
+				ticks.at(0) = std::make_pair<std::string,float>( std::to_string(static_cast<int>(ymin)), 1.-dy/(ymax-ymin+2.*dy) );
+				for( jTick = 1; jTick < noOfTicks; jTick++ ) {
+					ticks.at(jTick).first = std::to_string( static_cast<int>(ymin + jTick * tickstep * (ymax-ymin+2.*dy)) );
+					ticks.at(jTick).second = ticks.at(jTick-1).second - tickstep;
+				}
+				mVerticalAxes.at(0).addTicks(ticks,false);
+
+			}
+			//Update the coordinates to account for the changes of the axes
+			mUpdateAxisCoordinates();
 	}
 
 	//Add to the necessary data members to keep track
