@@ -12,7 +12,7 @@ var searchData=
   ['mcoordinatesofdatapoints_9',['mCoordinatesOfDataPoints',['../class_plot2_d.html#a0f441252c55e50f96f688007c351ca71',1,'Plot2D']]],
   ['mdataframeend_10',['mDataFrameEnd',['../class_plot2_d.html#a70228126cbaaf6e617e2f457ff1004f1',1,'Plot2D']]],
   ['mdataframestart_11',['mDataFrameStart',['../class_plot2_d.html#a3e2b1ead9aa2e48522bb54a07e241f9b',1,'Plot2D']]],
-  ['mdatapointtocoordinate_12',['mDataPointToCoordinate',['../class_plot2_d.html#aa1597d1644b442b11894e359dc374ff0',1,'Plot2D']]],
+  ['mdatapointtocoordinate_12',['mDataPointToCoordinate',['../class_plot2_d.html#ac100a83616ed871dca7030d463746944',1,'Plot2D']]],
   ['mdatasets_13',['mDataSets',['../class_plot2_d.html#a11da671488c635aaf60a6de6897d98ba',1,'Plot2D']]],
   ['mdatasettocoordinates_14',['mDataSetToCoordinates',['../class_plot2_d.html#aaba1d6b0982a67867f4e63f93a8cfc1e',1,'Plot2D']]],
   ['mfillspaces_15',['mFillSpaces',['../class_image.html#af388594a3bd6f902262e0ae25e600fc8',1,'Image']]],
@@ -33,11 +33,12 @@ var searchData=
   ['mticks_30',['mTicks',['../class_axis.html#a5d237363f5a6127c4b81702ea81cc7ec',1,'Axis']]],
   ['mtickscoordinates_31',['mTicksCoordinates',['../class_axis.html#a66634077fb637f35af024977a5631e65',1,'Axis']]],
   ['mupdateallcoordinates_32',['mUpdateAllCoordinates',['../class_axis.html#a6bb7d555653dd071ecfd9564d7b490cb',1,'Axis']]],
-  ['mupperleftindex_33',['mUpperLeftIndex',['../class_axis.html#a341465f683816eb793ad4fba0bec01b7',1,'Axis']]],
-  ['mverticalaxes_34',['mVerticalAxes',['../class_plot2_d.html#a9c3db3812068f632b1a3de673b1e0fc1',1,'Plot2D']]],
-  ['mwidth_35',['mWidth',['../class_image.html#a0784025d0c88f233e9b5eb630efda3c0',1,'Image']]],
-  ['mxplotrange_36',['mXPlotRange',['../class_plot2_d.html#a299c8d2448382785355c9dc406edceb7',1,'Plot2D']]],
-  ['mxscalingfunction_37',['mXScalingFunction',['../class_plot2_d.html#a66015c27cf36470a1ff8376ba15cda4d',1,'Plot2D']]],
-  ['myplotrange_38',['mYPlotRange',['../class_plot2_d.html#a37d647253b19debd0707fe4e4243509a',1,'Plot2D']]],
-  ['myscalingfunction_39',['mYScalingFunction',['../class_plot2_d.html#a195cc1a4b4eafd13f06ec2678608420d',1,'Plot2D']]]
+  ['mupdateaxiscoordinates_33',['mUpdateAxisCoordinates',['../class_plot2_d.html#ac0221a6d5d9e2e64b9f0042ace392ce4',1,'Plot2D']]],
+  ['mupperleftindex_34',['mUpperLeftIndex',['../class_axis.html#a341465f683816eb793ad4fba0bec01b7',1,'Axis']]],
+  ['mverticalaxes_35',['mVerticalAxes',['../class_plot2_d.html#a9c3db3812068f632b1a3de673b1e0fc1',1,'Plot2D']]],
+  ['mwidth_36',['mWidth',['../class_image.html#a0784025d0c88f233e9b5eb630efda3c0',1,'Image']]],
+  ['mxplotrange_37',['mXPlotRange',['../class_plot2_d.html#a299c8d2448382785355c9dc406edceb7',1,'Plot2D']]],
+  ['mxscalingfunction_38',['mXScalingFunction',['../class_plot2_d.html#a66015c27cf36470a1ff8376ba15cda4d',1,'Plot2D']]],
+  ['myplotrange_39',['mYPlotRange',['../class_plot2_d.html#a37d647253b19debd0707fe4e4243509a',1,'Plot2D']]],
+  ['myscalingfunction_40',['mYScalingFunction',['../class_plot2_d.html#a195cc1a4b4eafd13f06ec2678608420d',1,'Plot2D']]]
 ];

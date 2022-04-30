@@ -42,7 +42,9 @@ void \mbox{\hyperlink{class_plot2_d_aaba1d6b0982a67867f4e63f93a8cfc1e}{m\+Data\+
 \item 
 void \mbox{\hyperlink{class_plot2_d_a05ed3b8f655efea3e71076658dcc3913}{m\+All\+Data\+Sets\+To\+Coordinates}} ()
 \item 
-Image\+Coordinate \mbox{\hyperlink{class_plot2_d_aa1597d1644b442b11894e359dc374ff0}{m\+Data\+Point\+To\+Coordinate}} (const Data\+Point\+XY \&data\+Point)
+Image\+Coordinate \mbox{\hyperlink{class_plot2_d_ac100a83616ed871dca7030d463746944}{m\+Data\+Point\+To\+Coordinate}} (const Data\+Point\+XY \&data\+Point) const
+\item 
+void \mbox{\hyperlink{class_plot2_d_ac0221a6d5d9e2e64b9f0042ace392ce4}{m\+Update\+Axis\+Coordinates}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -122,7 +124,7 @@ Add a data set to the plot with specified plot markers.
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]Add ticks automatically. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]This method is quite long and should be decomposed. \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}\label{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}} 
 \index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!addHorizontalAxis@{addHorizontalAxis}}
 \index{addHorizontalAxis@{addHorizontalAxis}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
@@ -168,8 +170,6 @@ Adds a labelled horizontal axis to the plot. The position of the axis will be ch
 \begin{DoxySeeAlso}{See also}
 \mbox{\hyperlink{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}{add\+Horizontal\+Axis( std\+::size\+\_\+t v\+Pos, std\+::size\+\_\+t h\+Pos\+Start, std\+::size\+\_\+t h\+Pos\+End, T color )}} 
 \end{DoxySeeAlso}
-\begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]remove the experimental ticks \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_plot2_d_a609838a36eeb52a934e8518117232e95}\label{class_plot2_d_a609838a36eeb52a934e8518117232e95}} 
 \index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!addText@{addText}}
 \index{addText@{addText}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
@@ -185,7 +185,7 @@ Adds text (string) to the plot.
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000008}{Todo}}]Remove this method or change the way in which the text is added. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]Remove this method or change the way in which the text is added. \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}\label{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}} 
 \index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!addVerticalAxis@{addVerticalAxis}}
 \index{addVerticalAxis@{addVerticalAxis}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
@@ -233,8 +233,6 @@ Adds a labelled vertical axis to the plot. The position of the axis will be chan
 \begin{DoxySeeAlso}{See also}
 \mbox{\hyperlink{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}{add\+Vertical\+Axis( std\+::size\+\_\+t h\+Pos, std\+::size\+\_\+t v\+Pos\+Start, std\+::size\+\_\+t v\+Pos\+End, T color )}} 
 \end{DoxySeeAlso}
-\begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]remove the experimental ticks \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_plot2_d_a05ed3b8f655efea3e71076658dcc3913}\label{class_plot2_d_a05ed3b8f655efea3e71076658dcc3913}} 
 \index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mAllDataSetsToCoordinates@{mAllDataSetsToCoordinates}}
 \index{mAllDataSetsToCoordinates@{mAllDataSetsToCoordinates}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
@@ -249,12 +247,12 @@ Remove all data sets from the plot (if already shown), (re-\/)compute positions 
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Clear\hspace{0.3cm}{\ttfamily [private]}}
 
-Sets all Pixels representing data points in the plot to empty\+Pixel. This does not remove data\+Sets from m\+Data\+Sets. \mbox{\Hypertarget{class_plot2_d_aa1597d1644b442b11894e359dc374ff0}\label{class_plot2_d_aa1597d1644b442b11894e359dc374ff0}} 
+Sets all Pixels representing data points in the plot to empty\+Pixel. This does not remove data\+Sets from m\+Data\+Sets. \mbox{\Hypertarget{class_plot2_d_ac100a83616ed871dca7030d463746944}\label{class_plot2_d_ac100a83616ed871dca7030d463746944}} 
 \index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mDataPointToCoordinate@{mDataPointToCoordinate}}
 \index{mDataPointToCoordinate@{mDataPointToCoordinate}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{mDataPointToCoordinate()}{mDataPointToCoordinate()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-Image\+Coordinate \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Data\+Point\+To\+Coordinate (\begin{DoxyParamCaption}\item[{const Data\+Point\+XY \&}]{data\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+Image\+Coordinate \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Data\+Point\+To\+Coordinate (\begin{DoxyParamCaption}\item[{const Data\+Point\+XY \&}]{data\+Point }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
 
 Transform a data point to a coordinate in the base image of the plot 
 \begin{DoxyParams}{Parameters}
@@ -278,7 +276,14 @@ For a single data set\+: Remove the data set from the plot (if already shown), (
 {\em j\+Data\+Set} & index of the data set in m\+Data\+Sets \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_plot2_d_aaf474365239de9b28942c6bf37af3ddf}\label{class_plot2_d_aaf474365239de9b28942c6bf37af3ddf}} 
+\mbox{\Hypertarget{class_plot2_d_ac0221a6d5d9e2e64b9f0042ace392ce4}\label{class_plot2_d_ac0221a6d5d9e2e64b9f0042ace392ce4}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mUpdateAxisCoordinates@{mUpdateAxisCoordinates}}
+\index{mUpdateAxisCoordinates@{mUpdateAxisCoordinates}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mUpdateAxisCoordinates()}{mUpdateAxisCoordinates()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\+::m\+Update\+Axis\+Coordinates\hspace{0.3cm}{\ttfamily [private]}}
+
+Update the plot to account for any changes of the axes. Needs to be called after (one or more) axes have been changed. \mbox{\Hypertarget{class_plot2_d_aaf474365239de9b28942c6bf37af3ddf}\label{class_plot2_d_aaf474365239de9b28942c6bf37af3ddf}} 
 \index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!setPlotRange@{setPlotRange}}
 \index{setPlotRange@{setPlotRange}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{setPlotRange()}{setPlotRange()}}

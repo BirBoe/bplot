@@ -128,7 +128,7 @@ private:
 		* Update the plot to account for any changes of the axes.
 		* Needs to be called after (one or more) axes have been changed.
 		*/
-		void mUpdateAxisCoordinates();
+	void mUpdateAxisCoordinates();
 
 public:
 	/*---Constructors and destructors---*/
@@ -198,7 +198,6 @@ public:
 		* @param labelLeft Placement relative to the axis (true: left, false: right)
 		* @param rotateLabel If true: rotate the label by 90 degrees clockwise. This can be useful to save space in the plot.
 		* @see addVerticalAxis( std::size_t hPos, std::size_t vPosStart, std::size_t vPosEnd, T color )
-		* @todo remove the experimental ticks
 		*/
 	void addVerticalAxis( std::size_t hPos, std::size_t vPosStart, std::size_t vPosEnd, T color, const std::string& label, float relativeLabelPosition = 0.5, bool labelLeft = true, bool rotateLabel = false );
 
@@ -212,7 +211,6 @@ public:
 		* @param relativeLabelPosition Position of the first character of label along the axis; has to be between 0.0 and 1.0 (otherwise set to 0.0)
 		* @param labelBelow Placement relative to the axis (true: below, false: above)
 		* @see addHorizontalAxis( std::size_t vPos, std::size_t hPosStart, std::size_t hPosEnd, T color )
-		* @todo remove the experimental ticks
 		*/
 	void addHorizontalAxis( std::size_t vPos, std::size_t hPosStart, std::size_t hPosEnd, T color, const std::string& label, float relativeLabelPosition = 0.5, bool labelBelow = true );
 
@@ -228,7 +226,7 @@ public:
 		* Add a data set to the plot with specified plot markers.
 		* @param dataSet Pointer to the data set (vector of (x,y)-pairs of double values)
 		* @param plotMarker Pixel that will be used to mark the data points from the set in the plot
-		* @todo This method is quite long adn should be decomposed.
+		* @todo This method is quite long and should be decomposed.
 		*/
 	void addDataSet( std::shared_ptr<const DataSet> dataSet, Pixel<T,std::string> plotMarker );
 
