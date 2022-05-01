@@ -153,8 +153,21 @@ template <typename T>
 void Axis<T>::mShift( std::vector<ImageCoordinate>& coordinateVector, int horizontalShift, int verticalShift )
 {
 	for( auto& coord : coordinateVector ) {
+		if( coord.first + horizontalShift < 0 || coord.second + verticalShift < 0 ) {
+			throw std::out_of_range("Attempted shift of coordinates failed.");
+		}
 		coord.first += horizontalShift;
 		coord.second += verticalShift;
+		if( coord.first > mLowerRightIndex.first ) {
+			mLowerRightIndex.first = coord.first;
+		} else if( coord.first < mUpperLeftIndex.first ) {
+			mUpperLeftIndex.first = coord.first;
+		}
+		if( coord.second > mLowerRightIndex.second ) {
+			mLowerRightIndex.second = coord.second;
+		} else if( coord.second < mUpperLeftIndex.second ) {
+			mUpperLeftIndex.second = coord.second;
+		}
 	}
 }
 
@@ -317,32 +330,40 @@ void Axis<T>::addTicks( const std::vector<Tick>& ticks, bool leftOrBelow )
 {
 	float position = 0.0;
 	std::vector< Pixel<T,std::string> > tickBuf;
+	Pixel<T,std::string> defaultPixel(getAxisElement().getColor(), " ");
 
-	bool first = true;
+	std::pair<int,int> maxOffset = std::make_pair(std::numeric_limits<int>::min(),std::numeric_limits<int>::min());
 
+	//Determine maximal tick length in order to insert spacings in shorter ticks
+	std::size_t maxTickLength = 0;
+	for( auto& tick : ticks ) {
+		maxTickLength = std::max( tick.first.size(), maxTickLength );
+	}
+
+	//Loop over ticks and add them one by one
 	for( auto& tick : ticks ) {
 
 		position = tick.second;
 
 		//Set tickBuf equal to this tick: "transform" the string "tick.first" to a vector of Pixels
-		tickBuf.resize( tick.first.size() );
+		tickBuf = std::vector< Pixel<T,std::string> >(maxTickLength,defaultPixel);
+		for( int j = 0; j < maxTickLength - tick.first.size(); j++ ) {
+			mTicks.push_back(defaultPixel);
+		}
 		for( int j = 0; j < tick.first.size(); j++ ) {
-			tickBuf.at(j) = Pixel<T,std::string>(getAxisElement().getColor(), std::string(1,tick.first.at(j)));
-			mTicks.push_back( tickBuf.at(j) );
+			tickBuf.at(j + maxTickLength - tick.first.size()).setSymbol(std::string(1,tick.first.at(j)));
+			mTicks.push_back( tickBuf.at(j + maxTickLength - tick.first.size()) );
 		}
 
 		// Add this tick, accounting for all parameters and get back
 		// the potential horizontal and vertical offsets required to accomodate the label
-		auto totalOffset = mAddAttribute( tickBuf, position, 1, leftOrBelow, mTicksCoordinates , false );
-
-		if( first ) {
-			//Move the axis and the label by the required offset to make space for the label
-			mShift( mAxisCoordinates, totalOffset.first, totalOffset.second );
-			mShift( mLabelCoordinates, totalOffset.first, totalOffset.second );
-		}
-		first = false;
+		auto totalOffset = mAddAttribute( tickBuf, position, 1, leftOrBelow, mTicksCoordinates, false );
+		if(totalOffset.first > maxOffset.first) maxOffset.first = totalOffset.first;
+		if(totalOffset.second > maxOffset.second) maxOffset.second = totalOffset.second;
 	}
 
+	mShift( mAxisCoordinates, maxOffset.first, maxOffset.second );
+	//mShift( mLabelCoordinates, maxOffset.first, maxOffset.second );
 	mUpdateAllCoordinates();
 }
 

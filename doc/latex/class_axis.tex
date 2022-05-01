@@ -132,7 +132,7 @@ Adds a label to the axis at a fixed relative position. Does nothing, if another 
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]Should ticks be shifted to make space for the label \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Should ticks be shifted to make space for the label \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_axis_a3ad4f718066cfb8147aaacc5ec749616}\label{class_axis_a3ad4f718066cfb8147aaacc5ec749616}} 
 \index{Axis$<$ T $>$@{Axis$<$ T $>$}!addTicks@{addTicks}}
 \index{addTicks@{addTicks}!Axis$<$ T $>$@{Axis$<$ T $>$}}
@@ -148,9 +148,7 @@ Adds ticks to the axis.
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Perform the axis shift in a better way so that ticks of different length work correctly. 
-
-Adding ticks to the left of a vertical axis does not work properly \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]Perform the axis shift in a better way so that ticks of different length work correctly. \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_axis_a5ba5086773fd7e3d29b4f89caae52d3b}\label{class_axis_a5ba5086773fd7e3d29b4f89caae52d3b}} 
 \index{Axis$<$ T $>$@{Axis$<$ T $>$}!at@{at}}
 \index{at@{at}!Axis$<$ T $>$@{Axis$<$ T $>$}}
@@ -277,8 +275,11 @@ Shifts all Image\+Coordinates in a vector by given number of Pixels
 {\em vertical\+Shift} & Vertical shift in number of Pixels \\
 \hline
 \end{DoxyParams}
-\begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]What happens if size\+\_\+t becomes negative somewhere? \end{DoxyRefDesc}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if coordinates would be shifted to negative values \\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{class_axis_a6bb7d555653dd071ecfd9564d7b490cb}\label{class_axis_a6bb7d555653dd071ecfd9564d7b490cb}} 
 \index{Axis$<$ T $>$@{Axis$<$ T $>$}!mUpdateAllCoordinates@{mUpdateAllCoordinates}}
 \index{mUpdateAllCoordinates@{mUpdateAllCoordinates}!Axis$<$ T $>$@{Axis$<$ T $>$}}

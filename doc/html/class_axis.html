@@ -278,7 +278,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Should ticks be shifted to make space for the label </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Should ticks be shifted to make space for the label </dd></dl>
 
 </div>
 </div>
@@ -316,9 +316,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd><p class="startdd">Perform the axis shift in a better way so that ticks of different length work correctly. </p>
-<p class="enddd">Adding ticks to the left of a vertical axis does not work properly </p>
-</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Perform the axis shift in a better way so that ticks of different length work correctly. </dd></dl>
 
 </div>
 </div>
@@ -617,7 +615,12 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>What happens if size_t becomes negative somewhere? </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>if coordinates would be shifted to negative values </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

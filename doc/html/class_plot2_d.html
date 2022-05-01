@@ -108,6 +108,8 @@ Inheritance diagram for Plot2D&lt; T &gt;:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a397fc9d6f41014c47eee4e71492db7c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot2_d.html#a397fc9d6f41014c47eee4e71492db7c4">Plot2D</a> (std::size_t width, std::size_t height)</td></tr>
 <tr class="separator:a397fc9d6f41014c47eee4e71492db7c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab52e17145d0e0691fd30999845caece8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot2_d.html#ab52e17145d0e0691fd30999845caece8">Plot2D</a> (std::size_t width, std::size_t height, const std::string &amp;xAxisLabel, const std::string &amp;yAxisLabel)</td></tr>
+<tr class="separator:ab52e17145d0e0691fd30999845caece8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea5e9703a077095946670717b46c69b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot2_d.html#aea5e9703a077095946670717b46c69b6">setXAxisScaling</a> (const std::function&lt; double(double)&gt; &amp;xScalingFunction)</td></tr>
 <tr class="separator:aea5e9703a077095946670717b46c69b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8d7c4a7fd5881935647257e537d84ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plot2_d.html#ab8d7c4a7fd5881935647257e537d84ca">setYAxisScaling</a> (const std::function&lt; double(double)&gt; &amp;yScalingFunction)</td></tr>
@@ -216,7 +218,7 @@ class Plot2D&lt; T &gt;</div><p >The <a class="el" href="class_plot2_d.html">Plo
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a397fc9d6f41014c47eee4e71492db7c4" name="a397fc9d6f41014c47eee4e71492db7c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a397fc9d6f41014c47eee4e71492db7c4">&#9670;&nbsp;</a></span>Plot2D()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a397fc9d6f41014c47eee4e71492db7c4">&#9670;&nbsp;</a></span>Plot2D() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -246,6 +248,57 @@ template&lt;typename T &gt; </div>
   <table class="params">
     <tr><td class="paramname">width</td><td>Width of the plot in terms of Pixels </td></tr>
     <tr><td class="paramname">height</td><td>Height of the plot in terms of Pixels </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab52e17145d0e0691fd30999845caece8" name="ab52e17145d0e0691fd30999845caece8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab52e17145d0e0691fd30999845caece8">&#9670;&nbsp;</a></span>Plot2D() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_plot2_d.html">Plot2D</a>&lt; T &gt;<a class="el" href="class_plot2_d.html">::Plot2D</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>xAxisLabel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>yAxisLabel</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Construct an empty plot of a fixed size. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>Width of the plot in terms of Pixels </td></tr>
+    <tr><td class="paramname">height</td><td>Height of the plot in terms of Pixels </td></tr>
+    <tr><td class="paramname">xAxisLabel</td><td>Label of the x axis </td></tr>
+    <tr><td class="paramname">yAxisLabel</td><td>Label of the y axis </td></tr>
   </table>
   </dd>
 </dl>
@@ -287,7 +340,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>This method is quite long and should be decomposed. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>This method is quite long and should be decomposed. </dd></dl>
 
 </div>
 </div>
@@ -449,7 +502,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Remove this method or change the way in which the text is added. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Remove this method or change the way in which the text is added. </dd></dl>
 
 </div>
 </div>
@@ -666,7 +719,6 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Coordinate of the data point in the base image of the plot. </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Write the code of this method in a more compact and readable form. </dd></dl>
 
 </div>
 </div>

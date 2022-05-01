@@ -1,6 +1,7 @@
 var class_plot2_d =
 [
     [ "Plot2D", "class_plot2_d.html#a397fc9d6f41014c47eee4e71492db7c4", null ],
+    [ "Plot2D", "class_plot2_d.html#ab52e17145d0e0691fd30999845caece8", null ],
     [ "addDataSet", "class_plot2_d.html#acd22e547d8903adfb1c682dfb84918f9", null ],
     [ "addHorizontalAxis", "class_plot2_d.html#af6eb4cb477dcce5f6b1decf29533415c", null ],
     [ "addHorizontalAxis", "class_plot2_d.html#aad969a3d59c2810657c3d51432114e91", null ],

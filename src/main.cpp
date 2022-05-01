@@ -104,7 +104,7 @@ int main( int argc, char** argv ) {
 	plotMarkers.at(3).setSymbol("#");
 
 	/*---- Generate a plot of fixed size ---- */
-	Plot2D<RGB> plt(150,25);
+	Plot2D<RGB> plt(150,25,"X","Y");
 
 	/*---- Load all data sets from files and add to the plot ----*/
 	int ctr = 0;

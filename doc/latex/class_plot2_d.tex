@@ -15,6 +15,8 @@ Inheritance diagram for Plot2D\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\
 \item 
 \mbox{\hyperlink{class_plot2_d_a397fc9d6f41014c47eee4e71492db7c4}{Plot2D}} (std\+::size\+\_\+t width, std\+::size\+\_\+t height)
 \item 
+\mbox{\hyperlink{class_plot2_d_ab52e17145d0e0691fd30999845caece8}{Plot2D}} (std\+::size\+\_\+t width, std\+::size\+\_\+t height, const std\+::string \&x\+Axis\+Label, const std\+::string \&y\+Axis\+Label)
+\item 
 void \mbox{\hyperlink{class_plot2_d_aea5e9703a077095946670717b46c69b6}{set\+XAxis\+Scaling}} (const std\+::function$<$ double(double)$>$ \&x\+Scaling\+Function)
 \item 
 void \mbox{\hyperlink{class_plot2_d_ab8d7c4a7fd5881935647257e537d84ca}{set\+YAxis\+Scaling}} (const std\+::function$<$ double(double)$>$ \&y\+Scaling\+Function)
@@ -95,7 +97,7 @@ The \mbox{\hyperlink{class_plot2_d}{Plot2D}} class represents a plot of two-\/di
 \mbox{\Hypertarget{class_plot2_d_a397fc9d6f41014c47eee4e71492db7c4}\label{class_plot2_d_a397fc9d6f41014c47eee4e71492db7c4}} 
 \index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!Plot2D@{Plot2D}}
 \index{Plot2D@{Plot2D}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{Plot2D()}{Plot2D()}}
+\doxysubsubsection{\texorpdfstring{Plot2D()}{Plot2D()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 \mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\mbox{\hyperlink{class_plot2_d}{\+::\+Plot2D}} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{width,  }\item[{std\+::size\+\_\+t}]{height }\end{DoxyParamCaption})}
 
@@ -104,6 +106,24 @@ Construct an empty plot of a fixed size.
 {\em width} & Width of the plot in terms of Pixels \\
 \hline
 {\em height} & Height of the plot in terms of Pixels \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_plot2_d_ab52e17145d0e0691fd30999845caece8}\label{class_plot2_d_ab52e17145d0e0691fd30999845caece8}} 
+\index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!Plot2D@{Plot2D}}
+\index{Plot2D@{Plot2D}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Plot2D()}{Plot2D()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_plot2_d}{Plot2D}}$<$ T $>$\mbox{\hyperlink{class_plot2_d}{\+::\+Plot2D}} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{width,  }\item[{std\+::size\+\_\+t}]{height,  }\item[{const std\+::string \&}]{x\+Axis\+Label,  }\item[{const std\+::string \&}]{y\+Axis\+Label }\end{DoxyParamCaption})}
+
+Construct an empty plot of a fixed size. 
+\begin{DoxyParams}{Parameters}
+{\em width} & Width of the plot in terms of Pixels \\
+\hline
+{\em height} & Height of the plot in terms of Pixels \\
+\hline
+{\em x\+Axis\+Label} & Label of the x axis \\
+\hline
+{\em y\+Axis\+Label} & Label of the y axis \\
 \hline
 \end{DoxyParams}
 
@@ -124,7 +144,7 @@ Add a data set to the plot with specified plot markers.
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000007}{Todo}}]This method is quite long and should be decomposed. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]This method is quite long and should be decomposed. \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}\label{class_plot2_d_af6eb4cb477dcce5f6b1decf29533415c}} 
 \index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!addHorizontalAxis@{addHorizontalAxis}}
 \index{addHorizontalAxis@{addHorizontalAxis}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
@@ -185,7 +205,7 @@ Adds text (string) to the plot.
 \hline
 \end{DoxyParams}
 \begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000006}{Todo}}]Remove this method or change the way in which the text is added. \end{DoxyRefDesc}
+\item[\mbox{\hyperlink{todo__todo000004}{Todo}}]Remove this method or change the way in which the text is added. \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}\label{class_plot2_d_acde2ea83f7089adcb2ee96ccfe046d9e}} 
 \index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!addVerticalAxis@{addVerticalAxis}}
 \index{addVerticalAxis@{addVerticalAxis}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}
@@ -262,8 +282,6 @@ Transform a data point to a coordinate in the base image of the plot
 \begin{DoxyReturn}{Returns}
 Coordinate of the data point in the base image of the plot. 
 \end{DoxyReturn}
-\begin{DoxyRefDesc}{Todo}
-\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]Write the code of this method in a more compact and readable form. \end{DoxyRefDesc}
 \mbox{\Hypertarget{class_plot2_d_aaba1d6b0982a67867f4e63f93a8cfc1e}\label{class_plot2_d_aaba1d6b0982a67867f4e63f93a8cfc1e}} 
 \index{Plot2D$<$ T $>$@{Plot2D$<$ T $>$}!mDataSetToCoordinates@{mDataSetToCoordinates}}
 \index{mDataSetToCoordinates@{mDataSetToCoordinates}!Plot2D$<$ T $>$@{Plot2D$<$ T $>$}}

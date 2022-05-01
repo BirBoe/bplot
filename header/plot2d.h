@@ -120,7 +120,6 @@ private:
 		* Transform a data point to a coordinate in the base image of the plot
 		* @param dataPoint Pair of (x,y) values that will be transformed
 		* @return Coordinate of the data point in the base image of the plot.
-		* @todo Write the code of this method in a more compact and readable form.
 		*/
 	ImageCoordinate mDataPointToCoordinate( const DataPointXY& dataPoint ) const;
 
@@ -141,6 +140,15 @@ public:
 		* @param height Height of the plot in terms of Pixels
 		*/
 	Plot2D( std::size_t width, std::size_t height );
+
+	/**
+		* Construct an empty plot of a fixed size.
+		* @param width Width of the plot in terms of Pixels
+		* @param height Height of the plot in terms of Pixels
+		* @param xAxisLabel Label of the x axis
+		* @param yAxisLabel Label of the y axis
+		*/
+	Plot2D( std::size_t width, std::size_t height, const std::string& xAxisLabel, const std::string& yAxisLabel );
 
 	/*---------------------------------*/
 
