@@ -104,7 +104,7 @@ std::pair<int,int> Axis<T>::mAddAttribute( const std::vector< Pixel<T,std::strin
 			if(rotate) {
 				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first - offsetFromAxis + overallShift, startCoordinate.second + absolutePosition ), 1, attribute.size() );
 			} else {
-				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first - offsetFromAxis + overallShift, startCoordinate.second + absolutePosition ), attribute.size(), 1 );
+				mAddRangeToCoordinateVector( coordinateVector, std::make_pair( startCoordinate.first - offsetFromAxis + overallShift - 1, startCoordinate.second + absolutePosition ), attribute.size(), 1 );
 			}
 
 			//If the attribute is not rotated, space is required to accomodate the label:
@@ -369,7 +369,7 @@ void Axis<T>::addTicks( const std::vector<Tick>& ticks, bool leftOrBelow )
 
 		// Add this tick, accounting for all parameters and get back
 		// the potential horizontal and vertical offsets required to accomodate the label
-		auto totalOffset = mAddAttribute( tickBuf, position, 1, leftOrBelow, mTicksCoordinates, false );
+		auto totalOffset = mAddAttribute( tickBuf, position, 0, leftOrBelow, mTicksCoordinates, false );
 		if(totalOffset.first > maxOffset.first) maxOffset.first = totalOffset.first;
 		if(totalOffset.second > maxOffset.second) maxOffset.second = totalOffset.second;
 	}
