@@ -176,6 +176,26 @@ public:
 		*/
 	virtual void show() const;
 
+	/**
+		* Refreshes the image displayed in the command line (i.e. show has been called before):
+		* The method assumes that the command-line cursor is at the same position
+		* it would be after calling show(). Based on this assumption, the cursor is set back
+		* to the upper left Pixel of the image and the "old" image is overwritten with a new
+		* call to show. Assumes that the image width and height have not changed.
+		* @see refresh( std::size_t oldWidth, std::size_t oldHeight )
+		*/
+	virtual void refresh() const;
+
+	/**
+		* Refreshes the image displayed in the command line (i.e. show has been called before):
+		* The method assumes that the command-line cursor is at the same position
+		* it would be after calling show(). Based on this assumption, the cursor is set back
+		* to the upper left Pixel of the image and the "old" image is overwritten with a new
+		* call to show.
+		* @param oldHeight Height of the previous version of the image that was output with show()
+		*/
+	virtual void refresh( std::size_t oldHeight ) const;
+
 	/*--------------------------*/
 };
 

@@ -199,7 +199,6 @@ public:
 		* @param ticks Vector of ticks that will be added (tick: pair of string (its label) and float (its relative position, between 0 and 1, otherwise set to 0).
 		* @param leftOrBelow True: The ticks are placed to the left of the axis (if axis is vertical) or below it (if axis is horizontal).
 		*											Otherwise they are placed to the right or above.
-		* @todo Perform the axis shift in a better way so that ticks of different length work correctly.
 		*/
 	void addTicks( const std::vector<Tick>& ticks, bool leftOrBelow = true );
 

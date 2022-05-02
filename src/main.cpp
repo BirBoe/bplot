@@ -22,6 +22,9 @@
 #include <memory> //smart pointers
 #include <stdexcept>
 
+#include <thread> //sleep_for()
+#include <chrono> //time in sleep:for()
+
 #include "../header/main.h"
 #include "../header/image.h"
 #include "../header/pixel.h"
@@ -118,11 +121,18 @@ int main( int argc, char** argv ) {
 	/*---- Show the plot in the command line ---- */
 	plt.show();
 
-
-
 	/*****************************/
 	/* --- BEGIN OF TEST AREA--- */
 	/*****************************/
+
+	//Test of the refresh function
+	std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+
+	auto dataFromFile = datasetFromCsvFile( "testdata2.csv" );
+	auto data = std::make_shared<std::vector<std::pair<double,double>>>(dataFromFile);
+	plt.addDataSet(data,plotMarkers.at(1));
+
+	plt.refresh();
 
 	//Image<Mono,char> img(10,10);
 	/*Image<RGB,std::string> img(10,10,p); //Equivalent: Image<> = Image<Mono,char>

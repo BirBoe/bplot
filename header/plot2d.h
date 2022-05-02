@@ -21,6 +21,7 @@
 #include <limits> //std::numeric_limits
 #include <memory> //Smart pointers
 #include <string>
+#include <sstream>
 #include <utility> //std::pair
 
 #include "../header/axis.h"

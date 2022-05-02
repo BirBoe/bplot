@@ -26,9 +26,16 @@ void Axis<T>::mAddRangeToCoordinateVector( std::vector<ImageCoordinate>& coordin
 	coordinateVector.resize( coordinateVector.size() + hRange*vRange );
 
 	//Add the range of coordinates to the coordinateVector in row-major order
+	std::size_t hCoord = firstNewCoordinate.first;
+	std::size_t vCoord = firstNewCoordinate.second;
 	for( std::size_t jv = 0; jv < vRange; jv++ ) {
+		vCoord++;
+		if( vCoord >= mPlot.getHeight() ) vCoord = mPlot.getHeight() - 1;
 		for( std::size_t jh = 0; jh < hRange; jh++) {
-			coordinateVector.at(firstIndex + jh + jv * hRange) = std::make_pair( firstNewCoordinate.first + jh, firstNewCoordinate.second + jv );
+			hCoord++;
+			if( hCoord >= mPlot.getWidth() ) hCoord = mPlot.getWidth() - 1;
+			coordinateVector.at(firstIndex + jh + jv * hRange) = std::make_pair( hCoord, vCoord );
+			//coordinateVector.at(firstIndex + jh + jv * hRange) = std::make_pair( firstNewCoordinate.first + jh, firstNewCoordinate.second + jv );
 		}
 	}
 }
@@ -84,7 +91,7 @@ std::pair<int,int> Axis<T>::mAddAttribute( const std::vector< Pixel<T,std::strin
 
 		std::size_t absolutePosition = static_cast<std::size_t>( position * ( mLowerRightIndex.second - mUpperLeftIndex.second + 1 ) );
 
-		if( leftOrBelow ) { //Label is left of the axis
+		if( leftOrBelow ) { //Attribute is left of the axis
 
 			if( rotate && startCoordinate.first < offsetFromAxis ) { //If axis and the rotated attribute will not fit inside the plot...
 				overallShift = offsetFromAxis - startCoordinate.first; //...they will be shifted horiontally by this amount ( < 0, i.e. to the left )
@@ -158,6 +165,11 @@ void Axis<T>::mShift( std::vector<ImageCoordinate>& coordinateVector, int horizo
 		}
 		coord.first += horizontalShift;
 		coord.second += verticalShift;
+
+		//Check if the shift would go out of bounds of the plot
+		/*if( coord.first >=  mPlot.getWidth() ) coord.first = mPlot.getWidth() - 1;
+		if( coord.first >=  mPlot.getHeight() ) coord.first = mPlot.getHeight() - 1;*/
+
 		if( coord.first > mLowerRightIndex.first ) {
 			mLowerRightIndex.first = coord.first;
 		} else if( coord.first < mUpperLeftIndex.first ) {

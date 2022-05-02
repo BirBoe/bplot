@@ -22,6 +22,7 @@
 template <typename T1, typename T2>
 void Image<T1,T2>::verifyCoordinate( const ImageCoordinate& coord ) const
 {
+    //std::cout << coord.first << "," << mWidth << " - " << coord.second << "," << mHeight << std::endl;
     if( coord.first >= mWidth || coord.second >= mHeight ) {
         throw std::out_of_range("");
     }
@@ -152,6 +153,26 @@ void Image<T1,T2>::show() const
         }
         std::cout << std::endl;
     }
+}
+
+template <typename T1, typename T2>
+void Image<T1,T2>::refresh( ) const
+{
+    refresh( getHeight() );
+}
+
+template <typename T1, typename T2>
+void Image<T1,T2>::refresh( std::size_t oldHeight ) const
+{
+    //Set the cursor back to the initial position as defined by the method's arguments
+    while( oldHeight > 0 )
+    {
+    	std::cout << "\e[1A\e[K"; //\e[nA goes n lines up, \e[K clears the line
+        oldHeight--;
+    }
+
+    //Output the image, i.e. overwrite the old version in the command line
+    show();
 }
 
 /*------------------------------------------------------------------*/

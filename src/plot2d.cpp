@@ -256,20 +256,32 @@ void Plot2D<T>::addDataSet( std::shared_ptr<const DataSet> dataSet, Pixel<T,std:
 			float tickstep = 1./noOfTicks;
 			std::vector<Tick> ticks(noOfTicks);
 
+			//Helper variables to format the axis ticks
+			int tickDecimals = 1; //Number of digits in the labels
+			int fac = pow(10,tickDecimals);
+			std::stringstream tickFormatStream;
+
 			if( mHorizontalAxes.size() > 0 ) {
 
-				ticks.at(0) = std::make_pair<std::string,float>( std::to_string(static_cast<int>(xmin)), dx/(xmax-xmin+2.*dx) );
+				tickFormatStream << std::fixed << std::setprecision(tickDecimals) << 1./fac * static_cast<int>(xmin*fac);
+				ticks.at(0) = std::make_pair<std::string,float>( tickFormatStream.str(), dx/(xmax-xmin+2.*dx) );
 				for( jTick = 1; jTick < noOfTicks; jTick++ ) {
-					ticks.at(jTick).first = std::to_string( static_cast<int>(xmin + jTick * tickstep * (xmax-xmin+2.*dx)) );
+					tickFormatStream.str("");
+					tickFormatStream << std::fixed << std::setprecision(tickDecimals) << 1./fac * static_cast<int>( ( xmin + jTick * tickstep * (xmax-xmin+2.*dx) ) * fac );
+					ticks.at(jTick).first = tickFormatStream.str();
 					ticks.at(jTick).second = ticks.at(jTick-1).second + tickstep;
 				}
 				mHorizontalAxes.at(0).addTicks(ticks,true);
 
 			} if( mVerticalAxes.size() > 0 ) {
+				tickFormatStream.str("");
+				tickFormatStream << std::fixed << std::setprecision(tickDecimals) << 1./fac * static_cast<int>(ymin*fac);
+				ticks.at(0) = std::make_pair<std::string,float>( tickFormatStream.str(), 1.-dy/(ymax-ymin+2.*dy) );
 
-				ticks.at(0) = std::make_pair<std::string,float>( std::to_string(static_cast<int>(ymin)), 1.-dy/(ymax-ymin+2.*dy) );
 				for( jTick = 1; jTick < noOfTicks; jTick++ ) {
-					ticks.at(jTick).first = std::to_string( static_cast<int>(ymin + jTick * tickstep * (ymax-ymin+2.*dy)) );
+					tickFormatStream.str("");
+					tickFormatStream << std::fixed << std::setprecision(tickDecimals) << 1./fac * static_cast<int>( ( ymin + jTick * tickstep * (ymax-ymin+2.*dy) ) * fac );
+					ticks.at(jTick).first = tickFormatStream.str();
 					ticks.at(jTick).second = ticks.at(jTick-1).second - tickstep;
 				}
 				mVerticalAxes.at(0).addTicks(ticks,true);
