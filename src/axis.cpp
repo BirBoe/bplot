@@ -29,10 +29,12 @@ void Axis<T>::mAddRangeToCoordinateVector( std::vector<ImageCoordinate>& coordin
 	std::size_t hCoord = firstNewCoordinate.first;
 	std::size_t vCoord = firstNewCoordinate.second;
 	for( std::size_t jv = 0; jv < vRange; jv++ ) {
-		vCoord++;
+		//vCoord++;
+		vCoord = firstNewCoordinate.second + jv;
 		if( vCoord >= mPlot.getHeight() ) vCoord = mPlot.getHeight() - 1;
 		for( std::size_t jh = 0; jh < hRange; jh++) {
-			hCoord++;
+			//hCoord++;
+			hCoord = firstNewCoordinate.first + jh;
 			if( hCoord >= mPlot.getWidth() ) hCoord = mPlot.getWidth() - 1;
 			coordinateVector.at(firstIndex + jh + jv * hRange) = std::make_pair( hCoord, vCoord );
 			//coordinateVector.at(firstIndex + jh + jv * hRange) = std::make_pair( firstNewCoordinate.first + jh, firstNewCoordinate.second + jv );
@@ -109,8 +111,8 @@ std::pair<int,int> Axis<T>::mAddAttribute( const std::vector< Pixel<T,std::strin
 
 			//If the attribute is not rotated, space is required to accomodate the label:
 			if( !rotate ) {
-				hTotalOffset += attribute.size();
-				offsetFromAxis += attribute.size();
+				hTotalOffset += attribute.size() - 2;
+				offsetFromAxis += attribute.size() - 2;
 			}
 
 			if( mUpperLeftIndex.first + offsetFromAxis > startCoordinate.first ) { //If the attribute does not fit inside the coordinate range of this axis...
@@ -369,7 +371,7 @@ void Axis<T>::addTicks( const std::vector<Tick>& ticks, bool leftOrBelow )
 
 		// Add this tick, accounting for all parameters and get back
 		// the potential horizontal and vertical offsets required to accomodate the label
-		auto totalOffset = mAddAttribute( tickBuf, position, 0, leftOrBelow, mTicksCoordinates, false );
+		auto totalOffset = mAddAttribute( tickBuf, position, 1, leftOrBelow, mTicksCoordinates, false );
 		if(totalOffset.first > maxOffset.first) maxOffset.first = totalOffset.first;
 		if(totalOffset.second > maxOffset.second) maxOffset.second = totalOffset.second;
 	}

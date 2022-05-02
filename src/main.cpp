@@ -65,13 +65,26 @@ DataSet datasetFromCsvFile( std::string_view filename, double xFactor = 1., doub
 int main( int argc, char** argv ) {
 	/*---- Interpret the arguments ----*/
 	std::vector<std::string> filenames; //Default CSV-File from which (x,y)-values will be read
+	std::size_t width = 150;
+	std::size_t height = 25;
+	std::string xLabel = "x";
+	std::string yLabel = "y";
 
 	int argCtr = 1;
 	while( argCtr < argc ) {
 		if( std::string(argv[argCtr]) == "--file" || std::string(argv[argCtr]) == "-f" ) {
 				filenames.push_back(argv[argCtr+1]);
 				argCtr += 2;
-		} else {
+		} else if( std::string(argv[argCtr]) == "--width" || std::string(argv[argCtr]) == "-w" ) {
+				width = atoi(argv[argCtr+1]);
+			  argCtr += 2;
+		} else if( std::string(argv[argCtr]) == "--xLabel" || std::string(argv[argCtr]) == "-x" ) {
+				xLabel = argv[argCtr+1];
+			  argCtr += 2;
+		} else if( std::string(argv[argCtr]) == "--yLabel" || std::string(argv[argCtr]) == "-y" ) {
+				yLabel = argv[argCtr+1];
+			  argCtr += 2;
+		}	else {
 			argCtr++;
 		}
 	}
@@ -107,7 +120,7 @@ int main( int argc, char** argv ) {
 	plotMarkers.at(3).setSymbol("#");
 
 	/*---- Generate a plot of fixed size ---- */
-	Plot2D<RGB> plt(150,25,"X","Y");
+	Plot2D<RGB> plt(width,height,xLabel,yLabel);
 
 	/*---- Load all data sets from files and add to the plot ----*/
 	int ctr = 0;
@@ -126,13 +139,13 @@ int main( int argc, char** argv ) {
 	/*****************************/
 
 	//Test of the refresh function
-	std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+	/*std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 
 	auto dataFromFile = datasetFromCsvFile( "testdata2.csv" );
 	auto data = std::make_shared<std::vector<std::pair<double,double>>>(dataFromFile);
 	plt.addDataSet(data,plotMarkers.at(1));
 
-	plt.refresh();
+	plt.refresh();*/
 
 	//Image<Mono,char> img(10,10);
 	/*Image<RGB,std::string> img(10,10,p); //Equivalent: Image<> = Image<Mono,char>
